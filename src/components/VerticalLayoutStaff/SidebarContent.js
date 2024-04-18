@@ -166,6 +166,9 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/email-compose">{props.t("Contactez ")} </Link>
                 </li>
+                <li>
+                  <Link to="/email-compose">{props.t("Consultation En Ligne")} </Link>
+                </li>
               </ul>
             </li>
 
@@ -181,15 +184,11 @@ const SidebarContent = props => {
                   <Link to="/Staff">{props.t("Voir Staffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterStaff">{props.t("AjouterStaffs")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/AjouterStaff">{props.t("Ajouter Staffs")} </Link>
                 </li>
                 <li>
                   <Link to="/email-compose">{props.t("Planing")} </Link>
                 </li>
-
               </ul>
             </li>
 
@@ -205,9 +204,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/docteur">{props.t("Voir Les Docteurs")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("AjouterLesDocteurs")} </Link>
-                </li>
+                
                 <li>
                   <Link to="/email-compose">{props.t("Contactez")} </Link>
                 </li>
@@ -218,18 +215,24 @@ const SidebarContent = props => {
             </li>
             
             <li>
-              <Link to="/Evenement" className=" waves-effect">
-                <i className="mdi mdi-clock-time-four-outline"></i>
-                <span>{props.t("Evenements")}</span>
+              <Link to="/#" className="has-arrow waves-effect">
+              <i className="mdi mdi-calendar-check"></i>
+                <span>{props.t("Evénement")}</span>
               </Link>
-            </li>
+              <ul className="sub-menu" >
+                
+                <li>
+                  <Link to="/docteur">{props.t("Voir Les Evénement")} </Link>
+                </li>
+                <li>
+                  <Link to="/AjouterLesDocteurs">{props.t("Formations En Ligne")} </Link>
+                </li>
+                
 
-            <li>
-              <Link to="/Réservations" className=" waves-effect">
-                <i className="mdi mdi-clock-time-four-outline"></i>
-                <span>{props.t("Réservations")}</span>
-              </Link>
-            </li>
+                
+                
+              </ul>
+            </li> 
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -244,17 +247,39 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/AjouterLeStockDeSang">{props.t("Ajouter Le Stock De Sang")} </Link>
                 </li>
-                
-                
-                
               </ul>
             </li>
+
+            <li>
+              <Link to="/Réservations" className=" waves-effect">
+                <i className="mdi mdi-clock-time-four-outline"></i>
+                <span>{props.t("Réservations")}</span>
+              </Link>
+            </li> 
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="mdi mdi-account-multiple-outline"></i>
+                <span>{props.t("Collectes")}</span>
+              </Link>
+              <ul className="sub-menu" >
+                
+                <li>
+                  <Link to="/Staff">{props.t("Voir Les Collectes")} </Link>
+                </li>
+                <li>
+                  <Link to="/AjouterStaff">{props.t("Ajouter Les Collectes")} </Link>
+                </li>
+
+              </ul>
+            </li>
+
+            
             <li> 
 
               
               <Link to="/calendar" className=" waves-effect">
-                <i className=" mdi mdi-equalizer-outline
-"></i>
+                <i className=" mdi mdi-equalizer-outline"></i>
                 <span>{props.t("Rapport")}</span>
               </Link>
             </li>

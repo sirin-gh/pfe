@@ -21,6 +21,7 @@ import { createSelector } from 'reselect';
 // Layout Related Components
 import Header from "./Header"
 import Sidebar from "./Sidebar"
+
 import Rightbar from "../CommonForBoth/Rightbar"
 //Import Breadcrumb
 import Breadcrumb from "../../components/Common/Breadcrumb"
@@ -161,7 +162,6 @@ const Layout = (props) => {
             </Container>
           </div>
         </div>
-        
       </div>
       {props.showRightSidebar ? <Rightbar /> : null}
     </React.Fragment>

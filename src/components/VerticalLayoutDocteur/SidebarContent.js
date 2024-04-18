@@ -166,6 +166,9 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/email-compose">{props.t("Contactez ")} </Link>
                 </li>
+                <li>
+                  <Link to="/email-compose">{props.t("Consultation En Ligne")} </Link>
+                </li>
               </ul>
             </li>
 
@@ -180,75 +183,45 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/Staff">{props.t("Voir Staffs")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterStaff">{props.t("AjouterStaffs")} </Link>
-                </li>
+                
                 <li>
                   <Link to="/email-compose">{props.t("Contactez ")} </Link>
                 </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Planing")} </Link>
-                </li>
-
               </ul>
-            </li>
-
-            
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-account-tie-outline"></i>
-                <span>{props.t("Docteurs")}</span>
-              </Link>
-              <ul className="sub-menu" >
-                
-                <li>
-                  <Link to="/docteur">{props.t("Voir Les Docteurs")} </Link>
-                </li>
-                <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("AjouterLesDocteurs")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Contactez")} </Link>
-                </li>
-
-                
-                
-              </ul>
-            </li>
-            
-            <li>
-              <Link to="/Evenement" className=" waves-effect">
-                <i className="mdi mdi-clock-time-four-outline"></i>
-                <span>{props.t("Evenements")}</span>
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/Réservations" className=" waves-effect">
-                <i className="mdi mdi-clock-time-four-outline"></i>
-                <span>{props.t("Réservations")}</span>
-              </Link>
             </li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-account-tie-outline"></i>
-                <span>{props.t("Gérer Le Sang")}</span>
+              <i className="mdi mdi-calendar-check"></i>
+                <span>{props.t("Evénement")}</span>
               </Link>
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/VoirLeStockDeSang">{props.t("Voir Le Stock De Sang")} </Link>
+                  <Link to="/docteur">{props.t("Voir Les Evénement")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterLeStockDeSang">{props.t("Ajouter Le Stock De Sang")} </Link>
+                  <Link to="/AjouterLesDocteurs">{props.t("Formations En Ligne")} </Link>
                 </li>
                 
+              </ul>
+            </li>  
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+              <i className="mdi mdi-calendar-check"></i>
+                <span>{props.t("Stock De Sang")}</span>
+              </Link>
+              <ul className="sub-menu" >
                 
+                <li>
+                  <Link to="/docteur">{props.t("Voir Le Stock De Sang")} </Link>
+                </li>
                 
               </ul>
             </li>
+
+
             <li> 
 
               

@@ -169,5 +169,14 @@ const authRoutes = [
   { path: "/page-recoverpw", component: <Recoverpw /> },
   { path: "/auth-lock-screen", component: <LockScreen /> },
 ]
+const docteurRoutes=[
+  { path: "/docteur-dashboard", component: <Docteurs /> },
+]
+const donateurRoutes=[
+  { path: "/donateur-dashboard", component: <VoireDonateur /> },
+]
+const staffRoutes=[
+  { path: "/staff-dashboard", component: <VoireDonateur /> },
+]
 
-export { userRoutes, authRoutes }
+export { userRoutes, authRoutes,docteurRoutes,donateurRoutes,staffRoutes}

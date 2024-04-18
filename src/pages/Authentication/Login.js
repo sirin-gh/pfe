@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, CardBody, Label, Form, Alert, Input, FormFeedback } from 'reactstrap';
 import logoDark from "../../assets/images/logo-dark.png";
@@ -10,30 +10,62 @@ import PropTypes from "prop-types";
 // Formik validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import withRouter from 'components/Common/withRouter';
+import withRouter from '../../components/Common/withRouter';
 
 // actions
-import { loginUser, socialLogin } from "../../store/actions";
+import { loginUser } from "../../store/actions";
 
-const Login = props => {
+const Login = (props) => {
   document.title = "Login | Lexa - Responsive Bootstrap 5 Admin Dashboard";
 
   const dispatch = useDispatch();
 
-  const validation = useFormik({
-    // enableReinitialize : use this  flag when initial values needs to be changed
-    enableReinitialize: true,
+  const [userType, setUserType] = useState('student'); // Initial user type
 
+  const validation = useFormik({
+    enableReinitialize: true,
     initialValues: {
       email: "admin@themesbrand.com" || '',
       password: "123456" || '',
+      userType: userType,
+      //subject: '', // Additional field for teacher
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
+      userType: Yup.string().required("Please Select User Type"),
+      //  subject: userType === 'teacher' ? Yup.string().required("Subject is required for Teachers") : Yup.string(), // Conditional validation
     }),
     onSubmit: (values) => {
-      dispatch(loginUser(values, props.router.navigate));
+      let path;
+      switch (values.userType) {
+        case 'docteur':
+          path = '/docteur-dashboard';
+          break;
+
+        case 'admin':
+          path = '/dashboard';
+          break;
+        case 'Staff':
+          path = '/Staff-dashboard';
+          break;
+        case 'Receptionist':
+          path = '/Receptionist-dashboard';
+          break;
+        case 'superadmin':
+          path = '/dashboard';
+          break;
+        case 'Donateur':
+          path = '/Donateur-dashboard';
+          break;
+        case 'parent':
+          path = '/student-dashboard';
+          break;
+
+        default:
+          path = '/';
+      }
+      dispatch(loginUser(values, () => props.router.navigate(path)));
     }
   });
 
@@ -50,16 +82,6 @@ const Login = props => {
     error
   } = useSelector(LoginProperties);
 
-  const signIn = type => {
-    dispatch(socialLogin(type, props.router.navigate));
-  };
-
-  //for facebook and google authentication
-  const socialResponse = type => {
-    signIn(type);
-  };
-
-
   return (
     <React.Fragment>
       <div className="account-pages my-5 pt-sm-5">
@@ -70,15 +92,11 @@ const Login = props => {
                 <CardBody className="pt-0">
 
                   <h3 className="text-center mt-5 mb-4">
-                    <Link to="/" className="d-block auth-logo">
-                      <img src={logoDark} alt="" height="30" className="auth-logo-dark" />
-                      <img src={logoLight} alt="" height="30" className="auth-logo-light" />
-                    </Link>
+
                   </h3>
 
                   <div className="p-3">
                     <h4 className="text-muted font-size-18 mb-1 text-center">Welcome Back !</h4>
-                    <p className="text-muted text-center">Sign in to continue to Lexa.</p>
                     <Form
                       className="form-horizontal mt-4"
                       onSubmit={(e) => {
@@ -123,6 +141,62 @@ const Login = props => {
                           <FormFeedback type="invalid">{validation.errors.password}</FormFeedback>
                         ) : null}
                       </div>
+                      <div className="mb-3">
+                        <Label></Label>
+                        
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            id="userTypeAdmin"
+                            name="userType"
+                            value="admin"
+                            checked={userType === 'admin'}
+                            onChange={(e) => setUserType(e.target.value)}
+                          />
+                          <label className="form-check-label" htmlFor="userTypeAdmin">Admin</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            id="userTypeDocteur"
+                            name="userType"
+                            value="docteur"
+                            checked={userType === 'docteur'}
+                            onChange={(e) => setUserType(e.target.value)}
+                          />
+                          <label className="form-check-label" htmlFor="userTypeDocteur">docteur</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            id="userTypeDonateur"
+                            name="userType"
+                            value="Donateur"
+                            checked={userType === 'Donateur'}
+                            onChange={(e) => setUserType(e.target.value)}
+                          />
+                          <label className="form-check-label" htmlFor="userTypeDonateur">Donneur</label>
+                        </div>
+
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            id="userTypeLibrary"
+                            name="userType"
+                            value="Staff"
+                            checked={userType === 'Staff'}
+                            onChange={(e) => setUserType(e.target.value)}
+                          />
+                          <label className="form-check-label" htmlFor="userTypeLibrary">Staff</label>
+                        </div>
+                       
+                       
+                      </div>
+
                       <Row className="mb-3 mt-4">
                         <div className="col-6">
                           <div className="form-check">
@@ -132,23 +206,11 @@ const Login = props => {
                           </div>
                         </div>
                         <div className="col-6 text-end">
-                          <button className="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
+                          <button className="btn btn-primary w-md waves-effect ">Log In</button>
                         </div>
                       </Row>
                       <Row className="form-group mb-0">
                         <Link to="/forgot-password" className="text-muted"><i className="mdi mdi-lock"></i> Forgot your password?</Link>
-                        <div className="col-12 mt-4 d-flex justify-content-center">
-                          <Link
-                            to="#"
-                            className="social-list-item bg-danger text-white border-danger"
-                            onClick={e => {
-                              e.preventDefault();
-                              socialResponse("google");
-                            }}
-                          >
-                            <i className="mdi mdi-google" />
-                          </Link>
-                        </div>
                       </Row>
                     </Form>
                   </div>
@@ -156,8 +218,6 @@ const Login = props => {
               </Card>
 
               <div className="mt-5 text-center">
-                <p>Don't have an account ? <Link to="/register" className="text-primary"> Signup Now </Link></p>
-                © {new Date().getFullYear()} Lexa <span className="d-none d-sm-inline-block"> - Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
               </div>
             </Col>
           </Row>
@@ -165,8 +225,8 @@ const Login = props => {
       </div>
 
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default withRouter(Login);
 

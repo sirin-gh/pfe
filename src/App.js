@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom"
 import { connect } from "react-redux"
 
 // Import Routes all
-import { userRoutes, authRoutes } from "./routes/allRoutes"
+import { userRoutes, authRoutes, docteurRoutes, donateurRoutes, staffRoutes } from "./routes/allRoutes"
 
 // Import all middleware
 import Authmiddleware from "./routes/middleware/Authmiddleware"
@@ -22,6 +22,9 @@ import "./assets/scss/theme.scss"
 // import { initFirebaseBackend } from "./helpers/firebase_helper"
 
 import fakeBackend from "./helpers/AuthType/fakeBackend"
+import DoctorLayout from 'components/VerticalLayoutDocteur/DoctorLayout'
+import DonateurLayout from 'components/VerticalLayoutDonateur/DonateurLayout'
+import StaffLayout from 'components/VerticalLayoutStaff/StaffLayout'
 
 // Activating fake backend
 fakeBackend()
@@ -85,6 +88,39 @@ const App = props => {
           element={
             <Authmiddleware>
               <Layout>{route.component}</Layout>
+              </Authmiddleware>              
+          }
+        />
+      ))}
+       {docteurRoutes.map((route, idx) => (
+        <Route
+          key={idx}
+          path={route.path}
+          element={
+            <Authmiddleware>
+              <DoctorLayout>{route.component}</DoctorLayout>
+              </Authmiddleware>              
+          }
+        />
+      ))}
+       {donateurRoutes.map((route, idx) => (
+        <Route
+          key={idx}
+          path={route.path}
+          element={
+            <Authmiddleware>
+              <DonateurLayout>{route.component}</DonateurLayout>
+              </Authmiddleware>              
+          }
+        />
+      ))}
+      {staffRoutes.map((route, idx) => (
+        <Route
+          key={idx}
+          path={route.path}
+          element={
+            <Authmiddleware>
+              <StaffLayout>{route.component}</StaffLayout>
               </Authmiddleware>              
           }
         />
