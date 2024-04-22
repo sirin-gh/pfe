@@ -191,7 +191,7 @@ const FormValidations = (props) => {
     name="Range_Value"
     label="Groupe Sanguin"
     type="select"
-    errorMessage="Veuillez sélectionner un groupe sanguin"
+    errorMessage="Veuillez sélectionner un Groupe Sanguin"
     validate={{
         required: { value: true }
     }}

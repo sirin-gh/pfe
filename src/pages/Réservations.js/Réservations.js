@@ -45,8 +45,9 @@ const BasicTable = (props) => {
                     
                     <th>Nom de l'événement</th>
                       <th>Date et heure de l'événement</th>
+                      <th>Lieu</th>
                       <th>Emplacement</th>
-                      <th>Type d'événement</th>
+                      <th>Type de l'événement</th>
                       <th>Organisateur</th>
                       <th>Participants</th>
                       <th>Activités</th> 

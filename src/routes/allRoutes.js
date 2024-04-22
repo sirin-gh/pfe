@@ -77,6 +77,7 @@ import AjouterLesDocteurs from "pages/Docteur/AjouterLesDocteurs"
 import Réservations from "pages/Réservations.js/Réservations"
 import VoirLeStock from "pages/GérerLeSang/VoirLeStock"
 import AjouterLeStock from "pages/GérerLeSang/AjouterLeStock"
+import Chat from "pages/Chat/Chat"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -100,6 +101,8 @@ const userRoutes = [
   { path: "/Réservations", component: <Réservations /> },
   { path: "/VoirLeStockDeSang", component: <VoirLeStock/> },
   { path: "/AjouterLeStockDeSang", component: <AjouterLeStock/> },
+  { path: "/chat", component: <Chat/> },
+
 
 
 

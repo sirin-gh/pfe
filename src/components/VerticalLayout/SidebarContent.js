@@ -164,7 +164,7 @@ const SidebarContent = props => {
                   <Link to="/AjouterDonateur">{props.t("Ajouter Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/chat">{props.t("Contactez ")} </Link>
                 </li>
               </ul>
             </li>
@@ -184,7 +184,7 @@ const SidebarContent = props => {
                   <Link to="/AjouterStaff">{props.t("AjouterStaffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/chat">{props.t("Contactez ")} </Link>
                 </li>
                 <li>
                   <Link to="/email-compose">{props.t("Planing")} </Link>

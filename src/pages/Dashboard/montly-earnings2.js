@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Card, CardBody } from "reactstrap";
 import ReactApexChart from 'react-apexcharts';
 
-class MonthlyEarnings extends Component {
+class SourcesDeDonDeSang extends Component {
     constructor(props) {
         super(props);
 
@@ -26,13 +26,13 @@ class MonthlyEarnings extends Component {
                 grid: {
                     borderColor: '#f8f8fa',
                     row: {
-                        colors: ['transparent', 'transparent'], // takes an array which will be repeated on columns
+                        colors: ['transparent', 'transparent'],
                         opacity: 0.5
                     },
                 },
 
                 xaxis: {
-                    categories: [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+                    categories: ['Collectes Mobiles', 'Cliniques'], // Sources de don de sang
                     labels: {
                         formatter: function (val) {
                             return val
@@ -47,7 +47,7 @@ class MonthlyEarnings extends Component {
                 },
                 yaxis: {
                     title: {
-                        text: undefined
+                        text: 'Nombre de Dons'
                     },
                 },
                 tooltip: {
@@ -69,11 +69,8 @@ class MonthlyEarnings extends Component {
                 }
             },
             series: [{
-                name: 'Series A',
-                data: [45, 75, 100, 75, 100, 75, 50, 75, 50, 75, 100, 80]
-            }, {
-                name: 'Series B',
-                data: [180, 65, 90, 65, 90, 65, 40, 65, 40, 65, 90, 65]
+                name: 'Nombre de Dons',
+                data: [120, 90] // Nombre de dons pour chaque source
             }],
         }
     }
@@ -82,20 +79,20 @@ class MonthlyEarnings extends Component {
             <React.Fragment>
                 <Card>
                     <CardBody>
-                        <h4 className="card-title mb-4">Monthly Earnings</h4>
+                        <h4 className="card-title mb-4">Sources de Don de Sang</h4>
 
                         <Row className="text-center mt-4">
                             <Col xs="6">
-                                <h5 className="font-size-20">$ 2548</h5>
-                                <p className="text-muted">Marketplace</p>
+                                <h5 className="font-size-20">120</h5>
+                                <p className="text-muted">Collectes Mobiles</p>
                             </Col>
                             <Col xs="6">
-                                <h5 className="font-size-20">$ 6985</h5>
-                                <p className="text-muted">Total Income</p>
+                                <h5 className="font-size-20">90</h5>
+                                <p className="text-muted">Cliniques</p>
                             </Col>
                         </Row>
 
-                        <div id="morris-bar-stacked" className="morris-charts morris-charts-height" dir="ltr">
+                        <div id="blood-donation-chart" className="morris-charts morris-charts-height" dir="ltr">
                             <ReactApexChart options={this.state.options} series={this.state.series} type="bar" height="290" />
                         </div>
                     </CardBody>
@@ -105,4 +102,4 @@ class MonthlyEarnings extends Component {
     }
 }
 
-export default MonthlyEarnings;
+export default SourcesDeDonDeSang;

@@ -9,6 +9,7 @@ import {
 // Pages Components
 import Miniwidget from "./Miniwidget"
 import MonthlyEarnings from "./montly-earnings";
+import EmailSent from "./email-sent";
 import MonthlyEarnings2 from "./montly-earnings2";
 import Inbox from "./inbox";
 import RecentActivity from "./recent-activity";
@@ -22,23 +23,23 @@ import { setBreadcrumbItems } from "../../store/actions";
 
 const Dashboard = (props) => {
 
-  document.title = "Dashboard | Lexa - Responsive Bootstrap 5 Admin Dashboard";
+  document.title = "Dashboard des dons de sang";
 
 
   const breadcrumbItems = [
-    { title: "Lexa", link: "#" },
-    { title: "Dashboard", link: "#" }
+    { title: "Dons de sang", link: "#" },
+    { title: "Dashboard des dons de sang", link: "#" }
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Dashboard' , breadcrumbItems)
+    props.setBreadcrumbItems('Dashboard des dons de sang' , breadcrumbItems)
   },)
 
   const reports = [
-    { title: "Orders", iconClass: "cube-outline", total: "1,587", average: "+11%", badgecolor: "info" },
-    { title: "Revenue", iconClass: "buffer", total: "$46,782", average: "-29%", badgecolor: "danger" },
-    { title: "Average Price", iconClass: "tag-text-outline", total: "$15.9", average: "0%", badgecolor: "warning" },
-    { title: "Product Sold", iconClass: "briefcase-check", total: "1890", average: "+89%", badgecolor: "info" },
+    { title: "Dons reçus", iconClass: "cube-outline", total: "1,587", average: "+11%", badgecolor: "info" },
+    { title: "UNITÉS DE SANG COLLECTÉES", iconClass: "buffer", total: "$46,782", average: "-29%", badgecolor: "danger" },
+    { title: "Dons par donateur", iconClass: "tag-text-outline", total: "$15.9", average: "0%", badgecolor: "warning" },
+    { title: "DONATEURS ENREGISTRÉS", iconClass: "briefcase-check", total: "1890", average: "+89%", badgecolor: "info" },
   ]
 
   return (
@@ -53,7 +54,10 @@ const Dashboard = (props) => {
           <MonthlyEarnings />
         </Col>
 
-        
+        <Col xl="6">
+          {/* Email sent */}
+          <EmailSent />
+        </Col>
 
         <Col xl="3">
           <MonthlyEarnings2 />
