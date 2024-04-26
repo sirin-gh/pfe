@@ -9,7 +9,7 @@ class RecentActivity extends Component {
             <React.Fragment>
                 <Card>
                     <CardBody>
-                        <h4 className="card-title mb-4">Recent Activity Feed</h4>
+                        <h4 className="card-title mb-4">Liste des Evenements</h4>
                         <ol className="activity-feed mb-0">
                             <li className="feed-item">
                                 <div className="feed-item-list">
@@ -38,7 +38,7 @@ class RecentActivity extends Component {
                         </ol>
 
                         <div className="text-center">
-                            <Link to="#" className="btn btn-sm btn-primary">Load More</Link>
+                            <Link to="#" className="btn btn-sm btn-primary">Plus</Link>
                         </div>
                     </CardBody>
                 </Card>

@@ -78,10 +78,19 @@ import Réservations from "pages/Réservations.js/Réservations"
 import VoirLeStock from "pages/GérerLeSang/VoirLeStock"
 import AjouterLeStock from "pages/GérerLeSang/AjouterLeStock"
 import Chat from "pages/Chat/Chat"
+import Planing from "pages/Staff/Planing"
+import Rapport from "pages/rapport/rapport"
+import ListDonneurDocteur from "pages/DocteurPages/list-donneur-docteur"
+import AjouterDonneurDocteur from "pages/DocteurPages/ajouter-donneur-docteur"
+import ContactezDonneurDocteur from "pages/DocteurPages/contactez-donneur-docteur"
+import VoirStaffDocteur from "pages/DocteurPages/voir-staff-docteur"
+import ContactezStaffDocteur from "pages/DocteurPages/contactez-staff-docteur"
+import VoirStockDeSangDocteur from "pages/DocteurPages/voir-stockDeSang-docteur"
+import RapportDocteur from "pages/DocteurPages/rapport-docteur"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
-
+  { path: "/rapports", component: <Rapport /> },
 
 
  
@@ -101,7 +110,15 @@ const userRoutes = [
   { path: "/Réservations", component: <Réservations /> },
   { path: "/VoirLeStockDeSang", component: <VoirLeStock/> },
   { path: "/AjouterLeStockDeSang", component: <AjouterLeStock/> },
-  { path: "/chat", component: <Chat/> },
+  { path: "/chat", component: <Chat/> }, 
+  { path: "/ContacterDoc", component: <Chat/> },
+  { path: "/ContacterDonn", component: <Chat/> },
+  { path: "/ContacterStaff", component: <Chat/> },
+  { path: "/ContacterStaff", component: <Chat/> },
+  { path: "/planing", component: <Planing/> },
+
+ 
+  
 
 
 
@@ -174,12 +191,27 @@ const authRoutes = [
 ]
 const docteurRoutes=[
   { path: "/docteur-dashboard", component: <Docteurs /> },
+  { path: "/VoirDonneur-Docteur", component: <ListDonneurDocteur /> },
+  { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
+  { path: "/ContactezDonneur-Docteur", component: <ContactezDonneurDocteur /> },
+  { path: "/VoirStaff-Docteur", component: <VoirStaffDocteur /> },
+  { path: "/ContactezStaff-Docteur", component: <ContactezStaffDocteur /> },
+  { path: "/ContactezStaff-Docteur", component: <ContactezStaffDocteur /> },
+  { path: "/Evénement-Docteur", component: <ContactezStaffDocteur /> },
+  { path: "/VoireStockDeSang-Docteur", component: <VoirStockDeSangDocteur /> },
+  { path: "/Rapport-Docteur", component: <RapportDocteur /> },
+ 
+
 ]
 const donateurRoutes=[
   { path: "/donateur-dashboard", component: <VoireDonateur /> },
+  
 ]
 const staffRoutes=[
   { path: "/staff-dashboard", component: <VoireDonateur /> },
 ]
+
+
+  
 
 export { userRoutes, authRoutes,docteurRoutes,donateurRoutes,staffRoutes}

@@ -13,11 +13,11 @@ class LatestTransactions extends Component {
         super(props);
         this.state = {
             transactions: [
-                { imgUrl: user2, name: "Herbert C. Patton", status: "Confirm", amount: "14,584", date: "5/12/2016", color: "success" },
-                { imgUrl: user3, name: "Mathias N. Klausen", status: "Waiting payment", amount: "8,541", date: "10/11/2016", color: "warning" },
-                { imgUrl: user4, name: "Nikolaj S. Henriksen	", status: "Confirm", amount: "954", date: "8/11/2016", color: "success" },
-                { imgUrl: user5, name: "Lasse C. Overgaard", status: "Payment expired", amount: "44,584", date: "7/11/2016", color: "danger" },
-                { imgUrl: user6, name: "Kasper S. Jessen", status: "Confirm", amount: "8,844", date: "1/11/2016", color: "success" },
+                { imgUrl: user2, name: "Donneur 1", status: "Donneur Recent", amount: "10L", date: "5/12/2016", color: "success" },
+                { imgUrl: user3, name: "Donneur 2", status: "Rendez-vous à venir", amount: "8,541", date: "10/11/2016", color: "warning" },
+                { imgUrl: user4, name: "Donneur 3", status: "Donneur Recent", amount: "954", date: "8/11/2016", color: "success" },
+                { imgUrl: user5, name: "Donneur 4", status: "Priorité", amount: "44,584", date: "7/11/2016", color: "danger" },
+                { imgUrl: user6, name: "Donneur 5", status: "Donneur Recent", amount: "8,844", date: "1/11/2016", color: "success" },
             ],
         }
     }
@@ -27,7 +27,7 @@ class LatestTransactions extends Component {
             <React.Fragment>
                 <Card>
                     <CardBody>
-                        <h4 className="card-title mb-4">Latest Transactions</h4>
+                        <h4 className="card-title mb-4">Les Donneurs De Sang</h4>
 
                         <div className="table-responsive">
                             <Table className="align-middle table-centered table-vertical table-nowrap">
@@ -41,7 +41,7 @@ class LatestTransactions extends Component {
                                                 </td>
                                                 <td><i className={"mdi mdi-checkbox-blank-circle  text-" + transaction.color}></i> {transaction.status}</td>
                                                 <td>
-                                                    ${transaction.amount}
+                                                    {transaction.amount}
                                                     <p className="m-0 text-muted font-size-14">Amount</p>
                                                 </td>
                                                 <td>
@@ -49,7 +49,7 @@ class LatestTransactions extends Component {
                                                     <p className="m-0 text-muted font-size-14">Date</p>
                                                 </td>
                                                 <td>
-                                                    <Button color="secondary" size="sm" className="waves-effect waves-light">Edit</Button>
+                                                    <Button color="secondary" size="sm" className="waves-effect waves-light">Editer</Button>
                                                 </td>
                                             </tr>
                                         )

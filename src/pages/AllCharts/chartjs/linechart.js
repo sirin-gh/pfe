@@ -4,16 +4,16 @@ import { Line } from "react-chartjs-2"
 const LineChart = () => {
   const data = {
     labels: [
-      "January",
-      "February",
-      "March",
-      "April",
+      "Janvier",
+      "Février",
+      "Mars",
+      "Avril",
       "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
+      "Juin",
+      "Juillet",
+      "Août",
+      "Septembre",
+      "Octobre",
     ],
     datasets: [
       {

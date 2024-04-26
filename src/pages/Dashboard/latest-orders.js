@@ -14,12 +14,12 @@ class LatestOrders extends Component {
         super(props);
         this.state = {
             orders: [
-                { imgUrl: user1, id: "12354781", name: "Riverston Glass Chair", status: "Delivered", amount: "185", date: "5/12/2016", color: "success" },
-                { imgUrl: user2, id: "52140300", name: "Shine Company Catalina", status: "Delivered", amount: "1,024", date: "5/12/2016", color: "success" },
-                { imgUrl: user3, id: "96254137", name: "Trex Outdoor Furniture Cape", status: "Cancel", amount: "657", date: "5/12/2016", color: "danger" },
-                { imgUrl: user4, id: "12365474", name: "Oasis Bathroom Teak Corner	", status: "Shipped", amount: "8451", date: "5/12/2016", color: "warning" },
-                { imgUrl: user5, id: "85214796", name: "BeoPlay Speaker", status: "Delivered", amount: "584", date: "5/12/2016", color: "success" },
-                { imgUrl: user6, id: "12354781", name: "Riverston Glass Chair", status: "Delivered", amount: "185", date: "5/12/2016", color: "success" },
+                { imgUrl: user1, id: "12354781", name: "participant", status: "Staff", amount: "Sensibilisation à la Gestion des Stocks de Sang", date: "5/12/2024", color: "success" },
+                { imgUrl: user2, id: "52140300", name: "participant", status: "Staff", amount: "Rôle des Professionnels de Santé dans le Don de Sang", date: "5/12/2024", color: "success" },
+                { imgUrl: user3, id: "96254137", name: "participant", status: "Docteur", amount: "Processus de Don de Sang : De l'Inscription à la Donation", date: "5/12/2024", color: "danger" },
+                { imgUrl: user4, id: "12365474", name: "participant", status: "Donneur", amount: "Formulaire de Déclaration Médicale pour le Don de Sang", date: "5/12/2024", color: "warning" },
+                { imgUrl: user5, id: "85214796", name: "participant", status: "Staff", amount: "Introduction au Don de Sang : Impact et Importance", date: "5/12/2024", color: "success" },
+                { imgUrl: user6, id: "12354781", name: "participant", status: "Staff", amount: "Sécurité et Précautions dans le Don de Sang", date: "5/12/2016", color: "success" },
             ]
         }
     }
@@ -29,7 +29,7 @@ class LatestOrders extends Component {
             <React.Fragment>
                 <Card>
                     <div className="card-body">
-                        <h4 className="card-title mb-4">Latest Orders</h4>
+                        <h4 className="card-title mb-4">Inscriptions récentes aux Formations En Ligne</h4>
 
                         <div className="table-responsive">
                             <Table className="align-middle table-centered table-vertical table-nowrap mb-1">
@@ -44,7 +44,7 @@ class LatestOrders extends Component {
                                                 </td>
                                                 <td><Badge className={"rounded-pill bg-" + order.color}>{order.status}</Badge></td>
                                                 <td>
-                                                    ${order.amount}
+                                                    {order.amount}
                                                 </td>
                                                 <td>
                                                     {order.date}

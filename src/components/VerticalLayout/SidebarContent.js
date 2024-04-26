@@ -164,7 +164,7 @@ const SidebarContent = props => {
                   <Link to="/AjouterDonateur">{props.t("Ajouter Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/chat">{props.t("Contactez ")} </Link>
+                  <Link to="/contacterDonn">{props.t("Contactez ")} </Link>
                 </li>
               </ul>
             </li>
@@ -181,13 +181,13 @@ const SidebarContent = props => {
                   <Link to="/Staff">{props.t("Voir Staffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterStaff">{props.t("AjouterStaffs")} </Link>
+                  <Link to="/AjouterStaff">{props.t("Ajouter Staffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/chat">{props.t("Contactez ")} </Link>
+                  <Link to="/ContacterStaff">{props.t("Contactez")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Planing")} </Link>
+                  <Link to="/Planing">{props.t("Planing")} </Link>
                 </li>
 
               </ul>
@@ -203,13 +203,13 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/docteur">{props.t("Voir Les Docteurs")} </Link>
+                  <Link to="/docteur">{props.t("Voir Docteurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("AjouterLesDocteurs")} </Link>
+                  <Link to="/AjouterLesDocteurs">{props.t("Ajouter Docteurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez")} </Link>
+                  <Link to="/ContacterDoc">{props.t("Contactez")} </Link>
                 </li>
 
                 
@@ -220,7 +220,7 @@ const SidebarContent = props => {
             <li>
               <Link to="/Evenement" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
-                <span>{props.t("Evenements")}</span>
+                <span>{props.t("Evénement")}</span>
               </Link>
             </li>
 
@@ -228,6 +228,14 @@ const SidebarContent = props => {
               <Link to="/Réservations" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Réservations")}</span>
+              </Link>
+            </li> 
+
+            <li>
+              <Link to="/rapports" className=" waves-effect">
+              <i className=" mdi mdi-equalizer-outline
+"></i>
+                <span>{props.t("Rapport")}</span>
               </Link>
             </li>
 
@@ -249,15 +257,7 @@ const SidebarContent = props => {
                 
               </ul>
             </li>
-            <li> 
-
-              
-              <Link to="/calendar" className=" waves-effect">
-                <i className=" mdi mdi-equalizer-outline
-"></i>
-                <span>{props.t("Rapport")}</span>
-              </Link>
-            </li>
+           
 
             
 

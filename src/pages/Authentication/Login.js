@@ -96,7 +96,7 @@ const Login = (props) => {
                   </h3>
 
                   <div className="p-3">
-                    <h4 className="text-muted font-size-18 mb-1 text-center">Welcome Back !</h4>
+                    <h4 className="text-muted font-size-18 mb-1 text-center">Content de te revoir !</h4>
                     <Form
                       className="form-horizontal mt-4"
                       onSubmit={(e) => {
@@ -107,7 +107,7 @@ const Login = (props) => {
                     >
                       {error ? <Alert color="danger">{error}</Alert> : null}
                       <div className="mb-3">
-                        <Label htmlFor="username">Username</Label>
+                        <Label htmlFor="username">Nom d'utilisateur</Label>
                         <Input
                           name="email"
                           className="form-control"
@@ -125,7 +125,7 @@ const Login = (props) => {
                         ) : null}
                       </div>
                       <div className="mb-3">
-                        <Label htmlFor="userpassword">Password</Label>
+                        <Label htmlFor="userpassword">Mot de passe</Label>
                         <Input
                           name="password"
                           value={validation.values.password || ""}
@@ -201,16 +201,16 @@ const Login = (props) => {
                         <div className="col-6">
                           <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="customControlInline" />
-                            <label className="form-check-label" htmlFor="customControlInline">Remember me
+                            <label className="form-check-label" htmlFor="customControlInline">Mémoriser
                             </label>
                           </div>
                         </div>
                         <div className="col-6 text-end">
-                          <button className="btn btn-primary w-md waves-effect ">Log In</button>
+                          <button className="btn btn-primary w-md waves-effect ">Se Connecter</button>
                         </div>
                       </Row>
                       <Row className="form-group mb-0">
-                        <Link to="/forgot-password" className="text-muted"><i className="mdi mdi-lock"></i> Forgot your password?</Link>
+                        <Link to="/forgot-password" className="text-muted"><i className="mdi mdi-lock"></i> Mot de passe oublié?</Link>
                       </Row>
                     </Form>
                   </div>

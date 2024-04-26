@@ -36,9 +36,9 @@ const Dashboard = (props) => {
   },)
 
   const reports = [
-    { title: "Dons reçus", iconClass: "cube-outline", total: "1,587", average: "+11%", badgecolor: "info" },
-    { title: "UNITÉS DE SANG COLLECTÉES", iconClass: "buffer", total: "$46,782", average: "-29%", badgecolor: "danger" },
-    { title: "Dons par donateur", iconClass: "tag-text-outline", total: "$15.9", average: "0%", badgecolor: "warning" },
+    { title: "Dons reçus", total: "1,587DT", average: "+11%", badgecolor: "info" },
+    { title: "SANG COLLECTÉES PAR LITTRE", iconClass: "buffer", total: "100L", average: "-29%", badgecolor: "danger" },
+    { title: "Dons par donateur", iconClass: "tag-text-outline", total: "15DT", average: "0%", badgecolor: "warning" },
     { title: "DONATEURS ENREGISTRÉS", iconClass: "briefcase-check", total: "1890", average: "+89%", badgecolor: "info" },
   ]
 
@@ -86,12 +86,12 @@ const Dashboard = (props) => {
 
       <Row>
         <Col xl="6">
-          {/* latest transactions */}
+          {/* Les Donneurs*/}
           <LatestTransactions />
         </Col>
 
         <Col xl="6">
-          {/* latest orders */}
+          {/*Inscriptions récentes aux Formations En Ligne */}
           <LatestOrders />
         </Col>
       </Row>

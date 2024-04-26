@@ -10,13 +10,11 @@ const Miniwidget = props => {
             <Card className="mini-stat bg-primary">
               <CardBody className="card-body mini-stat-img">
                 <div className="mini-stat-icon">
-                  <i className={"float-end mdi mdi-" + report.iconClass}></i>
                 </div>
                 <div className="text-white">
                   <h6 className="text-uppercase mb-3 font-size-16 text-white">{report.title}</h6>
                   <h2 className="mb-4 text-white">{report.total}</h2>
-                  <span className={"badge bg-" + report.badgecolor}> {report.average} </span> <span className="ms-2">From previous period</span>
-                </div>
+                   </div>
               </CardBody>
             </Card>
           </Col>

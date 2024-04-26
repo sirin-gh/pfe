@@ -158,13 +158,13 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/VoireDonateur">{props.t("Voir Donneurs")} </Link>
+                  <Link to="/VoirDonneur-Docteur">{props.t("Voir Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterDonateur">{props.t("Ajouter Donneurs")} </Link>
+                  <Link to="/AjouterDonneur-Docteur">{props.t("Ajouter Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/ContactezDonneur-Docteur">{props.t("Contactez ")} </Link>
                 </li>
                 <li>
                   <Link to="/email-compose">{props.t("Consultation En Ligne")} </Link>
@@ -181,31 +181,21 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/Staff">{props.t("Voir Staffs")} </Link>
+                  <Link to="/VoirStaff-Docteur">{props.t("Voir Staffs")} </Link>
                 </li>
                 
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/ContactezStaff-Docteur">{props.t("Contactez ")} </Link>
                 </li>
               </ul>
             </li>
 
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-              <i className="mdi mdi-calendar-check"></i>
+              <Link to="/Evénement-Docteur" className=" waves-effect">
+                <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Evénement")}</span>
               </Link>
-              <ul className="sub-menu" >
-                
-                <li>
-                  <Link to="/docteur">{props.t("Voir Les Evénement")} </Link>
-                </li>
-                <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("Formations En Ligne")} </Link>
-                </li>
-                
-              </ul>
-            </li>  
+            </li> 
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -215,7 +205,7 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/docteur">{props.t("Voir Le Stock De Sang")} </Link>
+                  <Link to="/VoireStockDeSang-Docteur">{props.t("Voir Le Stock De Sang")} </Link>
                 </li>
                 
               </ul>
@@ -225,7 +215,7 @@ const SidebarContent = props => {
             <li> 
 
               
-              <Link to="/calendar" className=" waves-effect">
+              <Link to="/Rapport-Docteur" className=" waves-effect">
                 <i className=" mdi mdi-equalizer-outline
 "></i>
                 <span>{props.t("Rapport")}</span>

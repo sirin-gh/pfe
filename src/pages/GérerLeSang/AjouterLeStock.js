@@ -19,16 +19,16 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const FormValidations = (props) => {
-  document.title = "Form Validation | Lexa - Responsive Bootstrap 5 Admin Dashboard";
+  document.title = "Ajouter Le Stock De Sang";
 
   const breadcrumbItems = [
-    { title: "Lexa", link: "#" },
-    { title: "Forms", link: "#" },
-    { title: "Form Validation", link: "#" },
+    { title: "Stock De Sang", link: "#" },
+    { title: "Formulaire", link: "#" },
+    { title: "Formulaire De Stock De Sang", link: "#" },
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Form Validation', breadcrumbItems)
+    props.setBreadcrumbItems('Ajouter Le Stock De Sang', breadcrumbItems)
   })
 
 
@@ -276,10 +276,10 @@ const FormValidations = (props) => {
                 <FormGroup className="mb-0">
                   <div>
                     <Button type="submit" color="primary" className="ms-1">
-                      Submit
+                    Soumettre
                         </Button>{" "}
                     <Button type="reset" color="secondary">
-                      Cancel
+                    Annuler
                         </Button>
                   </div>
                 </FormGroup>

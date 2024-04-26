@@ -66,13 +66,13 @@ class YearlySales extends Component {
             <React.Fragment>
                 <Card>
                     <CardBody>
-                        <h4 className="card-title mb-4">Yearly Sales</h4>
+                        <h4 className="card-title mb-4">Argent du sang collecté annuellement</h4>
                         <Row>
                             <Col md="4">
                                 <div>
-                                    <h3>52,345</h3>
-                                    <p className="text-muted">The languages only differ grammar</p>
-                                    <Link to="#" className="text-primary">Learn more <i className="mdi mdi-chevron-double-right"></i></Link>
+                                    <h3>520,345 DT</h3>
+                                    <p className="text-muted">"Le don de la vie, un don à la fois."</p>
+                                    <Link to="#" className="text-primary">Plus<i className="mdi mdi-chevron-double-right"></i></Link>
                                 </div>
                             </Col>
                             <Col md="8" className="text-end">

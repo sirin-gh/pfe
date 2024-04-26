@@ -16,17 +16,17 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const BasicTable = (props) => {
-  document.title = "Basic Tables | Lexa - Responsive Bootstrap 5 Admin Dashboard";
+  document.title = "Réservation";
 
   
   const breadcrumbItems = [
-    { title : "Lexa", link : "#" },
+    { title : "Réservation", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Basic Tables", link : "#" },
+    { title : "Table De Réservation", link : "#" },
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Basic Tables', breadcrumbItems)
+    props.setBreadcrumbItems('Réservation', breadcrumbItems)
   })
   return (
     <React.Fragment>

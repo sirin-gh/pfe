@@ -15,12 +15,12 @@ class Inbox extends Component {
         super(props);
         this.state = {
             messages: [
-                { imgUrl: user1, title: "Misty", desc: "Hey! there I'm available...", time: "13:40 PM" },
-                { imgUrl: user2, title: "Melissa", desc: "I've finished it! See you so...", time: "13:34 PM" },
-                { imgUrl: user3, title: "Dwayne", desc: "This theme is awesome!", time: "13:17 PM" },
-                { imgUrl: user4, title: "Martin", desc: "Nice to meet you", time: "12:20 PM" },
-                { imgUrl: user5, title: "Vincent", desc: "Hey! there I'm available...", time: "11:47 AM" },
-                { imgUrl: user6, title: "Robert Chappa", desc: "Hey! there I'm available...", time: "10:12 PM" }
+                { imgUrl: user1, title: "Staff 1", desc: "@mdo", time: "13402387" },
+                { imgUrl: user2, title: "Staff 2", desc: "I've finished it! See you so...", time: "13:34 PM" },
+                { imgUrl: user3, title: "Staff 3", desc: "This theme is awesome!", time: "13:17 PM" },
+                { imgUrl: user4, title: "Staff 4", desc: "Nice to meet you", time: "12:20 PM" },
+                { imgUrl: user5, title: "Staff 5", desc: "Hey! there I'm available...", time: "11:47 AM" },
+                { imgUrl: user6, title: "Staff 6", desc: "Hey! there I'm available...", time: "10:12 PM" }
             ],
         }
     }
@@ -30,7 +30,7 @@ class Inbox extends Component {
             <React.Fragment>
                 <Card>
                     <CardBody>
-                        <h4 className="card-title mb-3">Inbox</h4>
+                        <h4 className="card-title mb-3">Staffs</h4>
                         <div className="inbox-wid">
                             {
                                 this.state.messages.map((message, key) =>
