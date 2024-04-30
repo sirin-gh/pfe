@@ -153,27 +153,11 @@ const SidebarContent = props => {
             
             
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-              <i className="mdi mdi-calendar-check"></i>
+              <Link to="/Evenement-Donneur" className=" waves-effect">
+                <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Evénement")}</span>
               </Link>
-              <ul className="sub-menu" > 
-                <li>
-                  <Link to="/docteur">{props.t("Voir Les Evénement")} </Link>
-                </li>
-                <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("Formations En Ligne")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Conseils")} </Link>
-                </li>
-
-                
-
-                
-                
-              </ul>
-            </li> 
+            </li>
 
             <li>
               <Link to="/Réservations" className=" waves-effect">

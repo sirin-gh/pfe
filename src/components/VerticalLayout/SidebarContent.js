@@ -158,13 +158,11 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/VoireDonateur">{props.t("Voir Donneurs")} </Link>
+                  <Link to="/VoirDonneurs">{props.t("Voir Donneurs")} </Link>
                 </li>
+                
                 <li>
-                  <Link to="/AjouterDonateur">{props.t("Ajouter Donneurs")} </Link>
-                </li>
-                <li>
-                  <Link to="/contacterDonn">{props.t("Contactez ")} </Link>
+                  <Link to="/ContacterDonneur">{props.t("Contactez ")} </Link>
                 </li>
               </ul>
             </li>
@@ -178,11 +176,9 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/Staff">{props.t("Voir Staffs")} </Link>
+                  <Link to="/VoirStaff">{props.t("Voir Staffs")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterStaff">{props.t("Ajouter Staffs")} </Link>
-                </li>
+                
                 <li>
                   <Link to="/ContacterStaff">{props.t("Contactez")} </Link>
                 </li>
@@ -203,13 +199,11 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/docteur">{props.t("Voir Docteurs")} </Link>
+                  <Link to="/VoirDocteur">{props.t("Voir Docteurs")} </Link>
                 </li>
+                
                 <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("Ajouter Docteurs")} </Link>
-                </li>
-                <li>
-                  <Link to="/ContacterDoc">{props.t("Contactez")} </Link>
+                  <Link to="/ContacterDocteur">{props.t("Contactez")} </Link>
                 </li>
 
                 
@@ -249,50 +243,8 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/VoirLeStockDeSang">{props.t("Voir Le Stock De Sang")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterLeStockDeSang">{props.t("Ajouter Le Stock De Sang")} </Link>
-                </li>
-                
-                
-                
               </ul>
             </li>
-           
-
-            
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-email-outline"></i>
-                <span>{props.t("Email")}</span>
-              </Link>
-              <ul className="sub-menu" >
-                <li>
-                  <Link to="/email-inbox">{props.t("Inbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/email-read">{props.t("Email Read")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Email Compose")} </Link>
-                </li>
-              </ul>
-            </li>
-
-            
-
-           
-
-           
-
-        
-
-          
-
-            
-
-
-           
           </ul>
         </div>
       </SimpleBar>

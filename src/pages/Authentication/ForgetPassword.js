@@ -64,7 +64,7 @@ const ForgetPasswordPage = props => {
                     </Link>
                   </h3>
                   <div className="p-3">
-                    <h4 className="text-muted font-size-18 mb-3 text-center">Reset Password</h4>
+                    <h4 className="text-muted font-size-18 mb-3 text-center">Reset Mot De Passe</h4>
                     {forgetError && forgetError ? (
                       <Alert color="danger" style={{ marginTop: "13px" }}>
                         {forgetError}
@@ -87,7 +87,7 @@ const ForgetPasswordPage = props => {
                         <Input
                           name="email"
                           className="form-control"
-                          placeholder="Enter email"
+                          placeholder="Entrer email"
                           type="email"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
@@ -111,8 +111,7 @@ const ForgetPasswordPage = props => {
                 </CardBody>
               </Card>
               <div className="mt-5 text-center">
-                <p>Remember It ? <Link to="/login" className="text-primary"> Sign In Here </Link> </p>
-                © {new Date().getFullYear()} Lexa <span className="d-none d-sm-inline-block"> - Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                <p>Souviens toi? <Link to="/login" className="text-primary"> Se connecter ici </Link> </p>
               </div>
             </Col>
           </Row>

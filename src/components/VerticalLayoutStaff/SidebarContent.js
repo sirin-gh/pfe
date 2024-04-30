@@ -158,17 +158,15 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/VoireDonateur">{props.t("Voir Donneurs")} </Link>
+                  <Link to="/VoirDonneur-Staff">{props.t("Voir Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterDonateur">{props.t("Ajouter Donneurs")} </Link>
+                  <Link to="/AjouterDonneur-Staff">{props.t("Ajouter Donneurs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez ")} </Link>
+                  <Link to="/ContactezDonneur-Staff">{props.t("Contactez ")} </Link>
                 </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Consultation En Ligne")} </Link>
-                </li>
+                
               </ul>
             </li>
 
@@ -181,13 +179,16 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/Staff">{props.t("Voir Staffs")} </Link>
+                  <Link to="/VoirStaff-Staff">{props.t("Voir Staffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterStaff">{props.t("Ajouter Staffs")} </Link>
+                  <Link to="/AjouterStaff-Staff">{props.t("Ajouter Staffs")} </Link>
                 </li>
                 <li>
-                  <Link to="/email-compose">{props.t("Planing")} </Link>
+                  <Link to="/Planing-Staff">{props.t("Planing")} </Link>
+                </li>
+                <li>
+                  <Link to="/voir-collectesstaff">{props.t("VoirCollectesStaff")} </Link>
                 </li>
               </ul>
             </li>
@@ -265,7 +266,7 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/Staff">{props.t("Voir Les Collectes")} </Link>
+                  <Link to="/VoirCollectesStaff">{props.t("Voir Les Collectes")} </Link>
                 </li>
                 <li>
                   <Link to="/AjouterStaff">{props.t("Ajouter Les Collectes")} </Link>

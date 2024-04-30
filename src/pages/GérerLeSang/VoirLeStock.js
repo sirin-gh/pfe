@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import { useNavigate } from 'react-router-dom';
 
 
 import {
@@ -24,6 +25,12 @@ const BasicTable = (props) => {
     { title : "Tables", link : "#" },
     { title : "Table De Stock De Sang ", link : "#" },
   ]
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // Navigate to the desired route
+    navigate('/AjouterLeStockDeSang');
+  };
 
   useEffect(() => {
     props.setBreadcrumbItems('Voir le Stock De Sang', breadcrumbItems)
@@ -33,6 +40,7 @@ const BasicTable = (props) => {
      
       <Row>
         <Col lg={12}>
+        <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Stock De Sang</CardTitle>
@@ -45,16 +53,14 @@ const BasicTable = (props) => {
                     
                     <th>Type de Sang</th>
                       <th>Rhésus</th>
-                      <th>Quantité</th>
-                      <th>Date du Don</th>
-                      <th>Qualité</th>
-                      <th>Compatibilité</th>
-                      <th>Statut du Don</th> 
-                      <th>Donneur</th> 
+                      <th>Quantité De sang</th>
+                      <th>Date De Don</th>
+                     <th>Donneur</th> 
                       <th>Récepteur</th>
-                      <th>Destination</th>
-                      <th>Tests</th>
-                      <th>Stockage</th>
+                      <th>Action</th>
+
+ 
+
                      
 
                     </tr>
@@ -67,12 +73,11 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                       <td>
+                        {/* Add "Supprimer" and "Editer" buttons */}
+                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
+                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
+                      </td>
                      
                     </tr>
                     <tr>
@@ -82,12 +87,11 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                      <td>
+                        {/* Add "Supprimer" and "Editer" buttons */}
+                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
+                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
+                      </td>
                       
                     </tr>
                     <tr>
@@ -96,13 +100,12 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
                        <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                      <td>
+                        {/* Add "Supprimer" and "Editer" buttons */}
+                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
+                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
+                      </td>
                       
                     </tr>
                   </tbody>

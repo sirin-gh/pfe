@@ -166,7 +166,7 @@ const Login = (props) => {
                             checked={userType === 'docteur'}
                             onChange={(e) => setUserType(e.target.value)}
                           />
-                          <label className="form-check-label" htmlFor="userTypeDocteur">docteur</label>
+                          <label className="form-check-label" htmlFor="userTypeDocteur">Docteur</label>
                         </div>
                         <div className="form-check form-check-inline">
                           <input

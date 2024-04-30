@@ -8,14 +8,15 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const BasicTable = (props) => {
   document.title = "Rapport";
 
   const breadcrumbItems = [
-    { title : "Rapport", link : "#" },
-    { title : "Tables", link : "#" },
-    { title : "Table De Rapport", link : "#" },
+    { title: "Rapport", link: "#" },
+    { title: "Tables", link: "#" },
+    { title: "Table De Rapport", link: "#" },
   ];
 
   useEffect(() => {
@@ -37,7 +38,7 @@ const BasicTable = (props) => {
                       <th>Nom</th>
                       <th>Prénom</th>
                       <th>Historique</th>
-                      <th>Actions</th> {/* Ajout de la colonne Actions */}
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -47,8 +48,9 @@ const BasicTable = (props) => {
                       <td>Otto</td>
                       <td>@mdo</td>
                       <td>@mdo</td>
-                      <td> {/* Ajout des boutons dans la colonne Actions */}
-                      <button className="btn btn-primary mr-2">Consulter</button>
+                      <td>
+                        {/* Use Link for navigation */}
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
                       </td>
                     </tr>
                     <tr>
@@ -58,7 +60,7 @@ const BasicTable = (props) => {
                       <td>@fat</td>
                       <td>@fat</td>
                       <td>
-                      <button className="btn btn-primary mr-2">Consulter</button>
+                        <Link to="/path/to/destination" className="btn btn-primary mr-2">Consulter</Link>
                       </td>
                     </tr>
                     <tr>
@@ -68,7 +70,7 @@ const BasicTable = (props) => {
                       <td>@twitter</td>
                       <td>@twitter</td>
                       <td>
-                        <button className="btn btn-primary mr-2">Consulter</button>
+                        <Link to="/path/to/destination" className="btn btn-primary mr-2">Consulter</Link>
                       </td>
                     </tr>
                   </tbody>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 
 
-
 import {
   Table,
   Row,
@@ -15,31 +14,28 @@ import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../store/actions";
-import { Link } from "react-router-dom";
 
 const BasicTable = (props) => {
-  document.title = "Réservation";
+  document.title = "Table De Staff";
 
   
   const breadcrumbItems = [
-    { title : "Réservation", link : "#" },
+    { title : "Voir Staff", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Table De Réservation", link : "#" },
+    { title : "Tables De Staff", link : "#" },
   ]
-  
 
   useEffect(() => {
-    props.setBreadcrumbItems('Réservation', breadcrumbItems)
+    props.setBreadcrumbItems('Voir Staff', breadcrumbItems)
   })
   return (
     <React.Fragment>
      
       <Row>
-        <Col lg={12}> 
-
+        <Col lg={12}>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Table De Réservation</CardTitle>
+              <CardTitle className="h4">Table De Staff</CardTitle>
              
 
               <div className="table-responsive">
@@ -47,14 +43,12 @@ const BasicTable = (props) => {
                   <thead>
                     <tr>
                     
-                    <th>Nom et prénom</th>
-                      <th>Date et Heure</th>
-                      <th>Groupe sanguin</th>
-                       <th>Emplacement</th>
-                     <th>Organisateur</th>
-                     <th>Confirmation de réservation </th>
-                     <th>Action </th>
-                     
+                    <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Adresse</th>
+                      <th>Date De Naissance</th>
+                      <th>Numéro De Téléphone</th>
+                      <th>Email</th>
                       
 
                     </tr>
@@ -67,10 +61,7 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
-                      </td>
-                      
+                       
                      
                     </tr>
                     <tr>
@@ -80,9 +71,6 @@ const BasicTable = (props) => {
                      <td>Thornton</td>
                       <td>@fat</td>
                       <td>@mdo</td>
-                      <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
-                      </td>
                       
                       
                     </tr>
@@ -93,9 +81,6 @@ const BasicTable = (props) => {
                      <td>the Bird</td>
                       <td>@twitter</td>
                       <td>the Bird</td>
-                      <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
-                      </td>
                      
                       
                     </tr>

@@ -166,9 +166,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/ContactezDonneur-Docteur">{props.t("Contactez ")} </Link>
                 </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Consultation En Ligne")} </Link>
-                </li>
+                
               </ul>
             </li>
 
