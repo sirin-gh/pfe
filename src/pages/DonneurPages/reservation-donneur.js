@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 
 
+
 import {
   Table,
   Row,
@@ -14,48 +15,47 @@ import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../store/actions";
+import { Link } from "react-router-dom";
 
 const BasicTable = (props) => {
-  document.title = "Voir le Stock De Sang";
+  document.title = "Réservation";
 
   
   const breadcrumbItems = [
-    { title : "Voir le Stock De Sang", link : "#" },
+    { title : "Réservation", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Table De Stock De Sang ", link : "#" },
+    { title : "Table De Réservation", link : "#" },
   ]
+  
 
   useEffect(() => {
-    props.setBreadcrumbItems('Voir le Stock De Sang', breadcrumbItems)
+    props.setBreadcrumbItems('Réservation', breadcrumbItems)
   })
   return (
     <React.Fragment>
      
       <Row>
-        <Col lg={12}>
+        <Col lg={12}> 
+
           <Card>
             <CardBody>
-              <CardTitle className="h4">Table De Stock De Sang</CardTitle>
+              <CardTitle className="h4">Table De Réservation</CardTitle>
              
 
               <div className="table-responsive">
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
-                      
-                    <th>Donneur</th> 
-                     <th>Type de Sang</th>
-                      <th>Rhésus</th>
-                      <th>Quantité</th>
-                      <th>Date du Don</th>
-                      <th>Qualité</th>
-                      <th>Compatibilité</th>
-                      <th>Statut du Don</th> 
-                      <th>Récepteur</th>
-                      <th>Destination</th>
-                      <th>Tests</th>
-                      <th>Stockage</th>
+                    
+                    <th>Nom et prénom</th>
+                      <th>Date et Heure</th>
+                      <th>Groupe sanguin</th>
+                       <th>Emplacement</th>
+                     <th>Organisateur</th>
+                     <th>Confirmation de réservation </th>
+                     <th>Action </th>
                      
+                      
 
                     </tr>
                   </thead>
@@ -67,42 +67,36 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
+                      
                      
                     </tr>
                     <tr>
                     <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
+                     <td>Thornton</td>
+                      <td>@fat</td>
                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
+                      
                       
                     </tr>
                     <tr>
                     <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>@mdo</td>
+                     <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>the Bird</td>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
+                     
                       
                     </tr>
                   </tbody>

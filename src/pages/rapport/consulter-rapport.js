@@ -43,7 +43,7 @@ const PagesInvoice = (props) => {
                             <Row>
                                 <Col xs="12">
                                     <div className="invoice-title">
-                                        <h4 className="float-end font-size-16"><strong>Order # 12345</strong></h4>
+                                        <h4 className="float-end font-size-16"><strong>ID: 1254211</strong></h4>
                                         <h3>
                                             <img src={imgdark} alt="logo" height="24" />
                                         </h3>
@@ -52,7 +52,7 @@ const PagesInvoice = (props) => {
                                     <Row>
                                         <Col xs="6">
                                             <address>
-                                                <strong>Billed To:</strong><br />
+                                                <strong>Nom Et Prénom:</strong><br />
                                                             John Smith<br />
                                                             1234 Main<br />
                                                             Apt. 4B<br />
@@ -61,7 +61,7 @@ const PagesInvoice = (props) => {
                                         </Col>
                                         <Col xs="6" className="text-end">
                                             <address>
-                                                <strong>Shipped To:</strong><br />
+                                                <strong>Adresse:</strong><br />
                                                             Kenny Rigdon<br />
                                                             1234 Main<br />
                                                             Apt. 4B<br />
@@ -72,37 +72,53 @@ const PagesInvoice = (props) => {
                                     <Row>
                                         <Col xs="6" className="mt-4">
                                             <address>
-                                                <strong>Payment Method:</strong><br />
+                                                <strong>Date De Naissance:</strong><br />
                                                             Visa ending **** 4242<br />
                                                             jsmith@email.com
                                                         </address>
                                         </Col>
                                         <Col xs="6" className="mt-4 text-end">
                                             <address>
-                                                <strong>Order Date:</strong><br />
+                                                <strong>Numéro De Téléphone:</strong><br />
                                                             October 7, 2016<br /><br />
                                             </address>
                                         </Col>
+                                       
                                     </Row>
                                 </Col>
+                                <Row>
+                                        <Col xs="6" className="mt-4">
+                                            <address>
+                                                <strong>Email:</strong><br />
+                                                            Visa ending **** 4242<br />
+                                                            jsmith@email.com
+                                                        </address>
+                                        </Col>
+                                       
+                                       
+                                    </Row>
                             </Row>
 
                             <Row>
                                 <Col xs="12">
                                     <div>
-                                        <div className="p-2">
-                                            <h3 className="font-size-16"><strong>Order summary</strong></h3>
-                                        </div>
+                                        
                                         <div className="">
-                                            <div className="table-responsive">
+                                            <div className="table-responsive">  
                                                 <table className="table">
-                                                    <thead>
+                                                    <thead>        
                                                         <tr>
-                                                            <td><strong>Item</strong></td>
-                                                            <td className="text-center"><strong>Price</strong></td>
-                                                            <td className="text-center"><strong>Quantity</strong>
-                                                            </td>
-                                                            <td className="text-end"><strong>Totals</strong></td>
+                                                            <td className="text-center"><strong>Quantité</strong></td>
+                                                            <td className="text-center"><strong>Groupe Sanguin</strong></td>
+                                                            <td className="text-end"><strong>Sexe</strong></td>
+                                                           <td className="text-center"><strong>Rhésus</strong></td>
+                                                            <td className="text-center"><strong>Date/Heure Réservation</strong></td>
+                                                            <td className="text-end"><strong>Confirmation</strong></td>
+                                                            <td className="text-end"><strong>Date</strong></td>
+                                                           <td className="text-end"><strong>Récepteur</strong></td>
+                                                            <td className="text-end"><strong>Emplacement</strong></td>
+                                                            <td className="text-end"><strong>Organisateur</strong></td>
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -112,41 +128,75 @@ const PagesInvoice = (props) => {
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
                                                         </tr>
                                                         <tr>
                                                             <td>BS-400</td>
                                                             <td className="text-center">$20.00</td>
                                                             <td className="text-center">3</td>
                                                             <td className="text-end">$60.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                        </tr>
+                                                        
+                                                        <tr>
+                                                            <td>BS-1000</td>
+                                                            <td className="text-center">$600.00</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$600.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
                                                         </tr>
                                                         <tr>
                                                             <td>BS-1000</td>
                                                             <td className="text-center">$600.00</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$600.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="thick-line"></td>
-                                                            <td className="thick-line"></td>
-                                                            <td className="thick-line text-center">
-                                                                <strong>Subtotal</strong></td>
-                                                            <td className="thick-line text-end">$670.99</td>
+                                                            <td>BS-1000</td>
+                                                            <td className="text-center">$600.00</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$600.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
                                                         </tr>
                                                         <tr>
-                                                            <td className="no-line"></td>
-                                                            <td className="no-line"></td>
-                                                            <td className="no-line text-center">
-                                                                <strong>Shipping</strong></td>
-                                                            <td className="no-line text-end">$15</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td className="no-line"></td>
-                                                            <td className="no-line"></td>
-                                                            <td className="no-line text-center">
-                                                                <strong>Total</strong></td>
-                                                            <td className="no-line text-end">
-                                                                <h4 className="m-0">$685.99</h4></td>
-                                                        </tr>
+                                                            <td>BS-1000</td>
+                                                            <td className="text-center">$600.00</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$600.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                         </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>

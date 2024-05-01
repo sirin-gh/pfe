@@ -30,7 +30,7 @@ import {
   getEvents,
   updateEvent,
 } from "../../store/actions"
-import DeleteModal from "./DeleteModal"
+import DeleteModal from "../DonneurPages/DeleteModal"
 
 const Calendrier = props => {
 

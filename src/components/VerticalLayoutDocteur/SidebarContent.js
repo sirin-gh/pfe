@@ -220,40 +220,6 @@ const SidebarContent = props => {
               </Link>
             </li>
 
-            
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-email-outline"></i>
-                <span>{props.t("Email")}</span>
-              </Link>
-              <ul className="sub-menu" >
-                <li>
-                  <Link to="/email-inbox">{props.t("Inbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/email-read">{props.t("Email Read")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Email Compose")} </Link>
-                </li>
-              </ul>
-            </li>
-
-            
-
-           
-
-           
-
-        
-
-          
-
-            
-
-
-           
           </ul>
         </div>
       </SimpleBar>

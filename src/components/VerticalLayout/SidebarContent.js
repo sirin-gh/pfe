@@ -165,9 +165,8 @@ const SidebarContent = props => {
                   <Link to="/ContacterDonneur">{props.t("Contactez ")} </Link>
                 </li>
               </ul>
-            </li>
+            </li> 
 
-            
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="mdi mdi-account-multiple-outline"></i>
@@ -189,6 +188,7 @@ const SidebarContent = props => {
               </ul>
             </li>
 
+           
             
 
             <li>
@@ -243,6 +243,23 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/VoirLeStockDeSang">{props.t("Voir Le Stock De Sang")} </Link>
                 </li>
+              </ul>
+            </li> 
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="mdi mdi-account-multiple-outline"></i>
+                <span>{props.t("Collectes")}</span>
+              </Link>
+              <ul className="sub-menu" >
+                
+                <li>
+                  <Link to="/voir-Collectes">{props.t("Voir Les Collectes")} </Link>
+                </li>
+                <li>
+                  <Link to="/ajouter-collectes">{props.t("Ajouter Les Collectes")} </Link>
+                </li>
+
               </ul>
             </li>
           </ul>

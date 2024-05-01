@@ -30,6 +30,7 @@ import {
   getEvents,
   updateEvent,
 } from "../../store/actions"
+import DeleteModal from "./DeleteModal"
 
 const Calendrier = props => {
 
@@ -212,7 +213,11 @@ const Calendrier = props => {
   return (
 
     <React.Fragment>
-      
+      <DeleteModal
+        show={deleteModal}
+        onDeleteClick={handleDeleteEvent}
+        onCloseClick={() => setDeleteModal(false)}
+      />
 
       <Row className="mb-4">
         <Col xl={3}>

@@ -160,7 +160,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/Réservations" className=" waves-effect">
+              <Link to="/Réservations-donneur" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Réservations")}</span>
               </Link>
@@ -174,7 +174,7 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/docteur">{props.t("Voir Le Stock De Sang")} </Link>
+                  <Link to="/voir-StockDeSang-Donneur">{props.t("Voir Le Stock De Sang")} </Link>
                 </li>
                 
               </ul>
@@ -183,34 +183,15 @@ const SidebarContent = props => {
             <li> 
 
               
-              <Link to="/calendar" className=" waves-effect">
+              <Link to="/rapport-donneur" className=" waves-effect">
                 <i className=" mdi mdi-equalizer-outline
 "></i>
                 <span>{props.t("Rapport")}</span>
               </Link>
             </li>
 
-            
-
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-email-outline"></i>
-                <span>{props.t("Email")}</span>
-              </Link>
-              <ul className="sub-menu" >
-                <li>
-                  <Link to="/email-inbox">{props.t("Inbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/email-read">{props.t("Email Read")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Email Compose")} </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/Réservations" className=" waves-effect">
+              <Link to="/Contactez-Nous-donneur" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Contacter Nous")}</span>
               </Link>

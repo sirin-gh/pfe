@@ -17,33 +17,32 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const BasicTable = (props) => {
-  document.title = "Voir le Stock De Sang";
+  document.title = "Table De Docteurs";
 
   
   const breadcrumbItems = [
-    { title : "Voir le Stock De Sang", link : "#" },
+    { title : "Voir Docteur", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Table De Stock De Sang ", link : "#" },
+    { title : "Tables De Docteur", link : "#" },
   ]
   const navigate = useNavigate();
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate('/AjouterLeStockDeSang');
+    navigate('/AjouterDocteurs');
   };
-
   useEffect(() => {
-    props.setBreadcrumbItems('Voir le Stock De Sang', breadcrumbItems)
-  })
+    props.setBreadcrumbItems('Voir Docteur', breadcrumbItems)
+  }) 
   return (
     <React.Fragment>
      
       <Row>
-        <Col lg={12}>
+        <Col lg={12}> 
         <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Table De Stock De Sang</CardTitle>
+              <CardTitle className="h4">Table De Docteurs</CardTitle>
              
 
               <div className="table-responsive">
@@ -51,19 +50,18 @@ const BasicTable = (props) => {
                   <thead>
                     <tr>
                     
-                    <th>Donneur</th> 
-                    <th>Type de Sang</th>
-                      <th>Rhésus</th>
-                      <th>Quantité De sang</th>
-                      <th>Date De Don</th>
-                     <th>Récepteur</th>
+                    <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Email</th>
+                      <th>Adresse</th>
+                      <th>Date Naissance</th>
+                      <th>Num Tél</th>
+                      <th>ID</th>
+                      <th>Specialité</th>
+                      <th>Expérience clinique</th>
+                      <th>Num de licence</th>
                       <th>Action</th>
-
- 
-
-                     
-
-                    </tr>
+                   </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -73,40 +71,49 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
+                       <td>@mdo</td>
+                       <td>Otto</td>
+                      <td>@mdo</td>
+                       <td>@mdo</td>
                        <td>
                         {/* Add "Supprimer" and "Editer" buttons */}
                         <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
                         <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
                       </td>
-                     
-                    </tr>
+                       </tr>
                     <tr>
                     <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>Mark</td>
+                     <td>Thornton</td>
+                      <td>@fat</td>
+                      <td>@mdo</td>
+                      <td>Jacob</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
                        <td>@mdo</td>
-                      <td>
+                       <td>
                         {/* Add "Supprimer" and "Editer" buttons */}
                         <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
                         <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
                       </td>
-                      
+                    </tr>
+                    <tr>
+                    <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                     <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                       <td>@mdo</td>
+                       <td>
+                        {/* Add "Supprimer" and "Editer" buttons */}
+                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
+                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
+                      </td>
                     </tr>
                   </tbody>
                 </Table>

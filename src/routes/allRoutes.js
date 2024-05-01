@@ -81,7 +81,6 @@ import Chat from "pages/Chat/Chat"
 import Planing from "pages/Staff/Planing"
 import Rapport from "pages/rapport/rapport"
 import ListDonneurDocteur from "pages/DocteurPages/list-donneur-docteur"
-import AjouterDonneurDocteur from "pages/DocteurPages/ajouter-donneur-docteur"
 import ContactezDonneurDocteur from "pages/DocteurPages/contactez-donneur-docteur"
 import VoirStaffDocteur from "pages/DocteurPages/voir-staff-docteur"
 import ContactezStaffDocteur from "pages/DocteurPages/contactez-staff-docteur"
@@ -95,6 +94,18 @@ import VoirStaffStaff from "pages/StaffPages/voir-staff-staff"
 import AjouterStaffStaff from "pages/StaffPages/ajouter-staff-staff"
 import PlaningStaff from "pages/StaffPages/planing-staff"
 import VoirCollectesStaff from "pages/StaffPages/voir-collectes-staff"
+import VoirEvenementDocteur from "pages/DocteurPages/voir-evenement-docteur"
+import AjouterCollectes from "pages/Collectes/ajouter-collectes"
+import VoirCollectes from "pages/Collectes/voir-collectes"
+import EvenementDonneur from "pages/DonneurPages/Evenement-Donneur"
+import ReservationDonneur from "pages/DonneurPages/reservation-donneur"
+import VoirStockDeSangDonneur from "pages/DonneurPages/voir-StockDeSang-Donneur"
+import RapportDonneur from "pages/DonneurPages/rapport-donneur"
+import ContactezNousDonneur from "pages/DonneurPages/Contactez-Nous-Donneur"
+import AjouterDonneurDocteur from "pages/DocteurPages/ajouter-donneur-docteur"
+import VoirDocteurStaff from "pages/StaffPages/voir-docteur-staff"
+import ContactezDocteurStaff from "pages/StaffPages/contactez-docteur-staff"
+import EvenementStaff from "pages/StaffPages/evenement-staff"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -127,6 +138,9 @@ const userRoutes = [
   { path: "/ContacterStaff", component: <Chat/> },
   { path: "/ContacterStaff", component: <Chat/> },
   { path: "/planing", component: <Planing/> },
+  { path: "/ajouter-collectes", component: <AjouterCollectes/> },
+  { path: "/voir-Collectes", component: <VoirCollectes/> },
+
  
 
  
@@ -204,20 +218,24 @@ const authRoutes = [
 const docteurRoutes=[
   { path: "/docteur-dashboard", component: <Docteurs /> },
   { path: "/VoirDonneur-Docteur", component: <ListDonneurDocteur /> },
-  { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
   { path: "/ContactezDonneur-Docteur", component: <ContactezDonneurDocteur /> },
   { path: "/VoirStaff-Docteur", component: <VoirStaffDocteur /> },
   { path: "/ContactezStaff-Docteur", component: <ContactezStaffDocteur /> },
   { path: "/ContactezStaff-Docteur", component: <ContactezStaffDocteur /> },
-  { path: "/Evénement-Docteur", component: <ContactezStaffDocteur /> },
+  { path: "/Evénement-Docteur", component: <VoirEvenementDocteur /> },
   { path: "/VoireStockDeSang-Docteur", component: <VoirStockDeSangDocteur /> },
   { path: "/Rapport-Docteur", component: <RapportDocteur /> },
+  { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
  
 
 ]
-const donateurRoutes=[
+const donateurRoutes=[   
   { path: "/donateur-dashboard", component: <VoireDonateur /> },
-  
+  { path: "/Evenement-Donneur", component: <EvenementDonneur /> },
+  { path: "/Réservations-donneur", component: <ReservationDonneur /> },
+  { path: "/voir-StockDeSang-Donneur", component: <VoirStockDeSangDonneur /> },
+  { path: "/rapport-donneur", component: <RapportDonneur /> },
+  { path: "/Contactez-Nous-donneur", component: <ContactezNousDonneur /> },
   
   
 ]
@@ -229,7 +247,10 @@ const staffRoutes=[
   { path: "/AjouterStaff-Staff", component: <AjouterStaffStaff /> },
   { path: "/VoirStaff-Staff", component: <VoirStaffStaff /> },
   { path: "/Planing-Staff", component: <PlaningStaff /> },
-  { path: "/VoirCollectesStaff", component: <PlaningStaff/> },
+  { path: "/VoirDocteur-Staff", component: <VoirDocteurStaff /> },
+  { path: "/ContactezDocteur-Staff", component: <ContactezDocteurStaff /> },
+  { path: "/Evenement-Staff", component: <EvenementStaff /> },
+ 
 ]
 
 

@@ -187,10 +187,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/Planing-Staff">{props.t("Planing")} </Link>
                 </li>
-                <li>
-                  <Link to="/voir-collectesstaff">{props.t("VoirCollectesStaff")} </Link>
-                </li>
-              </ul>
+                 </ul>
             </li>
 
             
@@ -203,11 +200,11 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/docteur">{props.t("Voir Les Docteurs")} </Link>
+                  <Link to="/VoirDocteur-Staff">{props.t("Voir Les Docteurs")} </Link>
                 </li>
                 
                 <li>
-                  <Link to="/email-compose">{props.t("Contactez")} </Link>
+                  <Link to="/ContactezDocteur-Staff">{props.t("Contactez")} </Link>
                 </li>
 
                 
@@ -216,24 +213,11 @@ const SidebarContent = props => {
             </li>
             
             <li>
-              <Link to="/#" className="has-arrow waves-effect">
-              <i className="mdi mdi-calendar-check"></i>
+              <Link to="/Evenement-Staff" className=" waves-effect">
+                <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Evénement")}</span>
               </Link>
-              <ul className="sub-menu" >
-                
-                <li>
-                  <Link to="/docteur">{props.t("Voir Les Evénement")} </Link>
-                </li>
-                <li>
-                  <Link to="/AjouterLesDocteurs">{props.t("Formations En Ligne")} </Link>
-                </li>
-                
-
-                
-                
-              </ul>
-            </li> 
+            </li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
