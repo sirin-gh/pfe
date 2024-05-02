@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom
 
 const BasicTable = (props) => {
   document.title = "Rapport";
@@ -18,7 +18,12 @@ const BasicTable = (props) => {
     { title: "Tables", link: "#" },
     { title: "Table De Rapport", link: "#" },
   ];
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    // Navigate to the desired route
+    navigate('/ajouter-rapport');
+  };
   useEffect(() => {
     props.setBreadcrumbItems('Rapport', breadcrumbItems);
   }, []);
@@ -26,7 +31,8 @@ const BasicTable = (props) => {
   return (
     <React.Fragment>
       <Row>
-        <Col xl={12}>
+        <Col xl={12}> 
+         <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
           <Card>
             <CardBody>
               <div className="table-responsive">

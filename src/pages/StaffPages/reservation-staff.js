@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 
 
+
 import {
   Table,
   Row,
@@ -14,28 +15,31 @@ import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../store/actions";
+import { Link } from "react-router-dom";
 
 const BasicTable = (props) => {
-  document.title = "Table De Staff";
+  document.title = "Réservation";
 
   
   const breadcrumbItems = [
-    { title : "Voir Staff", link : "#" },
+    { title : "Réservation", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Tables De Staff", link : "#" },
+    { title : "Table De Réservation", link : "#" },
   ]
+  
 
   useEffect(() => {
-    props.setBreadcrumbItems('Voir Staff', breadcrumbItems)
+    props.setBreadcrumbItems('Réservation', breadcrumbItems)
   })
   return (
     <React.Fragment>
      
       <Row>
-        <Col lg={12}>
+        <Col lg={12}> 
+
           <Card>
             <CardBody>
-              <CardTitle className="h4">Table De Staff</CardTitle>
+              <CardTitle className="h4">Table De Réservation</CardTitle>
              
 
               <div className="table-responsive">
@@ -43,17 +47,14 @@ const BasicTable = (props) => {
                   <thead>
                     <tr>
                     
-                    <th>Nom</th>
-                      <th>Prénom</th>
-                      <th>Email</th>
-                      <th>Adresse</th>
-                      <th>Date De Naissance</th>
-                      <th>Numéro De Téléphone</th>
-                      <th>ID</th>
-                      <th>Position</th>
-                      <th>Statut d'emploi</th>
-                      <th>Département</th>
-                      
+                    <th>Nom et prénom</th>
+                      <th>Date et Heure</th>
+                      <th>Groupe sanguin</th>
+                       <th>Emplacement</th>
+                     <th>Organisateur</th>
+                     <th>Confirmation de réservation </th>
+                     <th>Action </th>
+                     
                       
 
                     </tr>
@@ -66,11 +67,10 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
+                      
                      
                     </tr>
                     <tr>
@@ -80,10 +80,9 @@ const BasicTable = (props) => {
                      <td>Thornton</td>
                       <td>@fat</td>
                       <td>@mdo</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
                       
                       
                     </tr>
@@ -94,10 +93,10 @@ const BasicTable = (props) => {
                      <td>the Bird</td>
                       <td>@twitter</td>
                       <td>the Bird</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      </td>
+                     
                       
                     </tr>
                   </tbody>

@@ -19,16 +19,16 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const FormValidations = (props) => {
-  document.title = "Ajouter Donneur | Lexa - Responsive Bootstrap 5 Admin Dashboard";
+  document.title = "Ajouter Staff";
 
   const breadcrumbItems = [
-    { title: "Ajouter Donneur", link: "#" },
+    { title: "Ajouter Staff", link: "#" },
     { title: "Formulaire", link: "#" },
-    { title: "Formulaire Donneur", link: "#" },
+    { title: "Formulaire Staff", link: "#" },
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Ajouter Donneur', breadcrumbItems)
+    props.setBreadcrumbItems('Ajouter Staff', breadcrumbItems)
   })
 
 
@@ -103,7 +103,7 @@ const FormValidations = (props) => {
         <Col xl={8}>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Ajouter Donneur</CardTitle>
+              <CardTitle className="h4">Collectes</CardTitle>
               <p className="card-title-desc">
                 
                   </p>
@@ -112,22 +112,36 @@ const FormValidations = (props) => {
                 <AvField
                   className="mb-3"
                   name="Min_Length"
-                  label="Nom  "
-                  placeholder="Min 6 chars"
+                  label="Nom et prénom"
+                  placeholder="....."
                   type="text"
-                  errorMessage="Min 6 chars."
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     minLength: { value: 6, errorMessage: "Min 6 chars." },
                   }}
-                />
+                /> 
+<AvField
+                  className="mb-3"
+                  name="Min_Value"
+                  label="Date et Heure"
+                  placeholder="....s"
+                  min={6}
+                  type="date"
+                  errorMessage="erreur"
+                  validate={{
+                    required: { value: true },
+                    min: { value: 6 },
+                  }}
+                />                                      
+
                 <AvField
                   className="mb-3"
                   name="Max_Length"
-                  label="Prénom  "
-                  placeholder="Max 6 chars"
+                  label="Groupe sanguin"
+                  placeholder="...."
                   type="text"
-                  errorMessage="Max 6 chars."
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     maxLength: { value: 6, errorMessage: "Max 6 chars." },
@@ -136,25 +150,25 @@ const FormValidations = (props) => {
                 <AvField
                   className="mb-3"
                   name="Range_Length"
-                  label="Email"
-                  placeholder="Entre 5 - 10 chars"
+                  label="Emplacement"
+                  placeholder="...."
                   type="text"
-                  errorMessage="Entre 5 - 10 chars"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     minLength: { value: 5 },
                     maxLength: { value: 10 },
                   }}
-                /> 
-
-<AvField
-                  className="mb-3"    
+                />
+                
+                <AvField
+                  className="mb-3"
                   name="Max_Value"
-                  label="Adresse"
-                  placeholder="max 5 Chars"
+                  label="Organisateur"
+                  placeholder="...."
                   max={6}
                   type="string"
-                  errorMessage="max 5 Chars"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     max: { value: 6 },
@@ -162,25 +176,11 @@ const FormValidations = (props) => {
                 />
                 <AvField
                   className="mb-3"
-                  name="Min_Value"
-                  label="Date De Naissance"
-                  placeholder="....."
-                  min={6}
-                  type="date"
-                  errorMessage="errreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
-                />
-                
-                <AvField
-                  className="mb-3"
                   name="Range_Value"
-                  label="Numéro De Téléphone"
-                  placeholder="8 chars"
-                  type="string"
-                  errorMessage="8 chars"
+                  label="Confirmation de réservation"
+                  placeholder="...."
+                  type="email"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     min: { value: 6 },
@@ -188,59 +188,11 @@ const FormValidations = (props) => {
                   }}
                 />
 
-<AvField
-                  className="mb-3"
-                  name="Range_Value"
-                  label="ID"
-                  placeholder="8 chars"
-                  type="string"
-                  errorMessage="8 chars"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 10 },
-                  }}
-                />
-
-<AvField
-    className="mb-3"
-    name="Range_Value"
-    label="Groupe Sanguin"
-    type="select"
-    errorMessage="erreur"
-    validate={{
-        required: { value: true }
-    }}
->
-    <option value="">Sélectionner le groupe sanguin</option>
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
-</AvField>
 
 
 
 
-<AvField
-    className="mb-3"
-    name="Regular_Exp"
-    label="Sexe"
-    type="select"
-    errorMessage="Veuillez sélectionner un sexe"
-    validate={{
-        required: { value: true }
-    }}
->
-    <option value="">Sélectionner le sexe</option>
-    <option value="homme">Homme</option>
-    <option value="femme">Femme</option>
-   
-</AvField>
+
 
 
                 <FormGroup className="mb-0">

@@ -136,37 +136,25 @@ const FormValidations = (props) => {
                 <AvField
                   className="mb-3"
                   name="Range_Length"
-                  label="Adresse"
-                  placeholder="Text between 5 - 10 chars length"
+                  label="Email"
+                  placeholder="Entre 5 - 10 chars"
                   type="text"
-                  errorMessage="Text between 5 - 10 chars length"
+                  errorMessage="Entre 5 - 10 chars"
                   validate={{
                     required: { value: true },
                     minLength: { value: 5 },
                     maxLength: { value: 10 },
                   }}
-                />
-                <AvField
-                  className="mb-3"
-                  name="Min_Value"
-                  label="Date De Naissance  "
-                  placeholder="Min 6 Chars"
-                  min={6}
-                  type="date"
-                  errorMessage="Min Value 6"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
-                />
-                <AvField
-                  className="mb-3"
+                /> 
+
+<AvField
+                  className="mb-3"    
                   name="Max_Value"
-                  label="Numéro De Téléphone  "
+                  label="Adresse"
                   placeholder="max 5 Chars"
                   max={6}
                   type="string"
-                  errorMessage="Max Value 6"
+                  errorMessage="max 5 Chars"
                   validate={{
                     required: { value: true },
                     max: { value: 6 },
@@ -174,11 +162,39 @@ const FormValidations = (props) => {
                 />
                 <AvField
                   className="mb-3"
+                  name="Min_Value"
+                  label="Date De Naissance"
+                  placeholder="....."
+                  min={6}
+                  type="date"
+                  errorMessage="errreur"
+                  validate={{
+                    required: { value: true },
+                    min: { value: 6 },
+                  }}
+                />
+                
+                <AvField
+                  className="mb-3"
                   name="Range_Value"
-                  label="Email"
-                  placeholder="Number between 6 - 100"
-                  type="email"
-                  errorMessage="Number between 6 - 100"
+                  label="Numéro De Téléphone"
+                  placeholder="8 chars"
+                  type="string"
+                  errorMessage="8 chars"
+                  validate={{
+                    required: { value: true },
+                    min: { value: 6 },
+                    max: { value: 10 },
+                  }}
+                />
+
+<AvField
+                  className="mb-3"
+                  name="Range_Value"
+                  label="ID"
+                  placeholder="8 chars"
+                  type="string"
+                  errorMessage="8 chars"
                   validate={{
                     required: { value: true },
                     min: { value: 6 },
@@ -191,7 +207,7 @@ const FormValidations = (props) => {
     name="Range_Value"
     label="Groupe Sanguin"
     type="select"
-    errorMessage="Veuillez sélectionner un Groupe Sanguin"
+    errorMessage="erreur"
     validate={{
         required: { value: true }
     }}

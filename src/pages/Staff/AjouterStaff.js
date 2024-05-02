@@ -132,6 +132,20 @@ const FormValidations = (props) => {
                     required: { value: true },
                     maxLength: { value: 6, errorMessage: "Max 6 chars." },
                   }}
+                /> 
+
+<AvField
+                  className="mb-3"
+                  name="Range_Value"
+                  label="Email"
+                  placeholder="Number between 6 - 100"
+                  type="email"
+                  errorMessage="Number between 6 - 100"
+                  validate={{
+                    required: { value: true },
+                    min: { value: 6 },
+                    max: { value: 10 },
+                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -172,19 +186,64 @@ const FormValidations = (props) => {
                     max: { value: 6 },
                   }}
                 />
-                <AvField
+
+<AvField
                   className="mb-3"
-                  name="Range_Value"
-                  label="Email"
-                  placeholder="Number between 6 - 100"
-                  type="email"
-                  errorMessage="Number between 6 - 100"
+                  name="Max_Value"
+                  label="ID"
+                  placeholder="8 Chars"
+                  max={6}
+                  type="string"
+                  errorMessage="8 Chars"
                   validate={{
                     required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 10 },
+                    max: { value: 6 },
                   }}
                 />
+
+<AvField
+                  className="mb-3"
+                  name="Max_Value"
+                  label="Position"
+                  placeholder="Position"
+                  max={6}
+                  type="string"
+                  errorMessage="Erreur"
+                  validate={{
+                    required: { value: true },
+                    max: { value: 6 },
+                  }}
+                /> 
+
+<AvField
+                  className="mb-3"
+                  name="Max_Value"
+                  label="Statut d'emploi"
+                  placeholder="Statut d'emploi"
+                  max={6}
+                  type="string"
+                  errorMessage="erreur"
+                  validate={{
+                    required: { value: true },
+                    max: { value: 6 },
+                  }}
+                />
+
+<AvField
+                  className="mb-3"
+                  name="Max_Value"
+                  label="Département"
+                  placeholder="Statut d'emploi"
+                  max={6}
+                  type="string"
+                  errorMessage="erreur"
+                  validate={{
+                    required: { value: true },
+                    max: { value: 6 },
+                  }}
+                />
+
+                
 
 
 

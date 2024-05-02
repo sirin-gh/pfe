@@ -160,9 +160,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/VoirDonneur-Staff">{props.t("Voir Donneurs")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterDonneur-Staff">{props.t("Ajouter Donneurs")} </Link>
-                </li>
+                
                 <li>
                   <Link to="/ContactezDonneur-Staff">{props.t("Contactez ")} </Link>
                 </li>
@@ -181,9 +179,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/VoirStaff-Staff">{props.t("Voir Staffs")} </Link>
                 </li>
-                <li>
-                  <Link to="/AjouterStaff-Staff">{props.t("Ajouter Staffs")} </Link>
-                </li>
+               
                 <li>
                   <Link to="/Planing-Staff">{props.t("Planing")} </Link>
                 </li>
@@ -227,16 +223,16 @@ const SidebarContent = props => {
               <ul className="sub-menu" >
                 
                 <li>
-                  <Link to="/VoirLeStockDeSang">{props.t("Voir Le Stock De Sang")} </Link>
+                  <Link to="/Voir-LeStockDeSang-Staff">{props.t("Voir Le Stock De Sang")} </Link>
                 </li>
                 <li>
-                  <Link to="/AjouterLeStockDeSang">{props.t("Ajouter Le Stock De Sang")} </Link>
+                  <Link to="/Ajouter-LeStockDeSang-Staff">{props.t("Ajouter Le Stock De Sang")} </Link>
                 </li>
               </ul>
             </li>
 
             <li>
-              <Link to="/Réservations" className=" waves-effect">
+              <Link to="/Réservation-Staff" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Réservations")}</span>
               </Link>
@@ -263,44 +259,11 @@ const SidebarContent = props => {
             <li> 
 
               
-              <Link to="/calendar" className=" waves-effect">
+              <Link to="/Rapport-Staff" className=" waves-effect">
                 <i className=" mdi mdi-equalizer-outline"></i>
                 <span>{props.t("Rapport")}</span>
               </Link>
             </li>
-
-            
-
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="mdi mdi-email-outline"></i>
-                <span>{props.t("Email")}</span>
-              </Link>
-              <ul className="sub-menu" >
-                <li>
-                  <Link to="/email-inbox">{props.t("Inbox")}</Link>
-                </li>
-                <li>
-                  <Link to="/email-read">{props.t("Email Read")} </Link>
-                </li>
-                <li>
-                  <Link to="/email-compose">{props.t("Email Compose")} </Link>
-                </li>
-              </ul>
-            </li>
-
-            
-
-           
-
-           
-
-        
-
-          
-
-            
-
 
            
           </ul>

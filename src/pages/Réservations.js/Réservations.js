@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../store/actions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BasicTable = (props) => {
   document.title = "Réservation";
@@ -26,7 +26,12 @@ const BasicTable = (props) => {
     { title : "Tables", link : "#" },
     { title : "Table De Réservation", link : "#" },
   ]
-  
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // Navigate to the desired route
+    navigate('/ajouter-reservation');
+  };
 
   useEffect(() => {
     props.setBreadcrumbItems('Réservation', breadcrumbItems)
@@ -36,6 +41,7 @@ const BasicTable = (props) => {
      
       <Row>
         <Col lg={12}> 
+        <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
 
           <Card>
             <CardBody>

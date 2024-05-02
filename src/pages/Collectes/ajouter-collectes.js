@@ -103,7 +103,7 @@ const FormValidations = (props) => {
         <Col xl={8}>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Ajouter Staff</CardTitle>
+              <CardTitle className="h4">Collectes</CardTitle>
               <p className="card-title-desc">
                 
                   </p>
@@ -113,21 +113,35 @@ const FormValidations = (props) => {
                   className="mb-3"
                   name="Min_Length"
                   label="Nom  "
-                  placeholder="Min 6 chars"
+                  placeholder="....."
                   type="text"
-                  errorMessage="Min 6 chars."
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     minLength: { value: 6, errorMessage: "Min 6 chars." },
                   }}
-                />
+                /> 
+<AvField
+                  className="mb-3"
+                  name="Min_Value"
+                  label="Date et Heure"
+                  placeholder="....s"
+                  min={6}
+                  type="date"
+                  errorMessage="erreur"
+                  validate={{
+                    required: { value: true },
+                    min: { value: 6 },
+                  }}
+                />                                      
+
                 <AvField
                   className="mb-3"
                   name="Max_Length"
-                  label="Prénom  "
-                  placeholder="Max 6 chars"
+                  label="Type de collecte"
+                  placeholder="...."
                   type="text"
-                  errorMessage="Max 6 chars."
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     maxLength: { value: 6, errorMessage: "Max 6 chars." },
@@ -136,37 +150,25 @@ const FormValidations = (props) => {
                 <AvField
                   className="mb-3"
                   name="Range_Length"
-                  label="Adresse"
-                  placeholder="Text between 5 - 10 chars length"
+                  label="Lieu"
+                  placeholder="...."
                   type="text"
-                  errorMessage="Text between 5 - 10 chars length"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     minLength: { value: 5 },
                     maxLength: { value: 10 },
                   }}
                 />
-                <AvField
-                  className="mb-3"
-                  name="Min_Value"
-                  label="Date De Naissance  "
-                  placeholder="Min 6 Chars"
-                  min={6}
-                  type="date"
-                  errorMessage="Min Value 6"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
-                />
+                
                 <AvField
                   className="mb-3"
                   name="Max_Value"
-                  label="Numéro De Téléphone  "
-                  placeholder="max 5 Chars"
+                  label="Objectif"
+                  placeholder="...."
                   max={6}
                   type="string"
-                  errorMessage="Max Value 6"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     max: { value: 6 },
@@ -175,10 +177,10 @@ const FormValidations = (props) => {
                 <AvField
                   className="mb-3"
                   name="Range_Value"
-                  label="Email"
-                  placeholder="Number between 6 - 100"
+                  label="Description"
+                  placeholder="...."
                   type="email"
-                  errorMessage="Number between 6 - 100"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
                     min: { value: 6 },

@@ -184,6 +184,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/Planing">{props.t("Planing")} </Link>
                 </li>
+                
 
               </ul>
             </li>
@@ -226,7 +227,7 @@ const SidebarContent = props => {
             </li> 
 
             <li>
-              <Link to="/rapports" className=" waves-effect">
+              <Link to="/Rapports" className=" waves-effect">
               <i className=" mdi mdi-equalizer-outline
 "></i>
                 <span>{props.t("Rapport")}</span>
@@ -256,9 +257,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/voir-Collectes">{props.t("Voir Les Collectes")} </Link>
                 </li>
-                <li>
-                  <Link to="/ajouter-collectes">{props.t("Ajouter Les Collectes")} </Link>
-                </li>
+                
 
               </ul>
             </li>

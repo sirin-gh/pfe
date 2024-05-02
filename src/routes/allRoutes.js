@@ -106,10 +106,20 @@ import AjouterDonneurDocteur from "pages/DocteurPages/ajouter-donneur-docteur"
 import VoirDocteurStaff from "pages/StaffPages/voir-docteur-staff"
 import ContactezDocteurStaff from "pages/StaffPages/contactez-docteur-staff"
 import EvenementStaff from "pages/StaffPages/evenement-staff"
+import VoirLeStockDeSangStaff from "pages/StaffPages/voir-leStockDeSang-staff"
+import AjouterLeStockDeSangStaff from "pages/StaffPages/ajouter-LeStockDeSang-staff"
+import ReservationStaff from "pages/StaffPages/reservation-staff"
+import RapportStaff from "pages/StaffPages/rapport-staff"
+import Ajouterplaning from "pages/ajouterplaning"
+import AjouterReservation from "pages/Réservations.js/ajouter-reservation"
+import AjouterRapport from "pages/rapport/ajouter-rapport"
+import AjouterRapportDocteur from "pages/DocteurPages/ajouter-rapport-docteur-"
+import AjouterStockDeSangDocteur from "pages/DocteurPages/ajouter-stockDeSang-docteur"
+import AjouterStockDeSangDonneur from "pages/DonneurPages/ajouter-StockDeSang-Donneur"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
-  { path: "/rapports", component: <Rapport /> },
+  { path: "/Rapports", component: <Rapport /> },
   { path: "/consulter", component: <ConsulterRapport /> },
 
   
@@ -140,6 +150,12 @@ const userRoutes = [
   { path: "/planing", component: <Planing/> },
   { path: "/ajouter-collectes", component: <AjouterCollectes/> },
   { path: "/voir-Collectes", component: <VoirCollectes/> },
+  { path: "/ajouter-planning", component: <Ajouterplaning/> },
+  { path: "/ajouter-reservation", component: <AjouterReservation/> },
+  { path: "/ajouter-rapport", component: <AjouterRapport/> },
+
+
+  
 
  
 
@@ -226,16 +242,19 @@ const docteurRoutes=[
   { path: "/VoireStockDeSang-Docteur", component: <VoirStockDeSangDocteur /> },
   { path: "/Rapport-Docteur", component: <RapportDocteur /> },
   { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
+  { path: "/ajouter-rapport-docteur", component: <AjouterRapportDocteur /> },
+  { path: "/ajouter-stockDeSang-docteur", component: <AjouterStockDeSangDocteur /> },
  
 
 ]
 const donateurRoutes=[   
   { path: "/donateur-dashboard", component: <VoireDonateur /> },
   { path: "/Evenement-Donneur", component: <EvenementDonneur /> },
-  { path: "/Réservations-donneur", component: <ReservationDonneur /> },
+  { path: "/Réservations-Donneur", component: <ReservationDonneur /> },
   { path: "/voir-StockDeSang-Donneur", component: <VoirStockDeSangDonneur /> },
-  { path: "/rapport-donneur", component: <RapportDonneur /> },
-  { path: "/Contactez-Nous-donneur", component: <ContactezNousDonneur /> },
+  { path: "/Rapport-Donneur", component: <RapportDonneur /> },
+  { path: "/Contactez-Nous-Donneur", component: <ContactezNousDonneur /> },
+  { path: "/ajouter-StockDeSang-Donneur", component: <AjouterStockDeSangDonneur /> },
   
   
 ]
@@ -250,6 +269,10 @@ const staffRoutes=[
   { path: "/VoirDocteur-Staff", component: <VoirDocteurStaff /> },
   { path: "/ContactezDocteur-Staff", component: <ContactezDocteurStaff /> },
   { path: "/Evenement-Staff", component: <EvenementStaff /> },
+  { path: "/Voir-LeStockDeSang-Staff", component: <VoirLeStockDeSangStaff /> },
+  { path: "/Ajouter-LeStockDeSang-Staff", component: <AjouterLeStockDeSangStaff /> },
+  { path: "/Réservation-Staff", component: <ReservationStaff /> },
+  { path: "/Rapport-Staff", component: <RapportStaff /> },
  
 ]
 

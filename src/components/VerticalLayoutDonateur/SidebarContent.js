@@ -160,7 +160,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/Réservations-donneur" className=" waves-effect">
+              <Link to="/Réservations-Donneur" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Réservations")}</span>
               </Link>
@@ -183,7 +183,7 @@ const SidebarContent = props => {
             <li> 
 
               
-              <Link to="/rapport-donneur" className=" waves-effect">
+              <Link to="/Rapport-Donneur" className=" waves-effect">
                 <i className=" mdi mdi-equalizer-outline
 "></i>
                 <span>{props.t("Rapport")}</span>
@@ -191,7 +191,7 @@ const SidebarContent = props => {
             </li>
 
             <li>
-              <Link to="/Contactez-Nous-donneur" className=" waves-effect">
+              <Link to="/Contactez-Nous-Donneur" className=" waves-effect">
                 <i className="mdi mdi-clock-time-four-outline"></i>
                 <span>{props.t("Contacter Nous")}</span>
               </Link>
