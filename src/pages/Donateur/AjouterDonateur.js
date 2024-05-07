@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import {
   Row,
   Col,
@@ -12,14 +13,15 @@ import {
   Input,
 } from "reactstrap"
 import { AvForm, AvField } from "availity-reactstrap-validation"
-
-import { connect } from "react-redux";
+import axios from "axios"
+import { connect } from "react-redux"
 
 //Import Action to copy breadcrumb items from local state to redux state
-import { setBreadcrumbItems } from "../../store/actions";
+import { setBreadcrumbItems } from "../../store/actions"
 
-const FormValidations = (props) => {
-  document.title = "Ajouter Donneur | Lexa - Responsive Bootstrap 5 Admin Dashboard";
+const FormValidations = props => {
+  document.title =
+    "Ajouter Donneur | Lexa - Responsive Bootstrap 5 Admin Dashboard"
 
   const breadcrumbItems = [
     { title: "Ajouter Donneur", link: "#" },
@@ -28,64 +30,55 @@ const FormValidations = (props) => {
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Ajouter Donneur', breadcrumbItems)
+    props.setBreadcrumbItems("Ajouter Donneur", breadcrumbItems)
   })
 
-
-  const [fnm, setfnm] = useState(false)
-  const [lnm, setlnm] = useState(false)
-  const [unm, setunm] = useState(false)
-  const [city, setcity] = useState(false)
-  const [stateV, setstateV] = useState(false)
-
-  function handleSubmit(e) {
+  const [nom, setNom] = useState("")
+  const [prénom, setPrenom] = useState("")
+  const [adresse, setAdresse] = useState("")
+  const [dateDeNaissance, setDateDeNaissance] = useState("")
+  const [numéroDeTéléphone, setNumeroDeTelephone] = useState("")
+  const [MotDePasse, setMotDePasse] = useState("")
+  const [Email, setEmail] = useState("")
+  const [GroupeSanguin, setGroupeSanguin] = useState("")
+  const [Sexe, setSexe] = useState("")
+  const handleSubmit = async e => {
     e.preventDefault()
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/create-donateur",
+        {
+          nom,
+          prénom,
+          adresse,
+          dateDeNaissance,
+          numéroDeTéléphone,
+          MotDePasse,
+          Email,
+          GroupeSanguin,
+          Sexe,
+        },
+      )
+      console.log("Donateur créé avec succès:", response.data)
+      toast.success("Donateur créé avec succès")
 
-    var fnm = document.getElementById("validationTooltip01").value
-    var lnm = document.getElementById("validationTooltip02").value
-    var unm = document.getElementById("validationTooltipUsername").value
-    var city = document.getElementById("validationTooltip03").value
-    var stateV = document.getElementById("validationTooltip04").value
-
-    if (fnm === "") {
-      setfnm(false)
-    } else {
-      setfnm(true)
-    }
-
-    if (lnm === "") {
-      setlnm(false)
-    } else {
-      setlnm(true)
-    }
-
-    if (unm === "") {
-      setunm(false)
-    } else {
-      setunm(true)
-    }
-
-    if (city === "") {
-      setcity(false)
-    } else {
-      setcity(true)
-    }
-
-    if (stateV === "") {
-      setstateV(false)
-    } else {
-      setstateV(true)
-    }
-
-    var d1 = document.getElementsByName("validate")
-
-    document.getElementById("tooltipForm").classList.add("was-validated")
-
-    for (var i = 0; i < d1.length; i++) {
-      d1[i].style.display = "block"
+      // Réinitialiser les champs
+      setNom("")
+      setPrenom("")
+      setAdresse("")
+      setDateDeNaissance("")
+      setNumeroDeTelephone("")
+      setMotDePasse("")
+      setEmail("")
+      setGroupeSanguin("")
+      setSexe("")
+    } catch (error) {
+      console.error("Erreur lors de la création du donateur:", error)
+      toast.error(
+        `Erreur lors de la création du donateur: ${error.response.data.errorMessage}`,
+      )
     }
   }
-
   //for change tooltip display propery
   function changeHandeler(event, eleId) {
     if (event.target.value !== "")
@@ -95,23 +88,19 @@ const FormValidations = (props) => {
 
   return (
     <React.Fragment>
-
-      
       <Row>
-        
-
         <Col xl={8}>
           <Card>
             <CardBody>
               <CardTitle className="h4">Ajouter Donneur</CardTitle>
-              <p className="card-title-desc">
-                
-                  </p>
+              <p className="card-title-desc"></p>
 
-              <AvForm>
+              <AvForm onValidSubmit={handleSubmit}>
                 <AvField
                   className="mb-3"
-                  name="Min_Length"
+                  name="nom"
+                  value={nom}
+                  onChange={e => setNom(e.target.value)}
                   label="Nom  "
                   placeholder="Min 6 chars"
                   type="text"
@@ -123,7 +112,9 @@ const FormValidations = (props) => {
                 />
                 <AvField
                   className="mb-3"
-                  name="Max_Length"
+                  name="prénom"
+                  value={prénom}
+                  onChange={e => setPrenom(e.target.value)}
                   label="Prénom  "
                   placeholder="Max 6 chars"
                   type="text"
@@ -135,7 +126,9 @@ const FormValidations = (props) => {
                 />
                 <AvField
                   className="mb-3"
-                  name="Range_Length"
+                  name="Email"
+                  value={Email}
+                  onChange={e => setEmail(e.target.value)}
                   label="Email"
                   placeholder="Entre 5 - 10 chars"
                   type="text"
@@ -143,26 +136,38 @@ const FormValidations = (props) => {
                   validate={{
                     required: { value: true },
                     minLength: { value: 5 },
-                    maxLength: { value: 10 },
-                  }}
-                /> 
-
-<AvField
-                  className="mb-3"    
-                  name="Max_Value"
-                  label="Adresse"
-                  placeholder="max 5 Chars"
-                  max={6}
-                  type="string"
-                  errorMessage="max 5 Chars"
-                  validate={{
-                    required: { value: true },
-                    max: { value: 6 },
+                    maxLength: { value: 30 },
                   }}
                 />
                 <AvField
                   className="mb-3"
-                  name="Min_Value"
+                  name="motDePasse"
+                  value={MotDePasse}
+                  onChange={e => setMotDePasse(e.target.value)}
+                  label="mot de passe"
+                  placeholder="Entre 5 - 10 chars"
+                  type="password"
+                  errorMessage="Entre 5 - 10 chars"
+                  validate={{
+                    required: { value: true },
+                    minLength: { value: 5 },
+                    maxLength: { value: 30 },
+                  }}
+                />
+                <AvField
+                  className="mb-3"
+                  name="adresse"
+                  value={adresse}
+                  onChange={e => setAdresse(e.target.value)}
+                  label="Adresse"
+                  placeholder="max 5 Chars"
+                  type="string"
+                />
+                <AvField
+                  className="mb-3"
+                  name="dateDeNaissance"
+                  value={dateDeNaissance}
+                  onChange={e => setDateDeNaissance(e.target.value)}
                   label="Date De Naissance"
                   placeholder="....."
                   min={6}
@@ -173,84 +178,77 @@ const FormValidations = (props) => {
                     min: { value: 6 },
                   }}
                 />
-                
+
                 <AvField
                   className="mb-3"
-                  name="Range_Value"
+                  name="numeroDeTelephone"
+                  //name="Range_Value"
+                  value={numéroDeTéléphone}
+                  onChange={e => setNumeroDeTelephone(e.target.value)}
                   label="Numéro De Téléphone"
                   placeholder="8 chars"
                   type="string"
-                  errorMessage="8 chars"
+                  errorMessage="10 chars"
                   validate={{
                     required: { value: true },
                     min: { value: 6 },
-                    max: { value: 10 },
+                    max: { value: 20 },
                   }}
                 />
 
-<AvField
+                <AvField
                   className="mb-3"
-                  name="Range_Value"
-                  label="ID"
-                  placeholder="8 chars"
-                  type="string"
-                  errorMessage="8 chars"
+                  name="GroupeSanguin"
+                  value={GroupeSanguin}
+                  onChange={e => setGroupeSanguin(e.target.value)}
+                  label="Groupe Sanguin"
+                  type="select"
+                  errorMessage="erreur"
                   validate={{
                     required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 10 },
                   }}
-                />
+                >
+                  <option value="">Sélectionner le groupe sanguin</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </AvField>
 
-<AvField
-    className="mb-3"
-    name="Range_Value"
-    label="Groupe Sanguin"
-    type="select"
-    errorMessage="erreur"
-    validate={{
-        required: { value: true }
-    }}
->
-    <option value="">Sélectionner le groupe sanguin</option>
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
-</AvField>
-
-
-
-
-<AvField
-    className="mb-3"
-    name="Regular_Exp"
-    label="Sexe"
-    type="select"
-    errorMessage="Veuillez sélectionner un sexe"
-    validate={{
-        required: { value: true }
-    }}
->
-    <option value="">Sélectionner le sexe</option>
-    <option value="homme">Homme</option>
-    <option value="femme">Femme</option>
-   
-</AvField>
-
+                <AvField
+                  className="mb-3"
+                  name="Sexe"
+                  value={Sexe}
+                  onChange={e => setSexe(e.target.value)}
+                  label="Sexe"
+                  type="select"
+                  errorMessage="Veuillez sélectionner un sexe"
+                  validate={{
+                    required: { value: true },
+                  }}
+                >
+                  <option value="">Sélectionner le sexe</option>
+                  <option value="homme">Homme</option>
+                  <option value="femme">Femme</option>
+                </AvField>
 
                 <FormGroup className="mb-0">
                   <div>
-                    <Button type="submit" color="primary" className="ms-1">
-                    Soumettre
-                        </Button>{" "}
+                    <Button
+                      type="submit"
+                      color="primary"
+                      className="ms-1"
+                      onClick={handleSubmit}
+                    >
+                      Soumettre
+                    </Button>{" "}
                     <Button type="reset" color="secondary">
-                    Annuler
-                        </Button>
+                      Annuler
+                    </Button>
                   </div>
                 </FormGroup>
               </AvForm>
@@ -258,9 +256,9 @@ const FormValidations = (props) => {
           </Card>
         </Col>
       </Row>
-
+      <ToastContainer />
     </React.Fragment>
   )
 }
 
-export default connect(null, { setBreadcrumbItems })(FormValidations);
+export default connect(null, { setBreadcrumbItems })(FormValidations)

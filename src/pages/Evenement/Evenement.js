@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
-import { setBreadcrumbItems } from '../../store/actions';
-import { Link } from "react-router-dom";
+import { setBreadcrumbItems } from "../../store/actions"
+import { Link } from "react-router-dom"
 
 import {
   Button,
@@ -21,7 +21,7 @@ import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction"
 import BootstrapTheme from "@fullcalendar/bootstrap"
-import listPlugin from '@fullcalendar/list';
+import listPlugin from "@fullcalendar/list"
 
 import {
   addNewEvent,
@@ -33,8 +33,7 @@ import {
 import DeleteModal from "./DeleteModal"
 
 const Calendrier = props => {
-
-  document.title = "Calendrier";
+  document.title = "Calendrier"
 
   const { events, categories, onGetCategories, onGetEvents } = props
   const [setCalenderView, updatedCalenderView] = useState("dayGridMonth")
@@ -45,16 +44,16 @@ const Calendrier = props => {
   const [selectedDay, setSelectedDay] = useState(0)
   const [isEdit, setIsEdit] = useState(false)
 
-  const calendarRef = useRef();
+  const calendarRef = useRef()
   const getApi = () => {
-    const { current: calendarDom } = calendarRef;
+    const { current: calendarDom } = calendarRef
 
-    return calendarDom ? calendarDom.getApi() : null;
+    return calendarDom ? calendarDom.getApi() : null
   }
 
   const changeView = (view, API) => {
-    API && API.changeView(view);
-  };
+    API && API.changeView(view)
+  }
 
   useEffect(() => {
     onGetCategories()
@@ -64,8 +63,8 @@ const Calendrier = props => {
     })
 
     getInitialView()
-    const api = getApi();
-    changeView(setCalenderView, api);
+    const api = getApi()
+    changeView(setCalenderView, api)
   }, [onGetCategories, onGetEvents, setCalenderView])
 
   useEffect(() => {
@@ -142,7 +141,7 @@ const Calendrier = props => {
     toggle()
   }
 
-  const handleValidEventSubmitcategory = (values) => {
+  const handleValidEventSubmitcategory = values => {
     const { onAddNewEvent } = props
 
     const newEvent = {
@@ -155,7 +154,6 @@ const Calendrier = props => {
 
     onAddNewEvent(newEvent)
     toggleCategory()
-
   }
 
   /**
@@ -171,7 +169,7 @@ const Calendrier = props => {
   /**
    * On category darg event
    */
-  const onDrag = (event) => {
+  const onDrag = event => {
     event.preventDefault()
   }
 
@@ -192,11 +190,11 @@ const Calendrier = props => {
 
   const getInitialView = () => {
     if (window.innerWidth >= 768 && window.innerWidth < 1200) {
-      updatedCalenderView('dayGridWeek')
+      updatedCalenderView("dayGridWeek")
     } else if (window.innerWidth <= 768) {
-      updatedCalenderView('listWeek')
+      updatedCalenderView("listWeek")
     } else {
-      updatedCalenderView('dayGridMonth')
+      updatedCalenderView("dayGridMonth")
     }
   }
 
@@ -207,11 +205,10 @@ const Calendrier = props => {
   ]
 
   useEffect(() => {
-    props.onSetBreadCrumbs('Événement', breadcrumbItems)
-  });
+    props.onSetBreadCrumbs("Événement", breadcrumbItems)
+  })
 
   return (
-
     <React.Fragment>
       <DeleteModal
         show={deleteModal}
@@ -229,14 +226,15 @@ const Calendrier = props => {
                   className="btn-block"
                   onClick={toggleCategory}
                 >
-                  <i className="mdi mdi-plus-circle-outline" />
-                  {" "}Créer un nouvel événement
+                  <i className="mdi mdi-plus-circle-outline" /> Créer un nouvel
+                  événement
                 </Button>
               </div>
               <div id="external-events">
                 <br />
                 <p className="text-muted">
-                Glissez et déposez votre événement ou cliquez dans le calendrier
+                  Glissez et déposez votre événement ou cliquez dans le
+                  calendrier
                 </p>
                 {categories &&
                   categories.map((category, i) => (
@@ -260,7 +258,9 @@ const Calendrier = props => {
                     <div className="feed-item-list">
                       <div>
                         <div className="date">15 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
+                        <p className="activity-text mb-0">
+                          Répondu au besoin « Activités bénévoles »
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -269,7 +269,13 @@ const Calendrier = props => {
                     <div className="feed-item-list">
                       <div>
                         <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles » <Link to="" className="text-success">@Christi</Link> dolorem ipsum quia dolor sit amet</p>
+                        <p className="activity-text mb-0">
+                          Répondu au besoin « Activités bénévoles »{" "}
+                          <Link to="" className="text-success">
+                            @Christi
+                          </Link>{" "}
+                          dolorem ipsum quia dolor sit amet
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -277,7 +283,9 @@ const Calendrier = props => {
                     <div className="feed-item-list">
                       <div>
                         <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
+                        <p className="activity-text mb-0">
+                          Répondu au besoin « Activités bénévoles »
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -285,7 +293,9 @@ const Calendrier = props => {
                     <div className="feed-item-list">
                       <div>
                         <div className="date">13 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
+                        <p className="activity-text mb-0">
+                          Répondu au besoin « Activités bénévoles »
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -303,7 +313,7 @@ const Calendrier = props => {
                   BootstrapTheme,
                   dayGridPlugin,
                   interactionPlugin,
-                  listPlugin
+                  listPlugin,
                 ]}
                 slotDuration={"00:15:00"}
                 handleWindowResize={true}
@@ -402,12 +412,10 @@ const Calendrier = props => {
                 className={props.className}
               >
                 <ModalHeader toggle={toggleCategory} tag="h4">
-                Ajouter une catégorie
+                  Ajouter une catégorie
                 </ModalHeader>
                 <ModalBody>
-                  <AvForm
-                    onValidSubmit={handleValidEventSubmitcategory}
-                  >
+                  <AvForm onValidSubmit={handleValidEventSubmitcategory}>
                     <Row form>
                       <Col className="col-12 mb-3">
                         <AvField
@@ -419,9 +427,7 @@ const Calendrier = props => {
                             required: { value: true },
                           }}
                           value={
-                            event.title_category
-                              ? event.title_category
-                              : ""
+                            event.title_category ? event.title_category : ""
                           }
                         />
                       </Col>
@@ -430,9 +436,7 @@ const Calendrier = props => {
                           type="select"
                           name="event_category"
                           label="Choisissez la couleur de la catégorie"
-                          value={
-                            event ? event.event_category : "bg-primary"
-                          }
+                          value={event ? event.event_category : "bg-primary"}
                         >
                           <option value="bg-danger">Danger</option>
                           <option value="bg-success">Succès</option>
@@ -469,7 +473,6 @@ const Calendrier = props => {
           </div>
         </Col>
       </Row>
-
     </React.Fragment>
   )
 }
@@ -497,7 +500,8 @@ const mapDispatchToProps = dispatch => ({
   onAddNewEvent: event => dispatch(addNewEvent(event)),
   onUpdateEvent: event => dispatch(updateEvent(event)),
   onDeleteEvent: event => dispatch(deleteEvent(event)),
-  onSetBreadCrumbs: (title, breadcrumbItems) => dispatch(setBreadcrumbItems(title, breadcrumbItems)),
+  onSetBreadCrumbs: (title, breadcrumbItems) =>
+    dispatch(setBreadcrumbItems(title, breadcrumbItems)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendrier)

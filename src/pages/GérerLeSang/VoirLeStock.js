@@ -1,128 +1,110 @@
-import React, { useEffect } from "react"
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons"
 
+import { Table, Row, Col, Card, CardBody, CardTitle } from "reactstrap"
 
-import {
-  Table,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardTitle,
-} from "reactstrap"
-
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
 //Import Action to copy breadcrumb items from local state to redux state
-import { setBreadcrumbItems } from "../../store/actions";
+import { setBreadcrumbItems } from "../../store/actions"
 
-const BasicTable = (props) => {
-  document.title = "Voir le Stock De Sang";
+const BasicTable = props => {
+  document.title = "Voir le Stock De Sang"
 
-  
   const breadcrumbItems = [
-    { title : "Voir le Stock De Sang", link : "#" },
-    { title : "Tables", link : "#" },
-    { title : "Table De Stock De Sang ", link : "#" },
+    { title: "Voir le Stock De Sang", link: "#" },
+    { title: "Tables", link: "#" },
+    { title: "Table De Stock De Sang ", link: "#" },
   ]
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate('/AjouterLeStockDeSang');
-  };
+    navigate("/AjouterLeStockDeSang")
+  }
 
   useEffect(() => {
-    props.setBreadcrumbItems('Voir le Stock De Sang', breadcrumbItems)
+    props.setBreadcrumbItems("Voir le Stock De Sang", breadcrumbItems)
   })
+  const [sang, setsang] = useState([])
+  const fetchsang = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/sangs")
+      setsang(response.data)
+    } catch (error) {
+      console.error("Erreur lors de la récupération des stoks du sang:", error)
+    }
+  }
+  useEffect(() => {
+    fetchsang()
+  }, [])
   return (
     <React.Fragment>
-     
       <Row>
         <Col lg={12}>
-        <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
+          <button
+            onClick={handleClick}
+            className="btn btn-primary btn-lg "
+            style={{ marginLeft: 1150 }}
+          >
+            Ajouter
+          </button>
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Stock De Sang</CardTitle>
-             
 
               <div className="table-responsive">
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
-                    
-                    <th>Donneur</th> 
-                    <th>Type de Sang</th>
+                      <th>Donneur</th>
+                      <th>Type de Sang</th>
                       <th>Rhésus</th>
                       <th>Quantité De sang</th>
                       <th>Date De Don</th>
-                     <th>Récepteur</th>
+                      <th>DisponibilitéImmédiate</th>
                       <th>Action</th>
-
- 
-
-                     
-
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
-                     
-                    </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
-                      
-                    </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                       <td>@mdo</td>
-                      <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
-                      
-                    </tr>
+                    {sang.map(stock => (
+                      <tr key={stock._id}>
+                        <td></td>
+                        <td>{stock.GroupeSanguin}</td>
+                        <td>{stock.Rhésus}</td>
+                        <td>{stock.QuantitéDisponible}</td>
+                        <td>{stock.DateDecollecte}</td>
+                        <td>{stock.DisponibilitéImmédiate}</td>
+
+                        {/* Affichez les autres informations du donateur ici */}
+                        <td>
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="text-danger mr-1"
+                            //onClick={() => handleDeleteDocteur(staf._id)}
+                          />
+                          <FontAwesomeIcon
+                            icon={faEdit}
+                            className="text-warning"
+                            style={{ marginLeft: 20 }}
+                            //onClick={() => openModal3(staf)}
+                            //onClick={() => handleEditDonateur(donateur._id)}
+                          />
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </Table>
               </div>
             </CardBody>
           </Card>
         </Col>
-
-        
       </Row>
-
-    
-
-
     </React.Fragment>
   )
 }
 
-export default connect(null, { setBreadcrumbItems })(BasicTable);
+export default connect(null, { setBreadcrumbItems })(BasicTable)
