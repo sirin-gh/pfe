@@ -116,6 +116,7 @@ import AjouterRapport from "pages/rapport/ajouter-rapport"
 import AjouterRapportDocteur from "pages/DocteurPages/ajouter-rapport-docteur-"
 import AjouterStockDeSangDocteur from "pages/DocteurPages/ajouter-stockDeSang-docteur"
 import AjouterStockDeSangDonneur from "pages/DonneurPages/ajouter-StockDeSang-Donneur"
+import DocteurConsulter from "pages/DocteurPages/docteur-consulter"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -244,6 +245,7 @@ const docteurRoutes=[
   { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
   { path: "/ajouter-rapport-docteur", component: <AjouterRapportDocteur /> },
   { path: "/ajouter-stockDeSang-docteur", component: <AjouterStockDeSangDocteur /> },
+  { path: "/docteur-consulter", component: <DocteurConsulter /> },
  
 
 ]

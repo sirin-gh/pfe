@@ -22,7 +22,7 @@ const BasicTable = (props) => {
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate('/ajouter-rapport-docteur');
+    navigate('/ajouter-rapport');
   };
   useEffect(() => {
     props.setBreadcrumbItems('Rapport', breadcrumbItems);
@@ -32,7 +32,7 @@ const BasicTable = (props) => {
     <React.Fragment>
       <Row>
         <Col xl={12}> 
-         <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
+        
           <Card>
             <CardBody>
               <div className="table-responsive">
@@ -54,7 +54,7 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                      <td>
                         {/* Use Link for navigation */}
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                        <Link to="/docteur-consulter" className="btn btn-primary mr-2">Consulter</Link>
                       </td>
                     </tr>
                     <tr>

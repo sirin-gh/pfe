@@ -19,16 +19,16 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const FormValidations = (props) => {
-  document.title = "Ajouter Staff";
+  document.title = "Ajouter Collectes";
 
   const breadcrumbItems = [
-    { title: "Ajouter Staff", link: "#" },
+    { title: "Ajouter Collectes", link: "#" },
     { title: "Formulaire", link: "#" },
-    { title: "Formulaire Staff", link: "#" },
+    { title: "Formulaire Collectes", link: "#" },
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Ajouter Staff', breadcrumbItems)
+    props.setBreadcrumbItems('Ajouter Collectes', breadcrumbItems)
   })
 
 

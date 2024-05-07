@@ -52,9 +52,9 @@ const BasicTable = (props) => {
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
-                     <td>
-                        {/* Use Link for navigation */}
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
                     </tr>
                     <tr>
@@ -62,8 +62,9 @@ const BasicTable = (props) => {
                       <td>Jacob</td>
                       <td>Thornton</td>
                       <td>@fat</td>
-                     <td>
-                        <Link to="/path/to/destination" className="btn btn-primary mr-2">Consulter</Link>
+                      <td>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
                     </tr>
                     <tr>
@@ -72,7 +73,8 @@ const BasicTable = (props) => {
                       <td>the Bird</td>
                       <td>@twitter</td>
                       <td>
-                        <Link to="/path/to/destination" className="btn btn-primary mr-2">Consulter</Link>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
                     </tr>
                   </tbody>

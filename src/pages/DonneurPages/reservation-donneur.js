@@ -47,7 +47,7 @@ const BasicTable = (props) => {
                   <thead>
                     <tr>
                     
-                    <th>Nom et prénom</th>
+                    
                       <th>Date et Heure</th>
                       <th>Groupe sanguin</th>
                        <th>Emplacement</th>
@@ -66,39 +66,18 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>
+                        <td>
                         <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
                       </td>
                       
                      
                     </tr>
                     <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                     <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>@mdo</td>
-                      <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
-                      </td>
+                    
                       
                       
                     </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                     <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>the Bird</td>
-                      <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
-                      </td>
-                     
-                      
-                    </tr>
+                    
                   </tbody>
                 </Table>
               </div>

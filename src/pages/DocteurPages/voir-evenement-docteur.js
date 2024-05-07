@@ -218,16 +218,7 @@ const Calendrier = props => {
         <Col xl={3}>
           <Card>
             <CardBody className="d-grid">
-              <div className="d-grid">
-                <Button
-                  color="primary"
-                  className="btn-block"
-                  onClick={toggleCategory}
-                >
-                  <i className="mdi mdi-plus-circle-outline" />
-                  {" "}Créer un nouvel événement
-                </Button>
-              </div>
+              
               <div id="external-events">
                 <br />
                 <p className="text-muted">

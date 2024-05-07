@@ -40,7 +40,7 @@ const BasicTable = (props) => {
      
       <Row>
         <Col lg={12}>
-        <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
+       
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Stock De Sang</CardTitle>
@@ -57,7 +57,7 @@ const BasicTable = (props) => {
                       <th>Quantité De sang</th>
                       <th>Date De Don</th>
                      <th>Récepteur</th>
-                      <th>Action</th>
+                     
 
  
 
@@ -72,12 +72,7 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
+                      <td>Otto</td>
                      
                     </tr>
                     <tr>
@@ -86,12 +81,7 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
+                      <td>Otto</td>
                       
                     </tr>
                     <tr>
@@ -100,12 +90,7 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                       <td>@mdo</td>
-                      <td>
-                        {/* Add "Supprimer" and "Editer" buttons */}
-                        <button className="btn btn-danger btn-sm mr-1">Supprimer</button>
-                        <button className="btn btn-warning btn-sm" style={{marginLeft:20}}>Editer</button>
-                      </td>
+                      <td>Otto</td> 
                       
                     </tr>
                   </tbody>

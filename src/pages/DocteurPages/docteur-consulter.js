@@ -114,7 +114,8 @@ const PagesInvoice = (props) => {
                                                            <td className="text-center"><strong>Rhésus</strong></td>
                                                             <td className="text-center"><strong>Date/Heure Réservation</strong></td>
                                                             <td className="text-end"><strong>Confirmation</strong></td>
-                                                         <td className="text-end"><strong>Récepteur</strong></td>
+                                                            <td className="text-end"><strong>Date</strong></td>
+                                                           <td className="text-end"><strong>Récepteur</strong></td>
                                                             <td className="text-end"><strong>Emplacement</strong></td>
                                                             <td className="text-end"><strong>Organisateur</strong></td>
                                                             
@@ -130,7 +131,8 @@ const PagesInvoice = (props) => {
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
-                                                           <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
                                                         </tr>
                                                         <tr>
@@ -141,7 +143,8 @@ const PagesInvoice = (props) => {
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
-                                                           <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
                                                         </tr>
                                                         
@@ -153,6 +156,7 @@ const PagesInvoice = (props) => {
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
                                                         </tr>
@@ -164,17 +168,7 @@ const PagesInvoice = (props) => {
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
-                                                           <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BS-1000</td>
-                                                            <td className="text-center">$600.00</td>
-                                                            <td className="text-center">1</td>
-                                                            <td className="text-end">$600.00</td>
-                                                            <td className="text-center">$10.99</td>
-                                                            <td className="text-center">1</td>
-                                                           <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
                                                         </tr>
@@ -185,6 +179,19 @@ const PagesInvoice = (props) => {
                                                             <td className="text-end">$600.00</td>
                                                             <td className="text-center">$10.99</td>
                                                             <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>BS-1000</td>
+                                                            <td className="text-center">$600.00</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$600.00</td>
+                                                            <td className="text-center">$10.99</td>
+                                                            <td className="text-center">1</td>
+                                                            <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>
                                                             <td className="text-end">$10.99</td>
                                                             <td className="text-center">1</td>

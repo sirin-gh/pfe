@@ -66,9 +66,9 @@ const Chat = (props) => {
         isActive: true,
     };
     const [activeTab, setactiveTab] = useState("1");
-    const [Chat_Box_Username, setChat_Box_Username] = useState("Jennie Sherlock");
+    const [Chat_Box_Username, setChat_Box_Username] = useState("Personne");
     // eslint-disable-next-line no-unused-vars
-    const [Chat_Box_User_Status, setChat_Box_User_Status] = useState("online");
+    const [Chat_Box_User_Status, setChat_Box_User_Status] = useState("En Ligne");
     const [curMessage, setcurMessage] = useState("");
     const [selectedImage, setSelectedImage] = useState(null);
     const [isdisable, setDisable] = useState(false);
@@ -224,13 +224,13 @@ const Chat = (props) => {
                                 </div>
                             </div>
                             <h5 className="font-size-16 mb-1 mt-3"><Link to="#" className="text-reset">{Chat_Box_Username} </Link></h5>
-                            <p className="text-muted mb-0">Available</p>
+                            <p className="text-muted mb-0">Disponible</p>
                         </div>
                     </CardBody>
 
                     <div className="p-3">
                         <div className="search-box position-relative">
-                            <Input type="text" onKeyUp={searchUsers} className="form-control rounded border" placeholder="Search..." />
+                            <Input type="text" onKeyUp={searchUsers} className="form-control rounded border" placeholder="Chercher..." />
                             <i className="mdi mdi-magnify search-icon"></i>
                         </div>
                     </div>
@@ -260,7 +260,7 @@ const Chat = (props) => {
                                     }}
                                 >
                                     <i className="bx bx-group font-size-20 d-sm-none"></i>
-                                    <span className="d-none d-sm-block">Groups</span>
+                                    <span className="d-none d-sm-block">Groupes</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -273,7 +273,7 @@ const Chat = (props) => {
                                     }}
                                 >
                                     <i className="bx bx-book-content font-size-20 d-sm-none"></i>
-                                    <span className="d-none d-sm-block">Contacts</span>
+                                    <span className="d-none d-sm-block">Contactes</span>
                                 </NavLink>
                             </NavItem>
                         </Nav>
@@ -282,7 +282,7 @@ const Chat = (props) => {
                                 <SimpleBar className="chat-message-list">
                                     <div className="pt-3">
                                         <div className="px-3">
-                                            <h5 className="font-size-14 mb-3">Recent</h5>
+                                            <h5 className="font-size-14 mb-3">Récent</h5>
                                         </div>
                                         <ul className="list-unstyled chat-list p-3">
                                             {
@@ -432,8 +432,8 @@ const Chat = (props) => {
                                             <img src={user2} alt="" className="img-fluid d-block avatar rounded-circle" />
                                         </div>
                                         <div className="flex-grow-1">
-                                            <h5 className="font-size-16 mb-1 text-truncate"><Link to="#" className="text-reset">Jennie Sherlock</Link></h5>
-                                            <p className="text-muted text-truncate mb-0">Online</p>
+                                            <h5 className="font-size-16 mb-1 text-truncate"><Link to="#" className="text-reset">Personne</Link></h5>
+                                            <p className="text-muted text-truncate mb-0">En Ligne</p>
                                         </div>
                                     </div>
                                 </Col>
@@ -545,7 +545,7 @@ const Chat = (props) => {
                                             value={curMessage}
                                             onKeyPress={onKeyPress}
                                             onChange={e => { setcurMessage(e.target.value); setDisable(true) }}
-                                             className="form-control border chat-input" placeholder="Enter Message..." />
+                                             className="form-control border chat-input" placeholder="Entrer Message..." />
                                     </div>
                                 </div>
                                 <div className="col-auto">
@@ -556,7 +556,7 @@ const Chat = (props) => {
                                     onClick={() => addMessage()}
                                     className="chat-send w-md waves-effect waves-light">
                                         <span className="d-none d-sm-inline-block me-2">
-                                            Send</span> <i className="mdi mdi-send float-end"></i></Button>
+                                            Envoyer</span> <i className="mdi mdi-send float-end"></i></Button>
                                 </div>
                             </div>
                         </div>

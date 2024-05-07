@@ -29,7 +29,7 @@ const BasicTable = (props) => {
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate('/AjouterLeStockDeSang');
+    navigate('/Ajouter-LeStockDeSang-Staff');
   };
 
   useEffect(() => {

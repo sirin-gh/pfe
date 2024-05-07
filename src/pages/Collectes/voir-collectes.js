@@ -17,13 +17,13 @@ import { connect } from "react-redux";
 import { setBreadcrumbItems } from "../../store/actions";
 
 const BasicTable = (props) => {
-  document.title = "Table De Staff";
+  document.title = "Table De Collectes";
 
   
   const breadcrumbItems = [
-    { title : "Voir Staff", link : "#" },
+    { title : "Voir Collectes", link : "#" },
     { title : "Tables", link : "#" },
-    { title : "Tables De Staff", link : "#" },
+    { title : "Tables De Collectes", link : "#" },
   ]
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const BasicTable = (props) => {
     navigate('/ajouter-collectes');
   };
   useEffect(() => {
-    props.setBreadcrumbItems('Voir Staff', breadcrumbItems)
+    props.setBreadcrumbItems('Voir Collectes', breadcrumbItems)
   })
   return (
     <React.Fragment>
@@ -42,7 +42,7 @@ const BasicTable = (props) => {
         <button  onClick={handleClick}className="btn btn-primary btn-lg " style={{marginLeft:1150}}>Ajouter</button>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Table De Staff</CardTitle>
+              <CardTitle className="h4">Table De Collectes</CardTitle>
              
 
               <div className="table-responsive">
@@ -52,8 +52,7 @@ const BasicTable = (props) => {
                     <th>Nom</th>
                     <th>Date et heure</th>
                       <th>Lieu</th>
-                      <th>Type de collecte</th>
-                      <th>Objectif</th>
+                     <th>Objectif</th>
                      <th>Description</th>
                        <th>Action</th>
                      
@@ -68,7 +67,6 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
                      
                      
                       <td>
@@ -85,7 +83,6 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
                      
                       <td>
                         {/* Add "Supprimer" and "Editer" buttons */}
@@ -101,8 +98,7 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
-                     
+                    
                       <td>
                         {/* Add "Supprimer" and "Editer" buttons */}
                         <button className="btn btn-danger btn-sm mr-1">Supprimer</button>

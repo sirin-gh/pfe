@@ -57,9 +57,9 @@ const BasicTable = (props) => {
                       <th>Date et Heure</th>
                       <th>Groupe sanguin</th>
                        <th>Emplacement</th>
-                     <th>Organisateur</th>
-                     <th>Confirmation de réservation </th>
-                     <th>Action </th>
+                    <th>Confirmation de réservation </th>
+                     <th>Action </th> 
+                     
                      
                       
 
@@ -72,10 +72,11 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                       <td>Mark</td>
                       <td>Otto</td>
-                      <td>@mdo</td>
                       <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
+                      
                       
                      
                     </tr>
@@ -85,9 +86,9 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                      <td>Thornton</td>
                       <td>@fat</td>
-                      <td>@mdo</td>
                       <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
                       
                       
@@ -98,9 +99,9 @@ const BasicTable = (props) => {
                       <td>@mdo</td>
                      <td>the Bird</td>
                       <td>@twitter</td>
-                      <td>the Bird</td>
                       <td>
-                        <Link to="/consulter" className="btn btn-primary mr-2">Consulter</Link>
+                        <Link to="/consulter" className="btn btn-primary  mr-2">Consulter</Link>
+                        <button className="btn btn-danger mr-2"style={{marginLeft:20}}>Supprimer</button>
                       </td>
                      
                       
