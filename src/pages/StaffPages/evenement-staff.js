@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react"
+import axios from "axios"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
-import { setBreadcrumbItems } from '../../store/actions';
-import { Link } from "react-router-dom";
+import { setBreadcrumbItems } from "../../store/actions"
+import { Link } from "react-router-dom"
 
 import {
   Button,
@@ -21,7 +22,7 @@ import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction"
 import BootstrapTheme from "@fullcalendar/bootstrap"
-import listPlugin from '@fullcalendar/list';
+import listPlugin from "@fullcalendar/list"
 
 import {
   addNewEvent,
@@ -33,8 +34,7 @@ import {
 import DeleteModal from "./DeleteModal"
 
 const Calendrier = props => {
-
-  document.title = "Calendrier";
+  document.title = "Calendrier"
 
   const { events, categories, onGetCategories, onGetEvents } = props
   const [setCalenderView, updatedCalenderView] = useState("dayGridMonth")
@@ -45,16 +45,16 @@ const Calendrier = props => {
   const [selectedDay, setSelectedDay] = useState(0)
   const [isEdit, setIsEdit] = useState(false)
 
-  const calendarRef = useRef();
+  const calendarRef = useRef()
   const getApi = () => {
-    const { current: calendarDom } = calendarRef;
+    const { current: calendarDom } = calendarRef
 
-    return calendarDom ? calendarDom.getApi() : null;
+    return calendarDom ? calendarDom.getApi() : null
   }
 
   const changeView = (view, API) => {
-    API && API.changeView(view);
-  };
+    API && API.changeView(view)
+  }
 
   useEffect(() => {
     onGetCategories()
@@ -64,8 +64,8 @@ const Calendrier = props => {
     })
 
     getInitialView()
-    const api = getApi();
-    changeView(setCalenderView, api);
+    const api = getApi()
+    changeView(setCalenderView, api)
   }, [onGetCategories, onGetEvents, setCalenderView])
 
   useEffect(() => {
@@ -142,7 +142,7 @@ const Calendrier = props => {
     toggle()
   }
 
-  const handleValidEventSubmitcategory = (values) => {
+  const handleValidEventSubmitcategory = values => {
     const { onAddNewEvent } = props
 
     const newEvent = {
@@ -155,7 +155,6 @@ const Calendrier = props => {
 
     onAddNewEvent(newEvent)
     toggleCategory()
-
   }
 
   /**
@@ -171,7 +170,7 @@ const Calendrier = props => {
   /**
    * On category darg event
    */
-  const onDrag = (event) => {
+  const onDrag = event => {
     event.preventDefault()
   }
 
@@ -192,11 +191,11 @@ const Calendrier = props => {
 
   const getInitialView = () => {
     if (window.innerWidth >= 768 && window.innerWidth < 1200) {
-      updatedCalenderView('dayGridWeek')
+      updatedCalenderView("dayGridWeek")
     } else if (window.innerWidth <= 768) {
-      updatedCalenderView('listWeek')
+      updatedCalenderView("listWeek")
     } else {
-      updatedCalenderView('dayGridMonth')
+      updatedCalenderView("dayGridMonth")
     }
   }
 
@@ -207,11 +206,29 @@ const Calendrier = props => {
   ]
 
   useEffect(() => {
-    props.onSetBreadCrumbs('Événement', breadcrumbItems)
-  });
-
+    props.onSetBreadCrumbs("Événement", breadcrumbItems)
+  })
+  const [evenemets, setevenemets] = useState([])
+  const fetchevenements = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/evenements")
+      setevenemets(response.data)
+    } catch (error) {
+      console.error("Erreur lors de la récupération des evenements:", error)
+    }
+  }
+  useEffect(() => {
+    fetchevenements()
+  }, [])
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
-
     <React.Fragment>
       <DeleteModal
         show={deleteModal}
@@ -223,10 +240,9 @@ const Calendrier = props => {
         <Col xl={3}>
           <Card>
             <CardBody className="d-grid">
-              
               <div id="external-events">
                 <br />
-               
+
                 {categories &&
                   categories.map((category, i) => (
                     <div
@@ -245,39 +261,20 @@ const Calendrier = props => {
                 <h5 className="font-size-14 mb-4">Activité récente :</h5>
 
                 <ul className="list-unstyled activity-feed ms-1">
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">15 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
+                  {evenemets.map(evenement => (
+                    <li className="feed-item">
+                      <div className="feed-item-list">
+                        <div>
+                          <div className="date">
+                            {formatDate(evenement.date)}
+                          </div>
+                          <p className="activity-text mb-0">
+                            {evenement.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles » <Link to="" className="text-success">@Christi</Link> dolorem ipsum quia dolor sit amet</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">13 Juil</div>
-                        <p className="activity-text mb-0">Répondu au besoin « Activités bénévoles »</p>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </CardBody>
@@ -292,7 +289,7 @@ const Calendrier = props => {
                   BootstrapTheme,
                   dayGridPlugin,
                   interactionPlugin,
-                  listPlugin
+                  listPlugin,
                 ]}
                 slotDuration={"00:15:00"}
                 handleWindowResize={true}
@@ -302,169 +299,21 @@ const Calendrier = props => {
                   center: "title",
                   right: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
                 }}
-                events={events}
-                editable={true}
-                droppable={true}
-                selectable={true}
-                dateClick={handleDateClick}
-                eventClick={handleEventClick}
-                drop={onDrop}
+                events={evenemets}
                 ref={calendarRef}
                 initialView={setCalenderView}
                 windowResize={getInitialView}
               />
-
-              {/* New/Edit event modal */}
-              <Modal isOpen={modal} className={props.className}>
-                <ModalHeader toggle={toggle} tag="h4">
-                  {!!isEdit ? "Modifier l'événement" : "Ajouter un événement"}
-                </ModalHeader>
-                <ModalBody>
-                  <AvForm onValidSubmit={handleValidEventSubmit}>
-                    <Row form>
-                      <Col className="col-12 mb-3">
-                        <AvField
-                          name="title"
-                          label="Nom de l'événement"
-                          type="text"
-                          errorMessage="Nom invalide"
-                          validate={{
-                            required: { value: true },
-                          }}
-                          value={event ? event.title : ""}
-                        />
-                      </Col>
-                      <Col className="col-12 mb-3">
-                        <AvField
-                          type="select"
-                          name="category"
-                          label="Sélectionnez la catégorie"
-                          validate={{
-                            required: { value: true },
-                          }}
-                          value={event ? event.category : "bg-primary"}
-                        >
-                          <option value="bg-danger">Danger</option>
-                          <option value="bg-success">Succès</option>
-                          <option value="bg-primary">Primaire</option>
-                          <option value="bg-info">Info</option>
-                          <option value="bg-dark">Sombre</option>
-                          <option value="bg-warning">Avertissement</option>
-                        </AvField>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <div className="text-end">
-                          <button
-                            type="button"
-                            className="btn btn-light me-2"
-                            onClick={toggle}
-                          >
-                            Fermer
-                          </button>
-                          {!!isEdit && (
-                            <button
-                              type="button"
-                              className="btn btn-danger me-2"
-                              onClick={() => setDeleteModal(true)}
-                            >
-                              Supprimer
-                            </button>
-                          )}
-                          <button
-                            type="submit"
-                            className="btn btn-success save-event"
-                          >
-                            Sauvegarder
-                          </button>
-                        </div>
-                      </Col>
-                    </Row>
-                  </AvForm>
-                </ModalBody>
-              </Modal>
-
-              <Modal
-                isOpen={modalcategory}
-                toggle={toggleCategory}
-                className={props.className}
-              >
-                <ModalHeader toggle={toggleCategory} tag="h4">
-                Ajouter une catégorie
-                </ModalHeader>
-                <ModalBody>
-                  <AvForm
-                    onValidSubmit={handleValidEventSubmitcategory}
-                  >
-                    <Row form>
-                      <Col className="col-12 mb-3">
-                        <AvField
-                          name="title_category"
-                          label="Nom de catégorie"
-                          type="text"
-                          errorMessage="Nom invalide"
-                          validate={{
-                            required: { value: true },
-                          }}
-                          value={
-                            event.title_category
-                              ? event.title_category
-                              : ""
-                          }
-                        />
-                      </Col>
-                      <Col className="col-12 mb-3">
-                        <AvField
-                          type="select"
-                          name="event_category"
-                          label="Choisissez la couleur de la catégorie"
-                          value={
-                            event ? event.event_category : "bg-primary"
-                          }
-                        >
-                          <option value="bg-danger">Danger</option>
-                          <option value="bg-success">Succès</option>
-                          <option value="bg-primary">Primaire</option>
-                          <option value="bg-info">Info</option>
-                          <option value="bg-dark">Sombre</option>
-                          <option value="bg-warning">Avertissement</option>
-                        </AvField>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col>
-                        <div className="text-right">
-                          <button
-                            type="button"
-                            className="btn btn-light me-2"
-                            onClick={toggleCategory}
-                          >
-                            Fermer
-                          </button>
-                          <button
-                            type="submit"
-                            className="btn btn-success save-event"
-                          >
-                            Sauvegarder
-                          </button>
-                        </div>
-                      </Col>
-                    </Row>
-                  </AvForm>
-                </ModalBody>
-              </Modal>
             </div>
           </div>
         </Col>
       </Row>
-
     </React.Fragment>
   )
 }
 
 Calendrier.propTypes = {
-  events: PropTypes.array,
+  evenemets: PropTypes.array,
   categories: PropTypes.array,
   className: PropTypes.string,
   onGetEvents: PropTypes.func,
@@ -476,7 +325,7 @@ Calendrier.propTypes = {
 }
 
 const mapStateToProps = ({ calendar }) => ({
-  events: calendar.events,
+  evenemets: calendar.evenemets,
   categories: calendar.categories,
 })
 
@@ -486,7 +335,8 @@ const mapDispatchToProps = dispatch => ({
   onAddNewEvent: event => dispatch(addNewEvent(event)),
   onUpdateEvent: event => dispatch(updateEvent(event)),
   onDeleteEvent: event => dispatch(deleteEvent(event)),
-  onSetBreadCrumbs: (title, breadcrumbItems) => dispatch(setBreadcrumbItems(title, breadcrumbItems)),
+  onSetBreadCrumbs: (title, breadcrumbItems) =>
+    dispatch(setBreadcrumbItems(title, breadcrumbItems)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calendrier)

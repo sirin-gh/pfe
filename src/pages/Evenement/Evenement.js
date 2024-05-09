@@ -1,4 +1,8 @@
 import React, { useEffect, useState, useRef } from "react"
+
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import axios from "axios"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
@@ -207,7 +211,65 @@ const Calendrier = props => {
   useEffect(() => {
     props.onSetBreadCrumbs("Événement", breadcrumbItems)
   })
+  const [evenemets, setevenemets] = useState([])
+  const fetchevenements = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/evenements")
+      setevenemets(response.data)
+    } catch (error) {
+      console.error("Erreur lors de la récupération des evenements:", error)
+    }
+  }
+  useEffect(() => {
+    fetchevenements()
+  }, [])
+  const [titre, settitre] = useState("")
+  const [description, setdescription] = useState("")
+  const [date, setdate] = useState("")
 
+  const [donneur, setDonneur] = useState("")
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/create-evenement",
+        {
+          titre,
+          description,
+          date,
+        },
+      )
+      console.log("évenement créé avec succès:", response.data)
+      toast.success("évenement créé avec succès")
+
+      // Réinitialiser les champs
+      settitre("")
+      setdate("")
+      setdescription("")
+    } catch (error) {
+      console.error("Erreur lors de la création d'évenement:", error)
+      toast.error(
+        `Erreur lors de la création d'évenement: ${error.response.data.errorMessage}`,
+      )
+    }
+  }
+  const [selectedevenement, setselectedevenement] = useState(null)
+  const handleEditreservation = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/update-evenement/${selectedevenement._id}`,
+        selectedevenement,
+      )
+      console.log("évenement modifié avec succès:", response.data)
+      toast.success("réservation modifié avec succès") // Afficher un toast de succès
+      // Ajoutez ici toute autre logique que vous souhaitez exécuter après la modification du donateur
+    } catch (error) {
+      console.error("Erreur lors de la modification d'évenement:", error)
+      toast.error("Erreur lors de la modification d'évenement")
+      // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
+    }
+  }
   return (
     <React.Fragment>
       <DeleteModal
@@ -254,51 +316,18 @@ const Calendrier = props => {
                 <h5 className="font-size-14 mb-4">Activité récente :</h5>
 
                 <ul className="list-unstyled activity-feed ms-1">
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">15 Juil</div>
-                        <p className="activity-text mb-0">
-                          Répondu au besoin « Activités bénévoles »
-                        </p>
+                  {evenemets.map(evenement => (
+                    <li className="feed-item">
+                      <div className="feed-item-list">
+                        <div>
+                          <div className="date">{evenement.date}</div>
+                          <p className="activity-text mb-0">
+                            {evenement.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">
-                          Répondu au besoin « Activités bénévoles »{" "}
-                          <Link to="" className="text-success">
-                            @Christi
-                          </Link>{" "}
-                          dolorem ipsum quia dolor sit amet
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">14 Juil</div>
-                        <p className="activity-text mb-0">
-                          Répondu au besoin « Activités bénévoles »
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="feed-item">
-                    <div className="feed-item-list">
-                      <div>
-                        <div className="date">13 Juil</div>
-                        <p className="activity-text mb-0">
-                          Répondu au besoin « Activités bénévoles »
-                        </p>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </CardBody>
@@ -323,7 +352,7 @@ const Calendrier = props => {
                   center: "title",
                   right: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
                 }}
-                events={events}
+                events={evenemets}
                 editable={true}
                 droppable={true}
                 selectable={true}
@@ -412,39 +441,57 @@ const Calendrier = props => {
                 className={props.className}
               >
                 <ModalHeader toggle={toggleCategory} tag="h4">
-                  Ajouter une catégorie
+                  Ajouter un évenement
                 </ModalHeader>
                 <ModalBody>
-                  <AvForm onValidSubmit={handleValidEventSubmitcategory}>
+                  <AvForm>
                     <Row form>
                       <Col className="col-12 mb-3">
                         <AvField
-                          name="title_category"
-                          label="Nom de catégorie"
+                          className="mb-3"
+                          name="titre"
+                          value={titre}
+                          onChange={e => settitre(e.target.value)}
+                          label="titre"
+                          placeholder="...."
                           type="text"
-                          errorMessage="Nom invalide"
+                          errorMessage="erreur"
                           validate={{
                             required: { value: true },
                           }}
-                          value={
-                            event.title_category ? event.title_category : ""
-                          }
                         />
                       </Col>
                       <Col className="col-12 mb-3">
                         <AvField
-                          type="select"
-                          name="event_category"
-                          label="Choisissez la couleur de la catégorie"
-                          value={event ? event.event_category : "bg-primary"}
-                        >
-                          <option value="bg-danger">Danger</option>
-                          <option value="bg-success">Succès</option>
-                          <option value="bg-primary">Primaire</option>
-                          <option value="bg-info">Info</option>
-                          <option value="bg-dark">Sombre</option>
-                          <option value="bg-warning">Avertissement</option>
-                        </AvField>
+                          className="mb-3"
+                          name="date"
+                          value={date}
+                          onChange={e => setdate(e.target.value)}
+                          label="date"
+                          placeholder="....s"
+                          min={6}
+                          type="date"
+                          errorMessage="erreur"
+                          validate={{
+                            required: { value: true },
+                            min: { value: 6 },
+                          }}
+                        />
+                      </Col>
+                      <Col className="col-12 mb-3">
+                        <AvField
+                          className="mb-3"
+                          name="description"
+                          value={description}
+                          onChange={e => setdescription(e.target.value)}
+                          label="description"
+                          placeholder="....s"
+                          type="text"
+                          errorMessage="erreur"
+                          validate={{
+                            required: { value: true },
+                          }}
+                        />
                       </Col>
                     </Row>
                     <Row>
@@ -460,6 +507,7 @@ const Calendrier = props => {
                           <button
                             type="submit"
                             className="btn btn-success save-event"
+                            onClick={handleSubmit}
                           >
                             Sauvegarder
                           </button>
@@ -473,6 +521,7 @@ const Calendrier = props => {
           </div>
         </Col>
       </Row>
+      <ToastContainer />
     </React.Fragment>
   )
 }

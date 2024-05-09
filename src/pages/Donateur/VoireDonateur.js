@@ -9,7 +9,8 @@ import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons"
 import { confirmAlert } from "react-confirm-alert" // Importez la fonction confirmAlert
 import "react-confirm-alert/src/react-confirm-alert.css"
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
-
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 const BasicTable = props => {
   document.title = "Table De Donneurs"
 
@@ -94,10 +95,12 @@ const BasicTable = props => {
         selectedDonateur,
       )
       console.log("Donateur modifié avec succès:", response.data)
+      toast.success("donateur modifié avec succès")
       // Ajoutez ici toute autre logique que vous souhaitez exécuter après la modification du donateur
       setModalOpen(false) // Fermer le modal après la modification réussie
     } catch (error) {
       console.error("Erreur lors de la modification du donateur:", error)
+      toast.error("Erreur lors de la modification du donateur")
       // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
     }
   }
@@ -277,6 +280,7 @@ const BasicTable = props => {
           {/* Ajoutez ici toute autre logique pour enregistrer les modifications */}
         </ModalFooter>
       </Modal>
+      <ToastContainer />
     </React.Fragment>
   )
 }

@@ -4,9 +4,6 @@ import { Navigate } from "react-router-dom"
 // Profile
 import UserProfile from "../pages/Authentication/user-profile"
 
-
-
-
 // Authentication related pages
 import Login from "../pages/Authentication/Login"
 import Logout from "../pages/Authentication/Logout"
@@ -22,20 +19,13 @@ import LockScreen from "../pages/AuthenticationInner/auth-lock-screen"
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
-
-
 // Maps
 
 //Icons
 
-
 //Tables
 
-
-
-
 // Forms
-
 
 //Ui
 import UiAlert from "../pages/Ui/UiAlert"
@@ -58,12 +48,12 @@ import UiSessionTimeout from "../pages/Ui/UiSessionTimeout"
 import UiRangeSlider from "../pages/Ui/UiRangeSlider"
 
 //Extra Pages
-import PagesTimeline from "../pages/Extra Pages/pages-timeline";
-import PagesInvoice from "../pages/Extra Pages/pages-invoice";
-import PagesDirectory from "../pages/Extra Pages/pages-directory";
-import PagesBlank from "../pages/Extra Pages/pages-blank";
-import Pages404 from "../pages/Extra Pages/pages-404";
-import Pages500 from "../pages/Extra Pages/pages-500";
+import PagesTimeline from "../pages/Extra Pages/pages-timeline"
+import PagesInvoice from "../pages/Extra Pages/pages-invoice"
+import PagesDirectory from "../pages/Extra Pages/pages-directory"
+import PagesBlank from "../pages/Extra Pages/pages-blank"
+import Pages404 from "../pages/Extra Pages/pages-404"
+import Pages500 from "../pages/Extra Pages/pages-500"
 import UiUtilities from "pages/Ui/UiUtilities"
 import UiColors from "pages/Ui/UiColors"
 import UiOffcanvas from "pages/Ui/UiOffcanvas"
@@ -117,22 +107,18 @@ import AjouterRapportDocteur from "pages/DocteurPages/ajouter-rapport-docteur-"
 import AjouterStockDeSangDocteur from "pages/DocteurPages/ajouter-stockDeSang-docteur"
 import AjouterStockDeSangDonneur from "pages/DonneurPages/ajouter-StockDeSang-Donneur"
 import DocteurConsulter from "pages/DocteurPages/docteur-consulter"
+import EmailCompse from "pages/Email/email-compse"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
   { path: "/Rapports", component: <Rapport /> },
   { path: "/consulter", component: <ConsulterRapport /> },
 
-  
-
-
- 
-
   // // //profile
   { path: "/profile", component: <UserProfile /> },
 
   // //Email
-  
+
   { path: "/VoirDocteur", component: <Docteurs /> },
   { path: "/VoirDonneurs", component: <VoireDonateur /> },
   { path: "/Evenement", component: <Evenement /> },
@@ -141,45 +127,30 @@ const userRoutes = [
   { path: "/AjouterStaff", component: <AjouterStaff /> },
   { path: "/AjouterDocteurs", component: <AjouterLesDocteurs /> },
   { path: "/Réservations", component: <Réservations /> },
-  { path: "/VoirLeStockDeSang", component: <VoirLeStock/> },
-  { path: "/AjouterLeStockDeSang", component: <AjouterLeStock/> },
-  { path: "/chat", component: <Chat/> }, 
-  { path: "/ContacterDocteur", component: <Chat/> },
-  { path: "/ContacterDonneur", component: <Chat/> },
-  { path: "/ContacterStaff", component: <Chat/> },
-  { path: "/ContacterStaff", component: <Chat/> },
-  { path: "/planing", component: <Planing/> },
-  { path: "/ajouter-collectes", component: <AjouterCollectes/> },
-  { path: "/voir-Collectes", component: <VoirCollectes/> },
-  { path: "/ajouter-planning", component: <Ajouterplaning/> },
-  { path: "/ajouter-reservation", component: <AjouterReservation/> },
-  { path: "/ajouter-rapport", component: <AjouterRapport/> },
+  { path: "/VoirLeStockDeSang", component: <VoirLeStock /> },
+  { path: "/AjouterLeStockDeSang", component: <AjouterLeStock /> },
+  { path: "/chat", component: <Chat /> },
+  { path: "/ContacterDocteur", component: <Chat /> },
+  { path: "/send-email", component: <EmailCompse /> },
 
-
-  
-
- 
-
- 
-  
-
-
-
-
+  { path: "/ContacterDonneur", component: <Chat /> },
+  { path: "/ContacterStaff", component: <Chat /> },
+  { path: "/ContacterStaff", component: <Chat /> },
+  { path: "/planing", component: <Planing /> },
+  { path: "/ajouter-collectes", component: <AjouterCollectes /> },
+  { path: "/voir-Collectes", component: <VoirCollectes /> },
+  { path: "/ajouter-planning", component: <Ajouterplaning /> },
+  { path: "/ajouter-reservation", component: <AjouterReservation /> },
+  { path: "/ajouter-rapport", component: <AjouterRapport /> },
 
   // //Charts
 
-
   // // Icons
- 
-  
-  
 
   // // Maps
-  
 
   // // Forms
-  
+
   // // Ui
   { path: "/ui-alerts", component: <UiAlert /> },
   { path: "/ui-buttons", component: <UiButtons /> },
@@ -232,7 +203,7 @@ const authRoutes = [
   { path: "/page-recoverpw", component: <Recoverpw /> },
   { path: "/auth-lock-screen", component: <LockScreen /> },
 ]
-const docteurRoutes=[
+const docteurRoutes = [
   { path: "/docteur-dashboard", component: <Docteurs /> },
   { path: "/VoirDonneur-Docteur", component: <ListDonneurDocteur /> },
   { path: "/ContactezDonneur-Docteur", component: <ContactezDonneurDocteur /> },
@@ -244,23 +215,25 @@ const docteurRoutes=[
   { path: "/Rapport-Docteur", component: <RapportDocteur /> },
   { path: "/AjouterDonneur-Docteur", component: <AjouterDonneurDocteur /> },
   { path: "/ajouter-rapport-docteur", component: <AjouterRapportDocteur /> },
-  { path: "/ajouter-stockDeSang-docteur", component: <AjouterStockDeSangDocteur /> },
+  {
+    path: "/ajouter-stockDeSang-docteur",
+    component: <AjouterStockDeSangDocteur />,
+  },
   { path: "/docteur-consulter", component: <DocteurConsulter /> },
- 
-
 ]
-const donateurRoutes=[   
+const donateurRoutes = [
   { path: "/donateur-dashboard", component: <VoireDonateur /> },
   { path: "/Evenement-Donneur", component: <EvenementDonneur /> },
   { path: "/Réservations-Donneur", component: <ReservationDonneur /> },
   { path: "/voir-StockDeSang-Donneur", component: <VoirStockDeSangDonneur /> },
   { path: "/Rapport-Donneur", component: <RapportDonneur /> },
   { path: "/Contactez-Nous-Donneur", component: <ContactezNousDonneur /> },
-  { path: "/ajouter-StockDeSang-Donneur", component: <AjouterStockDeSangDonneur /> },
-  
-  
+  {
+    path: "/ajouter-StockDeSang-Donneur",
+    component: <AjouterStockDeSangDonneur />,
+  },
 ]
-const staffRoutes=[
+const staffRoutes = [
   { path: "/staff-dashboard", component: <VoireDonateur /> },
   { path: "/VoirDonneur-Staff", component: <VoirDonneurStaff /> },
   { path: "/AjouterDonneur-Staff", component: <AjouterDonneurStaff /> },
@@ -272,13 +245,13 @@ const staffRoutes=[
   { path: "/ContactezDocteur-Staff", component: <ContactezDocteurStaff /> },
   { path: "/Evenement-Staff", component: <EvenementStaff /> },
   { path: "/Voir-LeStockDeSang-Staff", component: <VoirLeStockDeSangStaff /> },
-  { path: "/Ajouter-LeStockDeSang-Staff", component: <AjouterLeStockDeSangStaff /> },
+  {
+    path: "/Ajouter-LeStockDeSang-Staff",
+    component: <AjouterLeStockDeSangStaff />,
+  },
   { path: "/Réservation-Staff", component: <ReservationStaff /> },
+  { path: "/VoirCollectesStaff", component: <VoirCollectesStaff /> },
   { path: "/Rapport-Staff", component: <RapportStaff /> },
- 
 ]
 
-
-  
-
-export { userRoutes, authRoutes,docteurRoutes,donateurRoutes,staffRoutes}
+export { userRoutes, authRoutes, docteurRoutes, donateurRoutes, staffRoutes }

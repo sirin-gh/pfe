@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import axios from "axios"
 
 import {
   Row,
@@ -13,78 +16,23 @@ import {
 } from "reactstrap"
 import { AvForm, AvField } from "availity-reactstrap-validation"
 
-import { connect } from "react-redux";
-
+import { connect } from "react-redux"
+import { AvRadioGroup, AvRadio } from "availity-reactstrap-validation"
 //Import Action to copy breadcrumb items from local state to redux state
-import { setBreadcrumbItems } from "../../store/actions";
+import { setBreadcrumbItems } from "../../store/actions"
 
-const FormValidations = (props) => {
-  document.title = "Ajouter Staff";
+const FormValidations = props => {
+  document.title = "Ajouter Staff"
 
   const breadcrumbItems = [
-    { title: "Ajouter Staff", link: "#" },
+    { title: "Ajouter réservation", link: "#" },
     { title: "Formulaire", link: "#" },
-    { title: "Formulaire Staff", link: "#" },
+    { title: "Formulaire réservation", link: "#" },
   ]
 
   useEffect(() => {
-    props.setBreadcrumbItems('Ajouter Staff', breadcrumbItems)
+    props.setBreadcrumbItems("Ajouter Résevation", breadcrumbItems)
   })
-
-
-  const [fnm, setfnm] = useState(false)
-  const [lnm, setlnm] = useState(false)
-  const [unm, setunm] = useState(false)
-  const [city, setcity] = useState(false)
-  const [stateV, setstateV] = useState(false)
-
-  function handleSubmit(e) {
-    e.preventDefault()
-
-    var fnm = document.getElementById("validationTooltip01").value
-    var lnm = document.getElementById("validationTooltip02").value
-    var unm = document.getElementById("validationTooltipUsername").value
-    var city = document.getElementById("validationTooltip03").value
-    var stateV = document.getElementById("validationTooltip04").value
-
-    if (fnm === "") {
-      setfnm(false)
-    } else {
-      setfnm(true)
-    }
-
-    if (lnm === "") {
-      setlnm(false)
-    } else {
-      setlnm(true)
-    }
-
-    if (unm === "") {
-      setunm(false)
-    } else {
-      setunm(true)
-    }
-
-    if (city === "") {
-      setcity(false)
-    } else {
-      setcity(true)
-    }
-
-    if (stateV === "") {
-      setstateV(false)
-    } else {
-      setstateV(true)
-    }
-
-    var d1 = document.getElementsByName("validate")
-
-    document.getElementById("tooltipForm").classList.add("was-validated")
-
-    for (var i = 0; i < d1.length; i++) {
-      d1[i].style.display = "block"
-    }
-  }
 
   //for change tooltip display propery
   function changeHandeler(event, eleId) {
@@ -92,26 +40,62 @@ const FormValidations = (props) => {
       document.getElementById(eleId).style.display = "none"
     else document.getElementById(eleId).style.display = "block"
   }
+  const [nomPrenom, setnomPrenom] = useState("")
+  const [dateHeure, setdateHeure] = useState("")
+  const [groupeSanguin, setgroupeSanguin] = useState("")
+  const [emplacement, setemplacement] = useState("")
+  const [confirmation, setconfirmation] = useState("")
+
+  const [donneur, setDonneur] = useState("")
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/create-reservation",
+        {
+          nomPrenom,
+          dateHeure,
+          groupeSanguin,
+          emplacement,
+          confirmation,
+          donneur,
+        },
+      )
+      console.log("réservation créé avec succès:", response.data)
+      toast.success("réservationcréé avec succès")
+
+      // Réinitialiser les champs
+      setnomPrenom("")
+      setdateHeure("")
+      setgroupeSanguin("")
+      setemplacement("")
+      setconfirmation("")
+
+      setDonneur("")
+    } catch (error) {
+      console.error("Erreur lors de la création du réservation:", error)
+      toast.error(
+        `Erreur lors de la création du réservation: ${error.response.data.errorMessage}`,
+      )
+    }
+  }
 
   return (
     <React.Fragment>
-
-      
       <Row>
-        
-
         <Col xl={8}>
           <Card>
             <CardBody>
-              <CardTitle className="h4">Collectes</CardTitle>
-              <p className="card-title-desc">
-                
-                  </p>
+              <CardTitle className="h4">Résevations</CardTitle>
+              <p className="card-title-desc"></p>
 
               <AvForm>
                 <AvField
                   className="mb-3"
-                  name="Min_Length"
+                  name="nomPrenom"
+                  value={nomPrenom}
+                  onChange={e => setnomPrenom(e.target.value)}
                   label="Nom et prénom"
                   placeholder="....."
                   type="text"
@@ -120,10 +104,12 @@ const FormValidations = (props) => {
                     required: { value: true },
                     minLength: { value: 6, errorMessage: "Min 6 chars." },
                   }}
-                /> 
-<AvField
+                />
+                <AvField
                   className="mb-3"
-                  name="Min_Value"
+                  name="dateHeure"
+                  value={dateHeure}
+                  onChange={e => setdateHeure(e.target.value)}
                   label="Date et Heure"
                   placeholder="....s"
                   min={6}
@@ -133,76 +119,84 @@ const FormValidations = (props) => {
                     required: { value: true },
                     min: { value: 6 },
                   }}
-                />                                      
+                />
 
                 <AvField
                   className="mb-3"
-                  name="Max_Length"
-                  label="Groupe sanguin"
-                  placeholder="...."
-                  type="text"
-                  errorMessage="erreur"
+                  name="groupeSanguin"
+                  value={groupeSanguin}
+                  onChange={e => setgroupeSanguin(e.target.value)}
+                  label="Groupe Sanguin"
+                  type="select"
+                  errorMessage="Veuillez sélectionner un groupe sanguin"
                   validate={{
                     required: { value: true },
-                    maxLength: { value: 6, errorMessage: "Max 6 chars." },
                   }}
-                />
+                >
+                  <option value="">Sélectionner le groupe sanguin</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </AvField>
                 <AvField
                   className="mb-3"
-                  name="Range_Length"
+                  name="emplacement"
+                  value={emplacement}
+                  onChange={e => setemplacement(e.target.value)}
                   label="Emplacement"
                   placeholder="...."
                   type="text"
                   errorMessage="erreur"
                   validate={{
                     required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 10 },
                   }}
                 />
-                
+
                 <AvField
                   className="mb-3"
-                  name="Max_Value"
-                  label="Organisateur"
+                  name="donneur"
+                  value={donneur}
+                  onChange={e => setDonneur(e.target.value)}
+                  label="Donateur"
                   placeholder="...."
-                  max={6}
                   type="string"
                   errorMessage="erreur"
                   validate={{
                     required: { value: true },
-                    max: { value: 6 },
                   }}
                 />
-                <AvField
-                  className="mb-3"
-                  name="Range_Value"
+                <AvRadioGroup
+                  name="confirmation"
+                  value={confirmation}
+                  onChange={e => setconfirmation(e.target.value)}
                   label="Confirmation de réservation"
-                  placeholder="...."
-                  type="email"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 10 },
-                  }}
-                />
-
-
-
-
-
-
-
+                  required
+                  errorMessage="Veuillez sélectionner une option"
+                >
+                  <div>
+                    <AvRadio label="Oui" value="true" />
+                    <AvRadio label="Non" value="false" />
+                  </div>
+                </AvRadioGroup>
 
                 <FormGroup className="mb-0">
                   <div>
-                    <Button type="submit" color="primary" className="ms-1">
-                    Soumettre
-                        </Button>{" "}
+                    <Button
+                      type="submit"
+                      color="primary"
+                      className="ms-1"
+                      onClick={handleSubmit}
+                    >
+                      Soumettre
+                    </Button>{" "}
                     <Button type="reset" color="secondary">
-                    Annuler
-                        </Button>
+                      Annuler
+                    </Button>
                   </div>
                 </FormGroup>
               </AvForm>
@@ -210,9 +204,9 @@ const FormValidations = (props) => {
           </Card>
         </Col>
       </Row>
-
+      <ToastContainer />
     </React.Fragment>
   )
 }
 
-export default connect(null, { setBreadcrumbItems })(FormValidations);
+export default connect(null, { setBreadcrumbItems })(FormValidations)

@@ -102,12 +102,10 @@ const FormValidations = props => {
                   value={nom}
                   onChange={e => setNom(e.target.value)}
                   label="Nom  "
-                  placeholder="Min 6 chars"
+                  placeholder="Nom"
                   type="text"
-                  errorMessage="Min 6 chars."
                   validate={{
                     required: { value: true },
-                    minLength: { value: 6, errorMessage: "Min 6 chars." },
                   }}
                 />
                 <AvField
@@ -116,12 +114,10 @@ const FormValidations = props => {
                   value={prénom}
                   onChange={e => setPrenom(e.target.value)}
                   label="Prénom  "
-                  placeholder="Max 6 chars"
+                  placeholder="Prénom"
                   type="text"
-                  errorMessage="Max 6 chars."
                   validate={{
                     required: { value: true },
-                    maxLength: { value: 6, errorMessage: "Max 6 chars." },
                   }}
                 />
                 <AvField
@@ -130,13 +126,10 @@ const FormValidations = props => {
                   value={Email}
                   onChange={e => setEmail(e.target.value)}
                   label="Email"
-                  placeholder="Entre 5 - 10 chars"
+                  placeholder="Email"
                   type="text"
-                  errorMessage="Entre 5 - 10 chars"
                   validate={{
                     required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 30 },
                   }}
                 />
                 <AvField
@@ -160,7 +153,7 @@ const FormValidations = props => {
                   value={adresse}
                   onChange={e => setAdresse(e.target.value)}
                   label="Adresse"
-                  placeholder="max 5 Chars"
+                  placeholder="Adresse"
                   type="string"
                 />
                 <AvField
@@ -186,13 +179,10 @@ const FormValidations = props => {
                   value={numéroDeTéléphone}
                   onChange={e => setNumeroDeTelephone(e.target.value)}
                   label="Numéro De Téléphone"
-                  placeholder="8 chars"
+                  placeholder="Numéro De Téléphone"
                   type="string"
-                  errorMessage="10 chars"
                   validate={{
                     required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 20 },
                   }}
                 />
 

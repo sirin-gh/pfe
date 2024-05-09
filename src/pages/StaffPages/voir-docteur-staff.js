@@ -1,123 +1,88 @@
-import React, { useEffect } from "react"
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
+import { Table, Row, Col, Card, CardBody, CardTitle } from "reactstrap"
 
-import {
-  Table,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  CardTitle,
-} from "reactstrap"
-
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
 //Import Action to copy breadcrumb items from local state to redux state
-import { setBreadcrumbItems } from "../../store/actions";
+import { setBreadcrumbItems } from "../../store/actions"
 
-const BasicTable = (props) => {
-  document.title = "Table De Docteurs";
+const BasicTable = props => {
+  document.title = "Table De Docteurs"
 
-  
   const breadcrumbItems = [
-    { title : "Voir Docteur", link : "#" },
-    { title : "Tables", link : "#" },
-    { title : "Tables De Docteur", link : "#" },
+    { title: "Voir Docteur", link: "#" },
+    { title: "Tables", link: "#" },
+    { title: "Tables De Docteur", link: "#" },
   ]
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate('/AjouterDocteurs');
-  };
+    navigate("/AjouterDocteurs")
+  }
   useEffect(() => {
-    props.setBreadcrumbItems('Voir Docteur', breadcrumbItems)
-  }) 
+    props.setBreadcrumbItems("Voir Docteur", breadcrumbItems)
+  })
+  const [docteurs, setdocteurs] = useState([])
+  const fetchDocteurs = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/docteurs")
+      setdocteurs(response.data)
+    } catch (error) {
+      console.error("Erreur lors de la récupération des docteurs:", error)
+    }
+  }
+  useEffect(() => {
+    fetchDocteurs()
+  }, [])
   return (
     <React.Fragment>
-     
       <Row>
-        <Col lg={12}> 
-        
+        <Col lg={12}>
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Docteurs</CardTitle>
-             
 
               <div className="table-responsive">
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
-                    
-                    <th>Nom</th>
+                      <th>ID</th>
+                      <th>Nom</th>
                       <th>Prénom</th>
                       <th>Email</th>
                       <th>Adresse</th>
                       <th>Date Naissance</th>
                       <th>Num Tél</th>
-                      <th>ID</th>
+
                       <th>Specialité</th>
-                      <th>Expérience clinique</th>
-                      <th>Num de licence</th>
-               
-                   </tr>
+                    </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                      
-                       </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                     <td>Thornton</td>
-                      <td>@fat</td>
-                      <td>@mdo</td>
-                      <td>Jacob</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       
-                    </tr>
-                    <tr>
-                    <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                     <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                       <td>@mdo</td>
-                       
-                    </tr>
+                    {docteurs.map(staf => (
+                      <tr key={staf._id}>
+                        <td>{staf._id}</td>
+                        <td>{staf.nom}</td>
+                        <td>{staf.prénom}</td>
+                        <td>{staf.Email}</td>
+                        <td>{staf.adresse}</td>
+                        <td>{staf.dateDeNaissance}</td>
+                        <td>{staf.numéroDeTéléphone}</td>
+                        <td>{staf.specialité}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </Table>
               </div>
             </CardBody>
           </Card>
         </Col>
-
-        
       </Row>
-
-    
-
-
     </React.Fragment>
   )
 }
 
-export default connect(null, { setBreadcrumbItems })(BasicTable);
+export default connect(null, { setBreadcrumbItems })(BasicTable)
