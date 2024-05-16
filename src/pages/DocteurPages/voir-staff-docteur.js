@@ -32,6 +32,14 @@ const BasicTable = props => {
   useEffect(() => {
     fetchStaff()
   }, [])
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -65,7 +73,7 @@ const BasicTable = props => {
                         <td>{staf.prénom}</td>
                         <td>{staf.Email}</td>
                         <td>{staf.adresse}</td>
-                        <td>{staf.dateDeNaissance}</td>
+                        <td>{formatDate(staf.dateDeNaissance)}</td>
                         <td>{staf.position}</td>
                         <td>{staf.numéroDeTéléphone}</td>
                         <td>{staf.StatutDemploi}</td>

@@ -104,6 +104,14 @@ const BasicTable = props => {
       // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
     }
   }
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -144,7 +152,7 @@ const BasicTable = props => {
                         <td>{donateur.prénom}</td>
                         <td>{donateur.Email}</td>
                         <td>{donateur.adresse}</td>
-                        <td>{donateur.dateDeNaissance}</td>
+                        <td>{formatDate(donateur.dateDeNaissance)}</td>
                         <td>{donateur.numéroDeTéléphone}</td>
                         <td>{donateur.GroupeSanguin}</td>
                         <td>{donateur.Sexe}</td>

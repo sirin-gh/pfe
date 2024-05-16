@@ -192,6 +192,14 @@ const Calendrier = props => {
   useEffect(() => {
     fetchevenements()
   }, [])
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row className="mb-4">
@@ -221,7 +229,9 @@ const Calendrier = props => {
                     <li className="feed-item">
                       <div className="feed-item-list">
                         <div>
-                          <div className="date">{evenement.date}</div>
+                          <div className="date">
+                            {formatDate(evenement.date)}
+                          </div>
                           <p className="activity-text mb-0">
                             {evenement.description}
                           </p>
@@ -248,12 +258,6 @@ const Calendrier = props => {
                 slotDuration={"00:15:00"}
                 handleWindowResize={true}
                 themeSystem="bootstrap"
-                headerToolbar={{
-                  left: "prev,next aujourd'hui",
-                  center: "title",
-                  right:
-                    "dayGridMonth,timeGridWeek,dayGridWeek,dayGridDay,listWeek",
-                }}
                 events={evenemets}
                 ref={calendarRef}
                 initialView={setCalenderView}

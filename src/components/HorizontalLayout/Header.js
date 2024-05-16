@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 
 import { connect } from "react-redux"
 
@@ -39,7 +39,7 @@ const Header = props => {
         document.documentElement.mozRequestFullScreen()
       } else if (document.documentElement.webkitRequestFullscreen) {
         document.documentElement.webkitRequestFullscreen(
-          Element.ALLOW_KEYBOARD_INPUT
+          Element.ALLOW_KEYBOARD_INPUT,
         )
       }
     } else {
@@ -54,7 +54,6 @@ const Header = props => {
   }
   return (
     <React.Fragment>
-
       <div className="navbar-header">
         <Container fluid>
           <div className="float-start">
@@ -101,7 +100,6 @@ const Header = props => {
                 <span className="fa fa-search"></span>
               </div>
             </form>
-            <LanguageDropdown />
 
             <div className="dropdown d-none d-lg-inline-block">
               <button
@@ -167,7 +165,6 @@ const Header = props => {
           </div>
         </Container>
       </div>
-
     </React.Fragment>
   )
 }
@@ -177,7 +174,7 @@ Header.propTypes = {
   showRightSidebar: PropTypes.any,
   showRightSidebarAction: PropTypes.func,
   t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
+  toggleLeftmenu: PropTypes.func,
 }
 
 const mapStatetoProps = state => {

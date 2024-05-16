@@ -30,7 +30,14 @@ class LatestTransactions extends Component {
       console.error("Erreur lors de la récupération des stoks du sang:", error)
     }
   }
-
+  formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   render() {
     return (
       <React.Fragment>
@@ -45,7 +52,7 @@ class LatestTransactions extends Component {
                     <tr key={key}>
                       <td>
                         <img
-                          src={stock.imgUrl}
+                          src="user_icon_2.svg.png"
                           alt="user"
                           className="avatar-xs rounded-circle me-2"
                         />{" "}
@@ -62,7 +69,7 @@ class LatestTransactions extends Component {
                         <p className="m-0 text-muted font-size-14">Quantité</p>
                       </td>
                       <td>
-                        {stock.DateDecollecte}
+                        {this.formatDate(stock.DateDecollecte)}
                         <p className="m-0 text-muted font-size-14">Date</p>
                       </td>
                     </tr>

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import React, { useState } from "react"
 
 import { connect } from "react-redux"
@@ -6,7 +6,12 @@ import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 // Reactstrap
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap"
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap"
 
 // Import menuDropdown
 import LanguageDropdown from "../CommonForBoth/TopbarDropdown/LanguageDropdown"
@@ -47,7 +52,7 @@ const Header = props => {
         document.documentElement.mozRequestFullScreen()
       } else if (document.documentElement.webkitRequestFullscreen) {
         document.documentElement.webkitRequestFullscreen(
-          Element.ALLOW_KEYBOARD_INPUT
+          Element.ALLOW_KEYBOARD_INPUT,
         )
       }
     } else {
@@ -62,18 +67,16 @@ const Header = props => {
   }
 
   function tToggle() {
-    var body = document.body;
-    body.classList.toggle("vertical-collpsed");
-    body.classList.toggle("sidebar-enable");
+    var body = document.body
+    body.classList.toggle("vertical-collpsed")
+    body.classList.toggle("sidebar-enable")
   }
   return (
     <React.Fragment>
       <header id="page-topbar">
         <div className="navbar-header">
           <div className="d-flex">
-            <div className="navbar-brand-box">
-              
-            </div>
+            <div className="navbar-brand-box"></div>
 
             <button
               type="button"
@@ -85,96 +88,8 @@ const Header = props => {
             >
               <i className="mdi mdi-menu"></i>
             </button>
-            <div className="d-none d-sm-block">
-              <Dropdown
-                isOpen={createmenu}
-                toggle={() => setCreateMenu(!createmenu)}
-                className="d-inline-block"
-              >
-
-                <div className="dropdown dropdown-topbar pt-3 mt-1 d-inline-block">
-
-                  <DropdownToggle
-                    className="btn btn-light"
-                    tag="button"
-                  >
-                    Create <i className="mdi mdi-chevron-down"></i>
-                  </DropdownToggle>
-
-                  <DropdownMenu className="dropdown-menu-end">
-                    <DropdownItem tag="a" href="#">Action</DropdownItem>
-                    <DropdownItem tag="a" href="#">Another action</DropdownItem>
-                    <DropdownItem tag="a" href="#">Something else here</DropdownItem>
-                    <div className="dropdown-divider"></div>
-                    <DropdownItem tag="a" href="#">Separated link</DropdownItem>
-                  </DropdownMenu>
-
-                </div>
-              </Dropdown>
-            </div>
           </div>
           <div className="d-flex">
-            <form className="app-search d-none d-lg-block">
-              <div className="position-relative">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={props.t("Search") + "..."}
-                />
-                <span className="fa fa-search"></span>
-              </div>
-            </form>
-            <div className="dropdown d-inline-block d-lg-none ms-2">
-              <button
-                onClick={() => {
-                  setsearch(!search)
-                }}
-                type="button"
-                className="btn header-item noti-icon waves-effect"
-                id="page-header-search-dropdown"
-              >
-                <i className="mdi mdi-magnify" />
-              </button>
-              <div
-                className={
-                  search
-                    ? "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0 show"
-                    : "dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                }
-                aria-labelledby="page-header-search-dropdown"
-              >
-                <form className="p-3">
-                  <div className="form-group m-0">
-                    <div className="input-group">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Search ..."
-                        aria-label="Recipient's username"
-                      />
-                      <div className="input-group-append">
-                        <button className="btn btn-primary" type="submit">
-                          <i className="mdi mdi-magnify" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <LanguageDropdown />
-            <div className="dropdown d-none d-lg-inline-block">
-              <button
-                type="button"
-                onClick={() => {
-                  toggleFullscreen()
-                }}
-                className="btn header-item noti-icon waves-effect"
-                data-toggle="fullscreen"
-              >
-                <i className="mdi mdi-fullscreen font-size-24"></i>
-              </button>
-            </div>
             <NotificationDropdown />
             <ProfileMenu />
             <div
@@ -204,16 +119,12 @@ Header.propTypes = {
   showRightSidebar: PropTypes.any,
   showRightSidebarAction: PropTypes.func,
   t: PropTypes.any,
-  toggleLeftmenu: PropTypes.func
+  toggleLeftmenu: PropTypes.func,
 }
 
 const mapStatetoProps = state => {
-  const {
-    layoutType,
-    showRightSidebar,
-    leftMenu,
-    leftSideBarType,
-  } = state.Layout
+  const { layoutType, showRightSidebar, leftMenu, leftSideBarType } =
+    state.Layout
   return { layoutType, showRightSidebar, leftMenu, leftSideBarType }
 }
 

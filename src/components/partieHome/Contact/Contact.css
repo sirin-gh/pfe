@@ -1,0 +1,68 @@
+/* Styles for the ContactPage component */
+
+.ContactPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+background-color: #F5EDDC;
+
+ 
+  }
+  .contactcontainer{
+    display: flex;
+  }
+  .ContactPage h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+
+  }
+  
+  .ContactPage form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+  
+  .ContactPage label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ContactPage input,
+  .ContactPage textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .ContactPage button {
+    padding: 10px 20px;
+    background: linear-gradient(to right, rgb(218, 191, 226), rgb(75, 73, 74));
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .ContactPage button:hover {
+    background: linear-gradient(to right, rgb(218, 191, 226), rgb(75, 73, 74));
+  }
+  .success-box {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .titleC {
+    text-align: center;
+    color: rgb(10, 10, 10);
+  }
+  

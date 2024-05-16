@@ -1,0 +1,16 @@
+.home6{
+    position: relative;
+  }
+  
+  .top-services-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80%;
+    z-index: 1;
+    background-color: transparent;
+    opacity: 0.8;
+  }
+  

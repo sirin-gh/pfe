@@ -31,7 +31,14 @@ class Inbox extends Component {
       console.error("Erreur lors de la récupération des staff:", error)
     }
   }
-
+  formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   render() {
     return (
       <React.Fragment>
@@ -44,7 +51,7 @@ class Inbox extends Component {
                   <div className="inbox-item">
                     <div className="inbox-item-img float-start me-3">
                       <img
-                        src={staffMember.imgUrl}
+                        src="user_icon_2.svg.png"
                         className="avatar-sm rounded-circle"
                         alt=""
                       />
@@ -57,7 +64,7 @@ class Inbox extends Component {
                       {staffMember.Email}
                     </p>
                     <p className="inbox-item-date text-muted">
-                      {staffMember.dateDeNaissance}
+                      {this.formatDate(staffMember.dateDeNaissance)}
                     </p>
                   </div>
                 </Link>

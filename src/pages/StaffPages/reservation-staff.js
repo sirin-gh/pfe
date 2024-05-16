@@ -60,7 +60,6 @@ const BasicTable = props => {
                       <th>Emplacement</th>
                       <th>donneur</th>
                       <th>Confirmation de réservation </th>
-                      <th>Action </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -74,14 +73,6 @@ const BasicTable = props => {
                         <td>{reservation.donneur}</td>
                         <td>{reservation.confirmation ? "Oui" : "Non"}</td>
                         {/* Affichez les autres informations du donateur ici */}
-                        <td>
-                          <Link
-                            to="/consulter"
-                            className="btn btn-primary mr-2"
-                          >
-                            Consulter
-                          </Link>
-                        </td>
                       </tr>
                     ))}
                   </tbody>

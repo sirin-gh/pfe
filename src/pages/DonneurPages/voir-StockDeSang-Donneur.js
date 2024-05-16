@@ -39,6 +39,14 @@ const BasicTable = props => {
   useEffect(() => {
     fetchsang()
   }, [])
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -68,7 +76,7 @@ const BasicTable = props => {
                         <td>{stock.NuméroDeLot}</td>
                         <td>{stock.Rhésus}</td>
                         <td>{stock.QuantitéDisponible}</td>
-                        <td>{stock.DateDecollecte}</td>
+                        <td>{formatDate(stock.DateDecollecte)}</td>
                         <td>{stock.récepteur}</td>
                       </tr>
                     ))}

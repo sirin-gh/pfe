@@ -107,6 +107,14 @@ const BasicTable = props => {
       // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
     }
   }
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -126,6 +134,7 @@ const BasicTable = props => {
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
+                      <th>ID</th>
                       <th>Nom</th>
                       <th>Date et heure</th>
                       <th>Lieu</th>
@@ -139,7 +148,7 @@ const BasicTable = props => {
                       <tr key={collecte._id}>
                         <td>{collecte._id}</td>
                         <td>{collecte.Nom}</td>
-                        <td>{collecte.date}</td>
+                        <td>{formatDate(collecte.date)}</td>
                         <td>{collecte.lieu}</td>
                         <td>{collecte.objectif}</td>
                         <td>{collecte.description}</td>

@@ -37,69 +37,29 @@ const EmailSideBar = () => {
   }, [])
   return (
     <React.Fragment>
-      <Card className="email-leftbar">
-        <h5 className="mt-4">Donneurs</h5>
+      <Card
+        className="email-leftbar"
+        style={{ width: "25%", marginRight: "10px" }}
+      >
+        <h5 className="mt-4">utilisateurs</h5>
 
         <div className="mt-3">
-          <Link to="#" className="d-flex">
-            <div className="flex-shrink-0 me-3">
-              <img
-                className="d-flex me-3 rounded-circle"
-                src={avatar2}
-                alt="lexa"
-                height="36"
-              />
-            </div>
-            <div className="flex-grow-1 chat-user-box">
-              <p className="user-title m-0">Scott Median</p>
-              <p className="text-muted">Hello</p>
-            </div>
-          </Link>
-
-          <Link to="#" className="d-flex">
-            <div className="flex-shrink-0 me-3">
-              <img
-                className="d-flex me-3 rounded-circle"
-                src={avatar3}
-                alt="lexa"
-                height="36"
-              />
-            </div>
-            <div className="flex-grow-1 chat-user-box">
-              <p className="user-title m-0">Julian Rosa</p>
-              <p className="text-muted">What about our next..</p>
-            </div>
-          </Link>
-
-          <Link to="#" className="d-flex">
-            <div className="flex-shrink-0 me-3">
-              <img
-                className="d-flex me-3 rounded-circle"
-                src={avatar4}
-                alt="lexa"
-                height="36"
-              />
-            </div>
-            <div className="flex-grow-1 chat-user-box" body>
-              <p className="user-title m-0">David Medina</p>
-              <p className="text-muted">Yeah everything is fine</p>
-            </div>
-          </Link>
-
-          <Link to="#" className="d-flex">
-            <div className="flex-shrink-0 me-3">
-              <img
-                className="d-flex me-3 rounded-circle"
-                src={avatar6}
-                alt="lexa"
-                height="36"
-              />
-            </div>
-            <div className="flex-grow-1 chat-user-box">
-              <p className="user-title m-0">Jay Baker</p>
-              <p className="text-muted">Wow that's great</p>
-            </div>
-          </Link>
+          {donateurs.map(donateur => (
+            <Link to="#" className="d-flex">
+              <div className="flex-shrink-0 me-3">
+                <img
+                  className="d-flex me-3 rounded-circle"
+                  src="user_icon_2.svg.png"
+                  alt="lexa"
+                  height="36"
+                />
+              </div>
+              <div className="flex-grow-1 chat-user-box">
+                <p className="user-title m-0">{donateur.nom}</p>
+                <p className="text-muted">{donateur.Email}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </Card>
 

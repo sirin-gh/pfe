@@ -57,7 +57,14 @@ const Kanban = props => {
   useEffect(() => {
     fetchcollects()
   }, [])
-
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -70,12 +77,12 @@ const Kanban = props => {
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
+                      <th>ID</th>
                       <th>Nom</th>
                       <th>Date et heure</th>
                       <th>Lieu</th>
                       <th>Objectif</th>
                       <th>Description</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -83,7 +90,7 @@ const Kanban = props => {
                       <tr key={collecte._id}>
                         <td>{collecte._id}</td>
                         <td>{collecte.Nom}</td>
-                        <td>{collecte.date}</td>
+                        <td>{formatDate(collecte.date)}</td>
                         <td>{collecte.lieu}</td>
                         <td>{collecte.objectif}</td>
                         <td>{collecte.description}</td>

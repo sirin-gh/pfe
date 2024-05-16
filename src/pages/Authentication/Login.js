@@ -67,7 +67,7 @@ const Login = props => {
           path = "/dashboard"
           break
         case "Donateur":
-          path = "/Donateur-dashboard"
+          path = "/voir-StockDeSang-Donneur"
           break
         case "parent":
           path = "/student-dashboard"

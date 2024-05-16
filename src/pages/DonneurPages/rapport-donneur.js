@@ -41,7 +41,6 @@ const BasicTable = props => {
                       <th>ID</th>
                       <th>titre</th>
                       <th>description</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -52,14 +51,6 @@ const BasicTable = props => {
                         <td>{rapport.description}</td>
 
                         {/* Affichez les autres informations du donateur ici */}
-                        <td>
-                          <Link
-                            to="/consulter"
-                            className="btn btn-primary mr-2"
-                          >
-                            Consulter
-                          </Link>
-                        </td>
                       </tr>
                     ))}
                   </tbody>

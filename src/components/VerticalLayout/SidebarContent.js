@@ -145,9 +145,7 @@ const SidebarContent = props => {
             <li>
               <Link to="/dashboard" className="waves-effect">
                 <i className="mdi mdi-view-dashboard"></i>
-                <span className="badge rounded-pill bg-primary float-end">
-                  2
-                </span>
+                <span className="badge rounded-pill bg-primary float-end"></span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
@@ -161,9 +159,7 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/VoirDonneurs">{props.t("Voir Donneurs")} </Link>
                 </li>
-                <li>
-                  <Link to="/send-email">{props.t("Email")} </Link>
-                </li>
+
                 <li>
                   <Link to="/ContacterDonneur">{props.t("Contactez ")} </Link>
                 </li>
@@ -183,13 +179,6 @@ const SidebarContent = props => {
                 <li>
                   <Link to="/ContacterStaff">{props.t("Contactez")} </Link>
                 </li>
-
-                <li>
-                  <Link to="/send-email">{props.t("Email")} </Link>
-                </li>
-                <li>
-                  <Link to="/Planing">{props.t("Planing")} </Link>
-                </li>
               </ul>
             </li>
 
@@ -205,9 +194,6 @@ const SidebarContent = props => {
 
                 <li>
                   <Link to="/ContacterDocteur">{props.t("Contactez")} </Link>
-                </li>
-                <li>
-                  <Link to="/send-email">{props.t("Email")} </Link>
                 </li>
               </ul>
             </li>

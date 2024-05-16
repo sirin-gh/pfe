@@ -347,17 +347,7 @@ const Calendrier = props => {
                 slotDuration={"00:15:00"}
                 handleWindowResize={true}
                 themeSystem="bootstrap"
-                headerToolbar={{
-                  left: "prev,next aujourd'hui",
-                  center: "title",
-                  right: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
-                }}
                 events={evenemets}
-                editable={true}
-                droppable={true}
-                selectable={true}
-                dateClick={handleDateClick}
-                eventClick={handleEventClick}
                 drop={onDrop}
                 ref={calendarRef}
                 initialView={setCalenderView}

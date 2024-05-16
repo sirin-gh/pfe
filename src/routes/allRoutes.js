@@ -108,6 +108,10 @@ import AjouterStockDeSangDocteur from "pages/DocteurPages/ajouter-stockDeSang-do
 import AjouterStockDeSangDonneur from "pages/DonneurPages/ajouter-StockDeSang-Donneur"
 import DocteurConsulter from "pages/DocteurPages/docteur-consulter"
 import EmailCompse from "pages/Email/email-compse"
+import ContacterDonn from "pages/Donateur/contacterDonn"
+import ContacterDoc from "pages/Docteur/ContacterDoc"
+import ContacterStaff from "pages/Staff/ContacterStaff"
+import Home from "components/partieHome/Home/Home"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -130,11 +134,11 @@ const userRoutes = [
   { path: "/VoirLeStockDeSang", component: <VoirLeStock /> },
   { path: "/AjouterLeStockDeSang", component: <AjouterLeStock /> },
   { path: "/chat", component: <Chat /> },
-  { path: "/ContacterDocteur", component: <Chat /> },
+  { path: "/ContacterDocteur", component: <ContacterDoc /> },
   { path: "/send-email", component: <EmailCompse /> },
 
-  { path: "/ContacterDonneur", component: <Chat /> },
-  { path: "/ContacterStaff", component: <Chat /> },
+  { path: "/ContacterDonneur", component: <ContacterDonn /> },
+  { path: "/ContacterStaff", component: <ContacterStaff /> },
   { path: "/ContacterStaff", component: <Chat /> },
   { path: "/planing", component: <Planing /> },
   { path: "/ajouter-collectes", component: <AjouterCollectes /> },
@@ -181,11 +185,6 @@ const userRoutes = [
   { path: "/pages-blank", component: <PagesBlank /> },
 
   // this route should be at the end of all other routes
-  {
-    path: "/",
-    exact: true,
-    component: <Navigate to="/dashboard" />,
-  },
 ]
 
 const authRoutes = [
@@ -193,6 +192,7 @@ const authRoutes = [
   { path: "/login", component: <Login /> },
   { path: "/forgot-password", component: <ForgetPwd /> },
   { path: "/register", component: <Register /> },
+  { path: "/", component: <Home /> },
 
   { path: "/pages-404", component: <Pages404 /> },
   { path: "/pages-500", component: <Pages500 /> },
