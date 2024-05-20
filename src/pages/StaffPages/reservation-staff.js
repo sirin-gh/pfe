@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 
 import { Table, Row, Col, Card, CardBody, CardTitle } from "reactstrap"
-
+import { Link, useNavigate } from "react-router-dom"
 import { connect } from "react-redux"
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../store/actions"
-import { Link } from "react-router-dom"
 
 const BasicTable = props => {
   document.title = "Réservation"
@@ -41,10 +40,22 @@ const BasicTable = props => {
       day: "numeric",
     })
   }
+  const navigate = useNavigate()
+  const handleClick = () => {
+    // Navigate to the desired route
+    navigate("/ajouter-Reservation-Staff")
+  }
   return (
     <React.Fragment>
       <Row>
         <Col lg={12}>
+          <button
+            onClick={handleClick}
+            className="btn btn-primary btn-lg "
+            style={{ marginBottom: "20px" }}
+          >
+            Ajouter
+          </button>
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Réservation</CardTitle>

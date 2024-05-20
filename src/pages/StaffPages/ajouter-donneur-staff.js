@@ -111,9 +111,6 @@ const FormValidations = props => {
                   label="Nom  "
                   placeholder="Nom"
                   type="text"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -123,9 +120,6 @@ const FormValidations = props => {
                   label="Prénom  "
                   placeholder="Prénom"
                   type="text"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -135,9 +129,6 @@ const FormValidations = props => {
                   label="Email"
                   placeholder="Email"
                   type="text"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -145,14 +136,8 @@ const FormValidations = props => {
                   value={MotDePasse}
                   onChange={e => setMotDePasse(e.target.value)}
                   label="mot de passe"
-                  placeholder="Entre 5 - 10 chars"
+                  placeholder="mot de passe"
                   type="password"
-                  errorMessage="Entre 5 - 10 chars"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 30 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -169,14 +154,8 @@ const FormValidations = props => {
                   value={dateDeNaissance}
                   onChange={e => setDateDeNaissance(e.target.value)}
                   label="Date De Naissance"
-                  placeholder="....."
-                  min={6}
+                  placeholder="Date De Naissance"
                   type="date"
-                  errorMessage="errreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
                 />
 
                 <AvField
@@ -188,9 +167,6 @@ const FormValidations = props => {
                   label="Numéro De Téléphone"
                   placeholder="Numéro De Téléphone"
                   type="string"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
 
                 <AvField
@@ -200,10 +176,6 @@ const FormValidations = props => {
                   onChange={e => setGroupeSanguin(e.target.value)}
                   label="Groupe Sanguin"
                   type="select"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                  }}
                 >
                   <option value="">Sélectionner le groupe sanguin</option>
                   <option value="A+">A+</option>
@@ -223,10 +195,6 @@ const FormValidations = props => {
                   onChange={e => setSexe(e.target.value)}
                   label="Sexe"
                   type="select"
-                  errorMessage="Veuillez sélectionner un sexe"
-                  validate={{
-                    required: { value: true },
-                  }}
                 >
                   <option value="">Sélectionner le sexe</option>
                   <option value="homme">Homme</option>

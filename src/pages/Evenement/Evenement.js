@@ -1,24 +1,19 @@
 import React, { useEffect, useState, useRef } from "react"
-
+import axios from "axios"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons"
+import { confirmAlert } from "react-confirm-alert" // Importez la fonction confirmAlert
+import "react-confirm-alert/src/react-confirm-alert.css"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import axios from "axios"
+
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
 import { setBreadcrumbItems } from "../../store/actions"
 import { Link } from "react-router-dom"
-
-import {
-  Button,
-  Card,
-  CardBody,
-  Col,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  Row,
-} from "reactstrap"
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
+import { Card, CardBody, Col, Row } from "reactstrap"
 import { AvField, AvForm } from "availity-reactstrap-validation"
 
 import FullCalendar from "@fullcalendar/react"
@@ -254,8 +249,15 @@ const Calendrier = props => {
       )
     }
   }
+  const [modalOpen17, setModalOpen17] = useState(false)
+
+  // Définissez une fonction pour ouvrir le modal et stocker les informations du donateur sélectionné
+  const openModal17 = evenement => {
+    setselectedevenement(evenement)
+    setModalOpen17(true)
+  }
   const [selectedevenement, setselectedevenement] = useState(null)
-  const handleEditreservation = async () => {
+  const handleEditevenement = async () => {
     try {
       const response = await axios.put(
         `http://localhost:5000/update-evenement/${selectedevenement._id}`,
@@ -264,12 +266,62 @@ const Calendrier = props => {
       console.log("évenement modifié avec succès:", response.data)
       toast.success("réservation modifié avec succès") // Afficher un toast de succès
       // Ajoutez ici toute autre logique que vous souhaitez exécuter après la modification du donateur
+      setModalOpen17(false) // Fermer le modal après la modification réussie
     } catch (error) {
       console.error("Erreur lors de la modification d'évenement:", error)
       toast.error("Erreur lors de la modification d'évenement")
       // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
     }
   }
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
+  const handleDeleteevenement = evenementId => {
+    confirmAlert({
+      title: "Confirmation",
+      message: "Êtes-vous sûr de vouloir supprimer cette évenement?",
+      buttons: [
+        {
+          label: "Oui",
+          onClick: async () => {
+            try {
+              const response = await fetch(
+                `http://localhost:5000/evenement/${evenementId}`,
+                {
+                  method: "DELETE",
+                },
+              )
+              if (response.ok) {
+                alert("évenement supprimé avec succès.")
+                fetchevenements()
+                // Ajoutez ici toute autre logique que vous souhaitez exécuter après la suppression du donateur
+              } else {
+                throw new Error("La suppression d'évenement a échoué.")
+              }
+            } catch (error) {
+              console.error(
+                "Erreur lors de la suppression d'évenement:",
+                error.message,
+              )
+              alert(
+                "Erreur lors de la suppression d'évenement. Veuillez réessayer.",
+              )
+            }
+          },
+        },
+        {
+          label: "Non",
+          onClick: () => {}, // Aucune action nécessaire en cas de non confirmation
+        },
+      ],
+    })
+  }
+
   return (
     <React.Fragment>
       <DeleteModal
@@ -320,11 +372,24 @@ const Calendrier = props => {
                     <li className="feed-item">
                       <div className="feed-item-list">
                         <div>
-                          <div className="date">{evenement.date}</div>
+                          <div className="date">
+                            {formatDate(evenement.date)}
+                          </div>
                           <p className="activity-text mb-0">
                             {evenement.description}
                           </p>
                         </div>
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="text-danger mr-1"
+                          onClick={() => handleDeleteevenement(evenement._id)}
+                        />
+                        <FontAwesomeIcon
+                          icon={faEdit}
+                          className="text-warning"
+                          style={{ marginLeft: 20 }}
+                          onClick={() => openModal17(evenement)}
+                        />
                       </div>
                     </li>
                   ))}
@@ -344,11 +409,9 @@ const Calendrier = props => {
                   interactionPlugin,
                   listPlugin,
                 ]}
-                slotDuration={"00:15:00"}
                 handleWindowResize={true}
                 themeSystem="bootstrap"
                 events={evenemets}
-                drop={onDrop}
                 ref={calendarRef}
                 initialView={setCalenderView}
                 windowResize={getInitialView}
@@ -367,10 +430,6 @@ const Calendrier = props => {
                           name="title"
                           label="Nom de l'événement"
                           type="text"
-                          errorMessage="Nom invalide"
-                          validate={{
-                            required: { value: true },
-                          }}
                           value={event ? event.title : ""}
                         />
                       </Col>
@@ -379,9 +438,6 @@ const Calendrier = props => {
                           type="select"
                           name="category"
                           label="Sélectionnez la catégorie"
-                          validate={{
-                            required: { value: true },
-                          }}
                           value={event ? event.category : "bg-primary"}
                         >
                           <option value="bg-danger">Danger</option>
@@ -443,12 +499,8 @@ const Calendrier = props => {
                           value={titre}
                           onChange={e => settitre(e.target.value)}
                           label="titre"
-                          placeholder="...."
+                          placeholder="titre"
                           type="text"
-                          errorMessage="erreur"
-                          validate={{
-                            required: { value: true },
-                          }}
                         />
                       </Col>
                       <Col className="col-12 mb-3">
@@ -458,14 +510,9 @@ const Calendrier = props => {
                           value={date}
                           onChange={e => setdate(e.target.value)}
                           label="date"
-                          placeholder="....s"
+                          placeholder="date"
                           min={6}
                           type="date"
-                          errorMessage="erreur"
-                          validate={{
-                            required: { value: true },
-                            min: { value: 6 },
-                          }}
                         />
                       </Col>
                       <Col className="col-12 mb-3">
@@ -475,12 +522,8 @@ const Calendrier = props => {
                           value={description}
                           onChange={e => setdescription(e.target.value)}
                           label="description"
-                          placeholder="....s"
+                          placeholder="description"
                           type="text"
-                          errorMessage="erreur"
-                          validate={{
-                            required: { value: true },
-                          }}
                         />
                       </Col>
                     </Row>
@@ -511,6 +554,63 @@ const Calendrier = props => {
           </div>
         </Col>
       </Row>
+      <Modal isOpen={modalOpen17} toggle={() => setModalOpen17(!modalOpen17)}>
+        <ModalHeader toggle={() => setModalOpen17(!modalOpen17)}>
+          Modifier évenement
+        </ModalHeader>
+        <ModalBody>
+          {/* Affichez les informations du donateur dans un formulaire */}
+          {selectedevenement && (
+            <form>
+              <div className="form-group">
+                <label>description</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={selectedevenement.description}
+                  onChange={e =>
+                    setselectedevenement({
+                      ...selectedevenement,
+                      description: e.target.value,
+                    })
+                  }
+                />
+              </div>
+
+              <div className="form-group">
+                <label>date</label>
+                <input
+                  type="date"
+                  className="form-control"
+                  value={selectedevenement.date}
+                  onChange={e =>
+                    setselectedevenement({
+                      ...selectedevenement,
+                      date: e.target.value,
+                    })
+                  }
+                />
+              </div>
+
+              {/* Affichez les autres champs du formulaire avec les informations du donateur */}
+              {/* Assurez-vous de fournir des champs modifiables si vous souhaitez permettre la modification */}
+            </form>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="secondary"
+            onClick={() => setModalOpen17(!modalOpen17)}
+          >
+            Fermer
+          </Button>
+          <Button color="primary" onClick={handleEditevenement}>
+            Modifier
+          </Button>
+          {/* Ajoutez ici toute autre logique pour enregistrer les modifications */}
+        </ModalFooter>
+      </Modal>
+
       <ToastContainer />
     </React.Fragment>
   )

@@ -47,7 +47,7 @@ const FormValidations = props => {
   const [NuméroDeLot, setNuméroDeLot] = useState("")
   const [récepteur, setrécepteur] = useState("")
   const [Donneur, setDonneur] = useState("")
-
+  const [Lieu, setLieu] = useState("")
   const handleSubmit = async e => {
     e.preventDefault()
     try {
@@ -59,6 +59,7 @@ const FormValidations = props => {
         NuméroDeLot,
         récepteur,
         Donneur,
+        Lieu,
       })
       console.log("sang créé avec succès:", response.data)
       toast.success("sang créé avec succès")
@@ -71,6 +72,7 @@ const FormValidations = props => {
       setNuméroDeLot("")
       setrécepteur("")
       setDonneur("")
+      setLieu("")
     } catch (error) {
       console.error("Erreur lors de la création du Stock su sang:", error)
       toast.error(
@@ -104,12 +106,6 @@ const FormValidations = props => {
                   label="Donneur"
                   placeholder="Nom donneur"
                   type="text"
-                  errorMessage="entre 5-10 chars"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 10 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -118,10 +114,6 @@ const FormValidations = props => {
                   onChange={e => setGroupeSanguin(e.target.value)}
                   label="Groupe Sanguin"
                   type="select"
-                  errorMessage="Veuillez sélectionner un groupe sanguin"
-                  validate={{
-                    required: { value: true },
-                  }}
                 >
                   <option value="">Sélectionner le groupe sanguin</option>
                   <option value="A+">A+</option>
@@ -140,10 +132,6 @@ const FormValidations = props => {
                   onChange={e => setRhésus(e.target.value)}
                   label="Rhésus"
                   type="select"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                  }}
                 >
                   <option value="">Rhésus</option>
                   <option value="Rhésus+">+</option>
@@ -172,14 +160,7 @@ const FormValidations = props => {
                   name="DateDecollecte"
                   value={DateDecollecte}
                   onChange={e => setDateDecollecte(e.target.value)}
-                  placeholder="...."
-                  min={6}
                   type="date"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
                 />
 
                 <AvField
@@ -189,12 +170,15 @@ const FormValidations = props => {
                   onChange={e => setrécepteur(e.target.value)}
                   label="Récepteur	"
                   type="text"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
-
+                <AvField
+                  className="mb-3"
+                  name="Lieu"
+                  value={Lieu}
+                  onChange={e => setLieu(e.target.value)}
+                  label="Lieu	"
+                  type="text"
+                />
                 <FormGroup className="mb-0">
                   <div>
                     <Button

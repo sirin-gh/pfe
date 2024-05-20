@@ -92,28 +92,17 @@ const FormValidations = props => {
                   value={Nom}
                   onChange={e => setNom(e.target.value)}
                   label="Nom  "
-                  placeholder="....."
+                  placeholder="Nom"
                   type="text"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 6, errorMessage: "Min 6 chars." },
-                  }}
                 />
                 <AvField
                   className="mb-3"
                   name="Date"
                   value={Date}
                   onChange={e => setdate(e.target.value)}
-                  label="Date et Heure"
-                  placeholder="....s"
-                  min={6}
+                  label="Date"
+                  placeholder="Date"
                   type="date"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
                 />
 
                 <AvField
@@ -122,14 +111,8 @@ const FormValidations = props => {
                   value={lieu}
                   onChange={e => setlieu(e.target.value)}
                   label="Lieu"
-                  placeholder="...."
+                  placeholder="Lieu"
                   type="text"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 10 },
-                  }}
                 />
 
                 <AvField
@@ -138,12 +121,8 @@ const FormValidations = props => {
                   value={objectif}
                   onChange={e => setobjectif(e.target.value)}
                   label="Objectif"
-                  placeholder="...."
+                  placeholder="Objectif"
                   type="string"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -151,12 +130,8 @@ const FormValidations = props => {
                   value={description}
                   onChange={e => setdescription(e.target.value)}
                   label="Description"
-                  placeholder="...."
+                  placeholder="Description"
                   type="text"
-                  errorMessage="erreur"
-                  validate={{
-                    required: { value: true },
-                  }}
                 />
 
                 <FormGroup className="mb-0">

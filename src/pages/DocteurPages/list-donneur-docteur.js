@@ -116,13 +116,6 @@ const BasicTable = props => {
     <React.Fragment>
       <Row>
         <Col lg={12}>
-          <button
-            onClick={handleClick}
-            className="btn btn-primary btn-lg "
-            style={{ marginBottom: "20px" }}
-          >
-            Ajouter
-          </button>
           <Card>
             <CardBody>
               <CardTitle className="h4">Table De Donneurs</CardTitle>

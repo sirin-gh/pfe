@@ -59,25 +59,23 @@ const BasicTable = props => {
                 <Table className="table table-bordered mb-0">
                   <thead>
                     <tr>
-                      <th>Donneur</th>
                       <th>GroupeSanguin</th>
                       <th>NuméroDeLot</th>
                       <th>Rhésus</th>
                       <th>Quantité De sang</th>
                       <th>Date De Don</th>
-                      <th>Récepteur </th>
+                      <th>Lieu</th>
                     </tr>
                   </thead>
                   <tbody>
                     {sang.map(stock => (
                       <tr key={stock._id}>
-                        <td>{stock.Donneur}</td>
                         <td>{stock.GroupeSanguin}</td>
                         <td>{stock.NuméroDeLot}</td>
                         <td>{stock.Rhésus}</td>
                         <td>{stock.QuantitéDisponible}</td>
                         <td>{formatDate(stock.DateDecollecte)}</td>
-                        <td>{stock.récepteur}</td>
+                        <td>{stock.Lieu}</td>
                       </tr>
                     ))}
                   </tbody>

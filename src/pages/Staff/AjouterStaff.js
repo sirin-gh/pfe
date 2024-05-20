@@ -102,13 +102,8 @@ const FormValidations = props => {
                   value={nom}
                   onChange={e => setNom(e.target.value)}
                   label="Nom  "
-                  placeholder="Min 6 chars"
+                  placeholder="Nom "
                   type="text"
-                  errorMessage="Min 6 chars."
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 6, errorMessage: "Min 6 chars." },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -116,13 +111,8 @@ const FormValidations = props => {
                   value={prénom}
                   onChange={e => setPrenom(e.target.value)}
                   label="Prénom  "
-                  placeholder="Max 6 chars"
+                  placeholder="Prénom"
                   type="text"
-                  errorMessage="Max 6 chars."
-                  validate={{
-                    required: { value: true },
-                    maxLength: { value: 6, errorMessage: "Max 6 chars." },
-                  }}
                 />
 
                 <AvField
@@ -131,14 +121,8 @@ const FormValidations = props => {
                   value={Email}
                   onChange={e => setEmail(e.target.value)}
                   label="Email"
-                  placeholder="Entre 5 - 10 chars"
+                  placeholder="Email"
                   type="text"
-                  errorMessage="Entre 5 - 10 chars"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 30 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -146,14 +130,8 @@ const FormValidations = props => {
                   value={MotDePasse}
                   onChange={e => setMotDePasse(e.target.value)}
                   label="mot de passe"
-                  placeholder="Entre 5 - 10 chars"
+                  placeholder="mot de passe"
                   type="password"
-                  errorMessage="Entre 5 - 10 chars"
-                  validate={{
-                    required: { value: true },
-                    minLength: { value: 5 },
-                    maxLength: { value: 30 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -161,7 +139,7 @@ const FormValidations = props => {
                   value={adresse}
                   onChange={e => setAdresse(e.target.value)}
                   label="Adresse"
-                  placeholder="max 5 Chars"
+                  placeholder="Adresse"
                   type="string"
                 />
                 <AvField
@@ -170,14 +148,9 @@ const FormValidations = props => {
                   value={dateDeNaissance}
                   onChange={e => setDateDeNaissance(e.target.value)}
                   label="Date De Naissance"
-                  placeholder="....."
+                  placeholder="Date De Naissance"
                   min={6}
                   type="date"
-                  errorMessage="errreur"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -186,14 +159,8 @@ const FormValidations = props => {
                   value={numéroDeTéléphone}
                   onChange={e => setNumeroDeTelephone(e.target.value)}
                   label="Numéro De Téléphone"
-                  placeholder="8 chars"
+                  placeholder="Numéro De Téléphone"
                   type="string"
-                  errorMessage="10 chars"
-                  validate={{
-                    required: { value: true },
-                    min: { value: 6 },
-                    max: { value: 20 },
-                  }}
                 />
                 <AvField
                   className="mb-3"
@@ -202,7 +169,7 @@ const FormValidations = props => {
                   value={position}
                   onChange={e => setposition(e.target.value)}
                   label="position"
-                  placeholder="8 chars"
+                  placeholder="position"
                   type="string"
                 />
                 <AvField
@@ -212,7 +179,7 @@ const FormValidations = props => {
                   value={StatutDemploi}
                   onChange={e => setStatutDemploi(e.target.value)}
                   label="satut d'emploi"
-                  placeholder="8 chars"
+                  placeholder="satut d'emploi"
                   type="string"
                 />
 
@@ -225,7 +192,6 @@ const FormValidations = props => {
                   label="Département"
                   placeholder="Département"
                   type="string"
-                  errorMessage="erreur"
                 />
 
                 <FormGroup className="mb-0">

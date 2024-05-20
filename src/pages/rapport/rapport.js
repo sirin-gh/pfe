@@ -124,6 +124,7 @@ const BasicTable = props => {
                       <th>ID</th>
                       <th>titre</th>
                       <th>description</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>

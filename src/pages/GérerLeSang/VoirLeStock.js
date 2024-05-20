@@ -141,6 +141,7 @@ const BasicTable = props => {
                       <th>Quantité De sang</th>
                       <th>Date De Don</th>
                       <th>Récepteur </th>
+                      <th>Lieu </th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -154,7 +155,7 @@ const BasicTable = props => {
                         <td>{stock.QuantitéDisponible}</td>
                         <td>{formatDate(stock.DateDecollecte)}</td>
                         <td>{stock.récepteur}</td>
-
+                        <td>{stock.Lieu}</td>
                         {/* Affichez les autres informations du donateur ici */}
                         <td>
                           <FontAwesomeIcon
@@ -283,6 +284,20 @@ const BasicTable = props => {
                     setSelectedstock({
                       ...selectedstock,
                       QuantitéDisponible: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="form-group">
+                <label>Lieu</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={selectedstock.Lieu}
+                  onChange={e =>
+                    setSelectedstock({
+                      ...selectedstock,
+                      Lieu: e.target.value,
                     })
                   }
                 />

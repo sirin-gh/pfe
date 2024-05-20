@@ -28,7 +28,7 @@ const BasicTable = props => {
 
   const handleClick = () => {
     // Navigate to the desired route
-    navigate("/ajouter-rapport")
+    navigate("/ajouter-Rapport-Staff")
   }
   const [rapports, setrapports] = useState([])
   const fetchrapports = async () => {
@@ -111,7 +111,7 @@ const BasicTable = props => {
       <Row>
         <Col xl={12}>
           <button
-            //onClick={handleClick}
+            onClick={handleClick}
             className="btn btn-primary btn-lg "
             style={{ marginBottom: "20px" }}
           >

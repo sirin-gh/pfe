@@ -112,6 +112,8 @@ import ContacterDonn from "pages/Donateur/contacterDonn"
 import ContacterDoc from "pages/Docteur/ContacterDoc"
 import ContacterStaff from "pages/Staff/ContacterStaff"
 import Home from "components/partieHome/Home/Home"
+import AjouterRapportStaff from "pages/StaffPages/ajouter-rapport-staff"
+import AjouterReservationStaff from "pages/StaffPages/ajouter-reservation-staff"
 
 const userRoutes = [
   { path: "/dashboard", component: <Dashboard /> },
@@ -252,6 +254,11 @@ const staffRoutes = [
   { path: "/Réservation-Staff", component: <ReservationStaff /> },
   { path: "/VoirCollectesStaff", component: <VoirCollectesStaff /> },
   { path: "/Rapport-Staff", component: <RapportStaff /> },
+  { path: "/ajouter-Rapport-Staff", component: <AjouterRapportStaff /> },
+  {
+    path: "/ajouter-Reservation-Staff",
+    component: <AjouterReservationStaff />,
+  },
 ]
 
 export { userRoutes, authRoutes, docteurRoutes, donateurRoutes, staffRoutes }
