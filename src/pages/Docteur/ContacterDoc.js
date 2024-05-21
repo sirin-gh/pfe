@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css"
 //Import Email Sidebar
 import EmailSideBar from "../Email/email-sidebar"
 import { Editor } from "react-draft-wysiwyg"
+import EmailSideBar2 from "pages/Email/email-sidebar2"
 
 const ContactezDocteur = props => {
   document.title = "Chat | Lexa - Responsive Bootstrap 5 Admin Dashboard"
@@ -52,7 +53,7 @@ const ContactezDocteur = props => {
       <Row>
         <Col xs="12">
           {/* Render Email SideBar */}
-          <EmailSideBar />
+          <EmailSideBar2 />
 
           <div className="email-rightbar mb-3">
             <Card>

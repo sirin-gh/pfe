@@ -21,19 +21,19 @@ import avatar3 from "../../assets/images/users/user-3.jpg"
 import avatar4 from "../../assets/images/users/user-4.jpg"
 import avatar6 from "../../assets/images/users/user-6.jpg"
 
-const EmailSideBar = () => {
+const EmailSideBar1 = () => {
   const [modal, setmodal] = useState(false)
-  const [donateurs, setDonateurs] = useState([])
-  const fetchDonateurs = async () => {
+  const [staff, setstaff] = useState([])
+  const fetchStaff = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/donateurs")
-      setDonateurs(response.data)
+      const response = await axios.get("http://localhost:5000/staff")
+      setstaff(response.data)
     } catch (error) {
-      console.error("Erreur lors de la récupération des donateurs:", error)
+      console.error("Erreur lors de la récupération des staff:", error)
     }
   }
   useEffect(() => {
-    fetchDonateurs()
+    fetchStaff()
   }, [])
   return (
     <React.Fragment>
@@ -41,10 +41,10 @@ const EmailSideBar = () => {
         className="email-leftbar"
         style={{ width: "25%", marginRight: "10px" }}
       >
-        <h5 className="mt-4">Donneurs</h5>
+        <h5 className="mt-4">Staff</h5>
 
         <div className="mt-3">
-          {donateurs.map(donateur => (
+          {staff.map(staf => (
             <Link to="#" className="d-flex">
               <div className="flex-shrink-0 me-3">
                 <img
@@ -55,8 +55,8 @@ const EmailSideBar = () => {
                 />
               </div>
               <div className="flex-grow-1 chat-user-box">
-                <p className="user-title m-0">{donateur.nom}</p>
-                <p className="text-muted">{donateur.Email}</p>
+                <p className="user-title m-0">{staf.nom}</p>
+                <p className="text-muted">{staf.Email}</p>
               </div>
             </Link>
           ))}
@@ -122,4 +122,4 @@ const EmailSideBar = () => {
   )
 }
 
-export default EmailSideBar
+export default EmailSideBar1

@@ -1,11 +1,17 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import React from "react"
 
 import { Route, Routes } from "react-router-dom"
 import { connect } from "react-redux"
 
 // Import Routes all
-import { userRoutes, authRoutes, docteurRoutes, donateurRoutes, staffRoutes } from "./routes/allRoutes"
+import {
+  userRoutes,
+  authRoutes,
+  docteurRoutes,
+  donateurRoutes,
+  staffRoutes,
+} from "./routes/allRoutes"
 
 // Import all middleware
 import Authmiddleware from "./routes/middleware/Authmiddleware"
@@ -22,9 +28,9 @@ import "./assets/scss/theme.scss"
 // import { initFirebaseBackend } from "./helpers/firebase_helper"
 
 import fakeBackend from "./helpers/AuthType/fakeBackend"
-import DoctorLayout from 'components/VerticalLayoutDocteur/DoctorLayout'
-import DonateurLayout from 'components/VerticalLayoutDonateur/DonateurLayout'
-import StaffLayout from 'components/VerticalLayoutStaff/StaffLayout'
+import DoctorLayout from "components/VerticalLayoutDocteur/DoctorLayout"
+import DonateurLayout from "components/VerticalLayoutDonateur/DonateurLayout"
+import StaffLayout from "components/VerticalLayoutStaff/StaffLayout"
 
 // Activating fake backend
 fakeBackend()
@@ -44,11 +50,11 @@ fakeBackend()
 // initFirebaseBackend(firebaseConfig)
 
 const App = props => {
-// {alert('hiii')}
-//   useEffect(() => {
-//     alert('hii')
-//     document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
-//   }, [])
+  // {alert('hiii')}
+  //   useEffect(() => {
+  //     alert('hii')
+  //     document.getElementsByTagName("html")[0].setAttribute("dir", "rtl");
+  //   }, [])
 
   function getLayout() {
     let layoutCls = VerticalLayout
@@ -67,71 +73,51 @@ const App = props => {
   return (
     <React.Fragment>
       <Routes>
-      {/* Non-authenticated routes */}
-      {authRoutes.map((route, idx) => (
-        <Route
-          key={idx}
-          path={route.path}
-          element={
-            <NonAuthLayout>
-              {route.component}
-          </NonAuthLayout>
-          }
-        />
-      ))}
+        {/* Non-authenticated routes */}
+        {authRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={<NonAuthLayout>{route.component}</NonAuthLayout>}
+          />
+        ))}
 
-      {/* Authenticated routes */}
-      {userRoutes.map((route, idx) => (
-        <Route
-          key={idx}
-          path={route.path}
-          element={
-            <Authmiddleware>
-              <Layout>{route.component}</Layout>
-              </Authmiddleware>              
-          }
-        />
-      ))}
-       {docteurRoutes.map((route, idx) => (
-        <Route
-          key={idx}
-          path={route.path}
-          element={
-            <Authmiddleware>
-              <DoctorLayout>{route.component}</DoctorLayout>
-              </Authmiddleware>              
-          }
-        />
-      ))}
-       {donateurRoutes.map((route, idx) => (
-        <Route
-          key={idx}
-          path={route.path}
-          element={
-            <Authmiddleware>
-              <DonateurLayout>{route.component}</DonateurLayout>
-              </Authmiddleware>              
-          }
-        />
-      ))}
-      {staffRoutes.map((route, idx) => (
-        <Route
-          key={idx}
-          path={route.path}
-          element={
-            <Authmiddleware>
-              <StaffLayout>{route.component}</StaffLayout>
-              </Authmiddleware>              
-          }
-        />
-      ))}
-    </Routes>
+        {/* Authenticated routes */}
+        {userRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={<Layout>{route.component}</Layout>}
+          />
+        ))}
+        {docteurRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={<DoctorLayout>{route.component}</DoctorLayout>}
+          />
+        ))}
+        {donateurRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={<DonateurLayout>{route.component}</DonateurLayout>}
+          />
+        ))}
+        {staffRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={<StaffLayout>{route.component}</StaffLayout>}
+          />
+        ))}
+      </Routes>
     </React.Fragment>
   )
 }
 
 App.propTypes = {
-  layout: PropTypes.any
+  layout: PropTypes.any,
 }
 
 const mapStateToProps = state => {

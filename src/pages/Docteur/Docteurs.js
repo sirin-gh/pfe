@@ -146,29 +146,29 @@ const BasicTable = props => {
                     </tr>
                   </thead>
                   <tbody>
-                    {docteurs.map(staf => (
-                      <tr key={staf._id}>
-                        <td>{staf._id}</td>
-                        <td>{staf.nom}</td>
-                        <td>{staf.prénom}</td>
-                        <td>{staf.Email}</td>
-                        <td>{staf.adresse}</td>
-                        <td>{formatDate(staf.dateDeNaissance)}</td>
-                        <td>{staf.numéroDeTéléphone}</td>
-                        <td>{staf.specialité}</td>
+                    {docteurs.map(docteur => (
+                      <tr key={docteur._id}>
+                        <td>{docteur._id}</td>
+                        <td>{docteur.nom}</td>
+                        <td>{docteur.prénom}</td>
+                        <td>{docteur.Email}</td>
+                        <td>{docteur.adresse}</td>
+                        <td>{formatDate(docteur.dateDeNaissance)}</td>
+                        <td>{docteur.numéroDeTéléphone}</td>
+                        <td>{docteur.specialité}</td>
 
                         {/* Affichez les autres informations du donateur ici */}
                         <td>
                           <FontAwesomeIcon
                             icon={faTrash}
                             className="text-danger mr-1"
-                            onClick={() => handleDeleteDocteur(staf._id)}
+                            onClick={() => handleDeleteDocteur(docteur._id)}
                           />
                           <FontAwesomeIcon
                             icon={faEdit}
                             className="text-warning"
                             style={{ marginLeft: 20 }}
-                            onClick={() => openModal3(staf)}
+                            onClick={() => openModal3(docteur)}
                             //onClick={() => handleEditDonateur(donateur._id)}
                           />
                         </td>

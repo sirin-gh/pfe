@@ -58,8 +58,8 @@ const FormValidations = props => {
         StatutDemploi,
         Département,
       })
-      console.log("Donateur créé avec succès:", response.data)
-      toast.success("Donateur créé avec succès")
+      console.log("staff créé avec succès:", response.data)
+      toast.success("Staff créé avec succès")
 
       // Réinitialiser les champs
       setNom("")
@@ -73,9 +73,9 @@ const FormValidations = props => {
       setDépartement("")
       setStatutDemploi("")
     } catch (error) {
-      console.error("Erreur lors de la création du donateur:", error)
+      console.error("Erreur lors de la création du staff:", error)
       toast.error(
-        `Erreur lors de la création du donateur: ${error.response.data.errorMessage}`,
+        `Erreur lors de la création du staff: ${error.response.data.errorMessage}`,
       )
     }
   }
