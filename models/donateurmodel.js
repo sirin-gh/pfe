@@ -37,6 +37,11 @@ const donateurSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userType: {
+    type: String,
+
+    default: "donateur", // Valeur par défaut : "admin"
+  },
 });
 
 const Donateur = mongoose.model("Donateur", donateurSchema);

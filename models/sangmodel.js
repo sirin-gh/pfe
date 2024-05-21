@@ -31,6 +31,10 @@ const SangSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  Lieu: {
+    type: String,
+    required: true,
+  },
 });
 
 const sang = mongoose.model("sang", SangSchema);

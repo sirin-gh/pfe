@@ -41,6 +41,11 @@ const staffSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  userType: {
+    type: String,
+
+    default: "staff", // Valeur par défaut : "admin"
+  },
 });
 
 const Staff = mongoose.model("Staff", staffSchema);
