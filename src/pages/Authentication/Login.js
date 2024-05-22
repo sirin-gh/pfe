@@ -66,6 +66,7 @@ const Login = props => {
         // Redirigez vers le tableau de bord du docteur
         navigate("/VoirDonneur-Docteur")
       } else if (userType === "donateur") {
+        localStorage.setItem("idDonneur", response.data.user._id)
         // Redirigez vers le tableau de bord du donateur
         navigate("/voir-StockDeSang-Donneur")
       } else if (userType === "staff") {

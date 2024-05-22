@@ -122,6 +122,12 @@ const BasicTable = props => {
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>nom Prenom</th>
+                      <th>Groupe Sanguin</th>
+                      <th>Rhésus</th>
+                      <th>dateHeure</th>
+                      <th>emplacement</th>
+                      <th>sexe</th>
                       <th>titre</th>
                       <th>description</th>
                       <th>Action</th>
@@ -131,6 +137,12 @@ const BasicTable = props => {
                     {rapports.map(rapport => (
                       <tr key={rapport._id}>
                         <td>{rapport._id}</td>
+                        <td>{rapport.nomPrenom}</td>
+                        <td>{rapport.GroupeSanguin}</td>
+                        <td>{rapport.Rhésus}</td>
+                        <td>{rapport.dateHeure}</td>
+                        <td>{rapport.emplacement}</td>
+                        <td>{rapport.sexe}</td>
                         <td>{rapport.titre}</td>
                         <td>{rapport.description}</td>
 
