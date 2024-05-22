@@ -5,6 +5,7 @@ const donateurController = require("../controllers/donateurController");
 // Admin CRUD routes
 router.post("/create-donateur", donateurController.createDonateur);
 router.get("/donateurs", donateurController.getAllDonateurs);
+router.get("/donateurs-names", donateurController.getDonneurs);
 router.delete("/donateur/:id", donateurController.deleteDonateurById);
 router.get("/donateur/:id", donateurController.getDonateurById);
 router.put("/update/:id", donateurController.editDonateurById);

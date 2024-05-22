@@ -73,3 +73,11 @@ exports.getNombreDonateurs = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+exports.getDonneurs = async (req, res) => {
+  try {
+    const donneurs = await Donateur.find({}, "nom"); // Select the 'name' field
+    res.status(200).json(donneurs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

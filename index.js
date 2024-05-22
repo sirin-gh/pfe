@@ -12,6 +12,7 @@ const evenementroute = require("./routes/evenementRoute");
 const messageroute = require("./routes/messagerieRoute");
 const authroute = require("./routes/authRoute");
 const adminroute = require("./routes/adminRoute");
+const contactRoutes = require("./routes/contactRoute");
 const app = express();
 app.use(
   cors({
@@ -34,6 +35,7 @@ app.use("/", evenementroute);
 app.use("/", messageroute);
 app.use("/", authroute);
 app.use("/", adminroute);
+app.use("/", contactRoutes);
 // Define a route for the root URL '/'
 app.get("/", (req, res) => {
   res.send("Hello, World!");

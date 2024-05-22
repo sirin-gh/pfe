@@ -8,4 +8,8 @@ router.get("/rapports", rapportController.getAllRapports);
 router.delete("/rapport/:id", rapportController.deleteRapportById);
 router.get("/rapport/:id", rapportController.getRapportById);
 router.put("/update-rapport/:id", rapportController.editRapportById);
+router.get(
+  "/rapports/donneur/:idDonneur",
+  rapportController.getRapportsByIdDonneur
+);
 module.exports = router;

@@ -62,3 +62,18 @@ exports.getRapportById = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+// Lecture des rapports par idDonneur
+exports.getRapportsByIdDonneur = async (req, res) => {
+  const idDonneur = req.params.idDonneur;
+  try {
+    const rapports = await Rapport.find({ idDonneur: idDonneur });
+    if (rapports.length === 0) {
+      return res
+        .status(404)
+        .json({ error: "No reports found for this donor." });
+    }
+    res.status(200).json(rapports);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
