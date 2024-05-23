@@ -87,7 +87,7 @@ const Miniwidget = props => {
               <div className="mini-stat-icon"></div>
               <div className="text-white">
                 <h6 className="text-uppercase mb-3 font-size-16 text-white">
-                  SANG COLLECTÉES PAR LITTRE
+                  SANG COLLECTÉES 
                 </h6>
                 <h2 className="mb-4 text-white">{totalQuantite}</h2>
               </div>

@@ -29,7 +29,7 @@ const ContactezDonneur = props => {
     // Appel de l'API avec Axios
     axios
       .post("http://localhost:5000/create-message", {
-        to: "abdessamadaya1@gmail.com",
+        to: "tamersakly@gmail.com",
         subject: subject,
         text: curMessage,
       })

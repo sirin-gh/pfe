@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 //import { Button } from "./Button";
 import { Link } from "react-router-dom"
 import "./Navbar.css"
+import logo from "../../../assets/images/logo1.png"
 
 function Navbar() {
   const [click, setClick] = useState(false)
@@ -14,7 +15,7 @@ function Navbar() {
       <nav className="navbar " style={{ position: "fixed" }}>
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" style={{}}>
-            <img src="logo.png" style={{ width: "100px" }}></img>
+            <img src={logo} style={{ width: "100px" }}></img>
             Donation de sang
           </Link>
 

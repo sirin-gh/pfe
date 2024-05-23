@@ -149,8 +149,7 @@ const Header = props => {
                 </form>
               </div>
             </div>
-            <NotificationDropdown />
-            <ProfileMenu />
+            
             <div className="dropdown d-inline-block">
               <button
                 onClick={() => {

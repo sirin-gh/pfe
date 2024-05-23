@@ -22,6 +22,7 @@ import * as Yup from "yup"
 import { useFormik } from "formik"
 import withRouter from "../../components/Common/withRouter"
 import { useNavigate } from "react-router-dom"
+import Navbar from "components/partieHome/Navbar/Navbar"
 
 const Login = props => {
   document.title = "Login | Lexa - Responsive Bootstrap 5 Admin Dashboard"
@@ -82,6 +83,7 @@ const Login = props => {
   }
   return (
     <React.Fragment>
+      <Navbar/>
       <div className="account-pages my-5 pt-sm-5">
         <Container>
           <Row className="justify-content-center">
@@ -207,19 +209,7 @@ const Login = props => {
 
                       <Row className="mb-3 mt-4">
                         <div className="col-6">
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              className="form-check-input"
-                              id="customControlInline"
-                            />
-                            <label
-                              className="form-check-label"
-                              htmlFor="customControlInline"
-                            >
-                              Mémoriser
-                            </label>
-                          </div>
+                          
                         </div>
                         <div className="col-6 text-end">
                           <button
@@ -230,11 +220,7 @@ const Login = props => {
                           </button>
                         </div>
                       </Row>
-                      <Row className="form-group mb-0">
-                        <Link to="/forgot-password" className="text-muted">
-                          <i className="mdi mdi-lock"></i> Mot de passe oublié?
-                        </Link>
-                      </Row>
+                      
                     </Form>
                   </div>
                 </CardBody>
