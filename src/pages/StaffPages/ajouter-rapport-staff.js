@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { toast, ToastContainer } from "react-toastify"
+import { AvRadioGroup, AvRadio } from "availity-reactstrap-validation"
 import "react-toastify/dist/ReactToastify.css"
 import {
   Row,
@@ -32,14 +33,18 @@ const FormValidations = props => {
   useEffect(() => {
     props.setBreadcrumbItems("Ajouter rapport", breadcrumbItems)
   })
+  const [Email, setEmail] = useState("")
   const [nomPrenom, setNomPrenom] = useState("")
   const [GroupeSanguin, setGroupeSanguin] = useState("")
   const [Sexe, setSexe] = useState("")
   const [Rhésus, setRhésus] = useState("")
-  const [emplacement, setemplacement] = useState("")
+  const [Adresse, setAdresse] = useState("")
   const [dateHeure, setdateHeure] = useState("")
-  const [titre, setTitre] = useState("")
-  const [description, setdescription] = useState("")
+  const [dateDeNaissance, setdateDeNaissance] = useState("")
+  const [numéroDeTéléphone, setnuméroDeTéléphone] = useState("")
+  const [confirmation, setconfirmation] = useState("")
+  const [organisateur, setorganisateur] = useState("")
+  const [QuantitéDisponible, setQuantitéDisponible] = useState("")
   const [idDonneur, setidDonneur] = useState(null)
   const handleSubmit = async e => {
     e.preventDefault()
@@ -48,13 +53,17 @@ const FormValidations = props => {
         "http://localhost:5000/create-rapport",
         {
           nomPrenom,
+          Email,
           GroupeSanguin,
           Rhésus,
           dateHeure,
-          emplacement,
+          Adresse,
+          dateDeNaissance,
+          numéroDeTéléphone,
           Sexe,
-          titre,
-          description,
+          confirmation,
+          organisateur,
+          QuantitéDisponible,
           idDonneur: selectedDonneur,
         },
       )
@@ -65,10 +74,14 @@ const FormValidations = props => {
       setNomPrenom("")
       setGroupeSanguin("")
       setRhésus("")
-      setemplacement("")
+      setAdresse("")
       setdateHeure("")
-      setTitre("")
-      setdescription("")
+      setdateDeNaissance("")
+      setconfirmation("")
+      setorganisateur("")
+      setnuméroDeTéléphone("")
+      setQuantitéDisponible("")
+      setSexe("")
     } catch (error) {
       console.error("Erreur lors de la création du rapport:", error)
       toast.error(
@@ -111,6 +124,15 @@ const FormValidations = props => {
                 />
                 <AvField
                   className="mb-3"
+                  name="Email"
+                  value={Email}
+                  onChange={e => setEmail(e.target.value)}
+                  label="Email"
+                  placeholder="Email"
+                  type="text"
+                />
+                <AvField
+                  className="mb-3"
                   name="GroupeSanguin"
                   value={GroupeSanguin}
                   onChange={e => setGroupeSanguin(e.target.value)}
@@ -141,12 +163,41 @@ const FormValidations = props => {
                 </AvField>
                 <AvField
                   className="mb-3"
-                  name="emplacement"
-                  value={emplacement}
-                  onChange={e => setemplacement(e.target.value)}
-                  label="emplacement "
-                  placeholder="emplacement"
+                  name="QuantitéDisponible"
+                  value={QuantitéDisponible}
+                  onChange={e => setQuantitéDisponible(e.target.value)}
+                  label="Quantité de Sang"
+                  placeholder="En L"
+                  type="number"
+                />
+                <AvField
+                  className="mb-3"
+                  name="Adresse"
+                  value={Adresse}
+                  onChange={e => setAdresse(e.target.value)}
+                  label="Adresse "
+                  placeholder="Adresse"
                   type="text"
+                />
+                <AvField
+                  className="mb-3"
+                  name="dateDeNaissance"
+                  value={dateDeNaissance}
+                  onChange={e => setdateDeNaissance(e.target.value)}
+                  label="Date De Naissance"
+                  placeholder="Date De Naissance"
+                  type="date"
+                />
+
+                <AvField
+                  className="mb-3"
+                  name="numeroDeTelephone"
+                  //name="Range_Value"
+                  value={numéroDeTéléphone}
+                  onChange={e => setnuméroDeTéléphone(e.target.value)}
+                  label="Numéro De Téléphone"
+                  placeholder="Numéro De Téléphone"
+                  type="string"
                 />
                 <AvField
                   className="mb-3"
@@ -165,26 +216,17 @@ const FormValidations = props => {
                   name="dateHeure"
                   value={dateHeure}
                   onChange={e => setdateHeure(e.target.value)}
-                  label="Date et Heure"
-                  placeholder="Date et Heure"
+                  label="Date"
+                  placeholder="Date"
                   type="date"
                 />
+
                 <AvField
                   className="mb-3"
-                  name="titre"
-                  value={titre}
-                  onChange={e => setTitre(e.target.value)}
-                  label="Titre "
-                  placeholder="titre"
-                  type="text"
-                />
-                <AvField
-                  className="mb-3"
-                  name="description"
-                  value={description}
-                  onChange={e => setdescription(e.target.value)}
-                  label="description "
-                  placeholder="description"
+                  name="organisateur"
+                  value={organisateur}
+                  onChange={e => setorganisateur(e.target.value)}
+                  label="organisateur	"
                   type="text"
                 />
                 <AvField
@@ -201,6 +243,17 @@ const FormValidations = props => {
                     </option>
                   ))}
                 </AvField>
+                <AvRadioGroup
+                  name="confirmation"
+                  value={confirmation}
+                  onChange={e => setconfirmation(e.target.value)}
+                  label="Confirmation"
+                >
+                  <div>
+                    <AvRadio label="Oui" value="true" />
+                    <AvRadio label="Non" value="false" />
+                  </div>
+                </AvRadioGroup>
                 <FormGroup className="mb-0">
                   <div>
                     <Button

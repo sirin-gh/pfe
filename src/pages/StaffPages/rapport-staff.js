@@ -106,6 +106,14 @@ const BasicTable = props => {
       // Affichez un message d'erreur ou prenez toute autre action nécessaire en cas d'échec de la modification
     }
   }
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -127,11 +135,15 @@ const BasicTable = props => {
                       <th>nom Prenom</th>
                       <th>Groupe Sanguin</th>
                       <th>Rhésus</th>
-                      <th>dateHeure</th>
-                      <th>emplacement</th>
+                      <th>date</th>
+                      <th>Adresse</th>
                       <th>sexe</th>
-                      <th>titre</th>
-                      <th>description</th>
+                      <th>Email</th>
+                      <th>Date De Naissance</th>
+                      <th>Numéro De Téléphone</th>
+                      <th>confirmation</th>
+                      <th> organisateur</th>
+                      <th> Quantité</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -142,11 +154,15 @@ const BasicTable = props => {
                         <td>{rapport.nomPrenom}</td>
                         <td>{rapport.GroupeSanguin}</td>
                         <td>{rapport.Rhésus}</td>
-                        <td>{rapport.dateHeure}</td>
-                        <td>{rapport.emplacement}</td>
-                        <td>{rapport.sexe}</td>
-                        <td>{rapport.titre}</td>
-                        <td>{rapport.description}</td>
+                        <td>{formatDate(rapport.dateHeure)}</td>
+                        <td>{rapport.Adresse}</td>
+                        <td>{rapport.Sexe}</td>
+                        <td>{rapport.Email}</td>
+                        <td>{formatDate(rapport.dateDeNaissance)}</td>
+                        <td>{rapport.numéroDeTéléphone}</td>
+                        <td>{rapport.confirmation ? "Oui" : "Non"}</td>
+                        <td>{rapport.organisateur}</td>
+                        <td>{rapport.QuantitéDisponible}</td>
                         <td>
                           <FontAwesomeIcon
                             icon={faTrash}

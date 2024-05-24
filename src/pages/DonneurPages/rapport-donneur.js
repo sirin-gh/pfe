@@ -57,7 +57,14 @@ const BasicTable = props => {
       fetchRapportsByIdDonneur()
     }
   }, [idDonneur])
-
+  const formatDate = dateString => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString("fr-FR", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
   return (
     <React.Fragment>
       <Row>
@@ -75,11 +82,15 @@ const BasicTable = props => {
                         <th>nom Prenom</th>
                         <th>Groupe Sanguin</th>
                         <th>Rhésus</th>
-                        <th>dateHeure</th>
-                        <th>emplacement</th>
+                        <th>date</th>
+                        <th>Adresse</th>
                         <th>sexe</th>
-                        <th>titre</th>
-                        <th>description</th>
+                        <th>Email</th>
+                        <th>Date De Naissance</th>
+                        <th>Numéro De Téléphone</th>
+                        <th>confirmation</th>
+                        <th> organisateur</th>
+                        <th> Quantité</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -89,11 +100,15 @@ const BasicTable = props => {
                           <td>{rappor.nomPrenom}</td>
                           <td>{rappor.GroupeSanguin}</td>
                           <td>{rappor.Rhésus}</td>
-                          <td>{rappor.dateHeure}</td>
-                          <td>{rappor.emplacement}</td>
-                          <td>{rappor.sexe}</td>
-                          <td>{rappor.titre}</td>
-                          <td>{rappor.description}</td>
+                          <td>{formatDate(rappor.dateHeure)}</td>
+                          <td>{rappor.Adresse}</td>
+                          <td>{rappor.Sexe}</td>
+                          <td>{rappor.Email}</td>
+                          <td>{formatDate(rappor.dateDeNaissance)}</td>
+                          <td>{rappor.numéroDeTéléphone}</td>
+                          <td>{rappor.confirmation ? "Oui" : "Non"}</td>
+                          <td>{rappor.organisateur}</td>
+                          <td>{rappor.QuantitéDisponible}</td>
 
                           {/* Affichez les autres informations du donateur ici */}
                         </tr>

@@ -136,7 +136,7 @@ const BasicTable = props => {
                     <tr>
                       <th>ID</th>
                       <th>Nom</th>
-                      <th>Date et heure</th>
+                      <th>Date </th>
                       <th>Lieu</th>
                       <th>Objectif</th>
                       <th>Description</th>
