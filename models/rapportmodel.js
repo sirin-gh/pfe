@@ -5,7 +5,10 @@ const rapportSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  Email: {
+    type: String,
+    required: true,
+  },
   GroupeSanguin: {
     type: String,
     required: true,
@@ -18,20 +21,32 @@ const rapportSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  emplacement: {
+  Adresse: {
     type: String,
     required: true,
   },
-  titre: {
-    type: String,
+  dateDeNaissance: {
+    type: Date,
     required: true,
   },
-  description: {
+  numéroDeTéléphone: {
     type: String,
     required: true,
   },
   Sexe: {
     type: String,
+    required: true,
+  },
+  confirmation: {
+    type: Boolean,
+    default: false,
+  },
+  organisateur: {
+    type: String,
+    required: true,
+  },
+  QuantitéDisponible: {
+    type: Number,
     required: true,
   },
   idDonneur: {
