@@ -22,8 +22,8 @@ exports.contact = async (req, res) => {
 
   // Configuration du message
   const mailOptions = {
-    from: "votre_email@gmail.com", // Remplacez par votre adresse email
-    to: emailAddress,
+    from: emailAddress, // Remplacez par votre adresse email
+    to: "syrine.ghedira@gmail.com",
     subject: subject,
     text: `Nom: ${fullname}\nEmail: ${emailAddress}\n\nMessage: ${message}`,
   };

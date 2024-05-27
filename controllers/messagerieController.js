@@ -13,8 +13,8 @@ exports.createMessage = async (req, res) => {
 
   // Définir les options de l'e-mail en utilisant les données de la requête
   const mailOptions = {
-    from: "syrine.ghedira@gmail.com",
-    to: "syrine.ghedira@gmail.com",
+    from: "hotelwallet123@gmail.com",
+    to: "tamersakly@gmail.com",
     subject: "message  donation équipe",
     text,
   };

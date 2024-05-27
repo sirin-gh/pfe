@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // URL de connexion à MongoDB
 const mongoDBUrl =
-  "mongodb+srv://abdessamadaya1:ayaabdess123@cluster2.owc7txo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2";
+  "mongodb://localhost:27017/syrinepfe";
 
 // Connexion à MongoDB
 mongoose.connect(mongoDBUrl);
