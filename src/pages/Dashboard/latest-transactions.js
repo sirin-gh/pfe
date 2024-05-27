@@ -43,9 +43,9 @@ class LatestTransactions extends Component {
       <React.Fragment>
         <Card>
           <CardBody>
-            <h4 className="card-title mb-4">Les Donneurs De Sang</h4>
+            <h4 className="card-title mb-4">Stock De Sang</h4>
 
-            <div className="table-responsive">
+            <div className="table-responsive" >
               <Table className="align-middle table-centered table-vertical table-nowrap">
                 <tbody>
                   {this.state.sang.map((stock, key) => (

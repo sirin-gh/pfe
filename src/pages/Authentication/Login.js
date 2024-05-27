@@ -22,6 +22,7 @@ import * as Yup from "yup"
 import { useFormik } from "formik"
 import withRouter from "../../components/Common/withRouter"
 import { useNavigate } from "react-router-dom"
+import Navbar from "components/partieHome/Navbar/Navbar"
 
 const Login = props => {
   document.title = "Login | Lexa - Responsive Bootstrap 5 Admin Dashboard"
@@ -82,6 +83,7 @@ const Login = props => {
   }
   return (
     <React.Fragment>
+      <Navbar/>
       <div className="account-pages my-5 pt-sm-5">
         <Container>
           <Row className="justify-content-center">

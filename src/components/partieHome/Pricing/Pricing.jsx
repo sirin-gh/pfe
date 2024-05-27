@@ -19,7 +19,7 @@ const Pricing = () => {
               <h2 className="section-title mb-10">
                 <span>
                   {" "}
-                  Quelques{" "}
+                  
                   <strong className="primary-color">
                     Avantages de la donation de sang
                   </strong>{" "}
@@ -37,12 +37,12 @@ const Pricing = () => {
               <IconList
                 iconClass="fa fa-desktop"
                 title="Favoriser la santé du donneur :"
-                subTitle="La donation de sang peut littéralement sauver des vies. Le sang est crucial pour les interventions chirurgicales, les traitements contre le cancer, les accidents graves et de nombreuses autres situations médicales."
+                subTitle="La donation de sang peut littéralement sauver des vies. Le sang est crucial pour les interventions chirurgicales, les traitements contre le cancer, les accidents graves et des situations médicales."
               />
               <IconList
                 iconClass="fa fa-code"
                 title="Encourager la régénération cellulaire :"
-                subTitle=" La donation de sang peut favoriser la régénération cellulaire chez le donneur, ce qui peut contribuer à maintenir son bien-être général. En offrant la possibilité au corps de renouveler ses cellules, cela peut potentiellement stimuler le système immunitaire et favoriser la santé globale du donneur"
+                subTitle=" La donation de sang peut favoriser la régénération cellulaire chez le donneur, ce qui peut contribuer à maintenir son bien-être général. En offrant la possibilité au corps de renouveler ses cellules, cela peut potentiellement stimuler le système immunitaire"
               />
               <IconList
                 iconClass="fa fa-paper-plane"
@@ -54,7 +54,7 @@ const Pricing = () => {
               <IconList
                 iconClass="fa fa-diamond"
                 title="Détection de problèmes de santé "
-                subTitle=" Avant de pouvoir donner du sang, les donneurs sont soumis à des tests médicaux approfondis qui peuvent parfois révéler des problèmes de santé dont ils n'étaient pas conscients."
+                subTitle="Avant de pouvoir donner du sang, les donneurs sont soumis à des tests médicaux approfondis qui peuvent parfois révéler des problèmes de santé dont ils n'étaient pas conscients."
               />
               <IconList
                 iconClass="fa fa-recycle"
@@ -71,17 +71,17 @@ const Pricing = () => {
               <IconList
                 iconClass="fa fa-codepen"
                 title="Raccourcis Utiles"
-                subTitle="Renforcement de la communauté : La donation de sang est un acte de solidarité envers sa communauté. Cela peut contribuer à renforcer les liens entre les membres de la société et à créer un sentiment de responsabilité mutuelle pour le bien-être de tous."
+                subTitle="Renforcement de la communauté : La donation de sang est un acte de solidarité envers sa communauté. Cela peut contribuer à renforcer les liens entre les membres de la société et à créer un sentiment de responsabilité "
               />
               <IconList
                 iconClass="fa fa-newspaper-o"
                 title="Réduction du risque de cancer "
-                subTitle=" Des études suggèrent que la réduction des niveaux de fer dans le corps grâce à la donation de sang peut être associée à un risque réduit de certains cancers."
+                subTitle=" Des études suggèrent que la réduction des niveaux de fer dans le corps grâce à la donation de sang peut être associée à un risque réduit de certains cancers. En effet, le fer en excès dans l'organisme a été lié à un stress oxydatif accru."
               />
               <IconList
                 iconClass="fa fa-heart-o"
-                title="Création d'une réserve de sang disponible en cas d'urgence "
-                subTitle=" La donation de sang contribue à maintenir une réserve constante de sang disponible pour répondre aux besoins en cas d'urgence, tels que les catastrophes naturelles, les accidents de grande ampleur ou les situations de crise médicale."
+                title=" Disponibilité en cas d'urgence. "
+                subTitle=" La donation de sang contribue à maintenir une réserve constante de sang disponible pour répondre aux besoins en cas d'urgence, tels que les catastrophes naturelles"
               />
             </div>
           </div>
